@@ -70,31 +70,31 @@ local Loaded, Funcs, Folders = {}, {}, {} do
   }
   Loaded.Shop = {
     {"Vũ khí", {
-{"Mua Katana", "Tiền 5.000 đô la", {"Weapon_Seller", "Doge"}},
-{"Mua Hanger", "Tiền 25.000 đô la", {"Weapon_Seller", "Hanger"}},
-{"Mua Flame Katana", "1x Cheems Cola và 50.000 đô la", {"Weapon_Seller", "Cheems"}},
-{"Mua Banana", "1x Thức ăn cho mèo và 350.000 đô la", {"Weapon_Seller", "Mèo cười"}},
-{"Mua Bonk", "5x Túi tiền và 1.000.000 đô la", {"Weapon_Seller", "Meme Man"}},
-{"Mua Pumpkin", "1x Nugget Man và 3.500.000 đô la", {"Weapon_Seller", "Gravestone"}},
-{"Mua Popcat", "10.000 Pops Clicker", {"Weapon_Seller", "Ohio Popcat"}}
-}},
-{"Khả năng", {
-{"Mua Flash Step", "Tiền 100.000 đô la", {"Ability_Teacher", "Giga Chad"}},
-{"Mua Instinct", "Tiền 2.500.000 đô la", {"Ability_Teacher", "Nugget Man"}},
-{"Mua Aura", "1x Meme Cube và 10.000.000 đô la", {"Ability_Teacher", "Aura Master"}}
-}},
-{"Phong cách chiến đấu", {
-{"Mua Combat", "Tiền 0 đô la", {"FightingStyle_Teacher", "Maxwell"}},
-{"Mua Baller", "10x Balls và 10.000.000 đô la", {"FightingStyle_Teacher", "Baller"}}
-}}
+      {"Mua Katana", "$5.000 Tiền", {"Người Bán Vũ Khí", "Doge"}},
+      {"Mua Hanger", "$25.000 Tiền", {"Người Bán Vũ Khí", "Hanger"}},
+      {"Mua Flame Katana", "1x Cheems Cola và $50.000", {"Người Bán Vũ Khí", "Cheems"}},
+      {"Mua Banana", "1x Cat Food và $350.000", {"Người Bán Vũ Khí", "Mèo Cười"}},
+      {"Mua Bonk", "5x Túi Tiền và $1.000.000", {"Người Bán Vũ Khí", "Meme Man"}},
+      {"Mua Pumpkin", "1x Nugget Man và $3.500.000", {"Người Bán Vũ Khí", "Mộ Đá"}},
+      {"Mua Popcat", "10.000 Pops Clicker", {"Người Bán Vũ Khí", "Popcat Ohio"}}
+    }},
+    {"Khả năng", {
+      {"Mua Flash Step", "$100.000 Tiền", {"Giáo Viên Khả Năng", "Giga Chad"}},
+      {"Mua Instinct", "$2.500.000 Tiền", {"Giáo Viên Khả Năng", "Nugget Man"}},
+      {"Mua Aura", "1x Meme Cube và $10.000.000", {"Giáo Viên Khả Năng", "Bậc Thầy Aura"}}
+    }},
+    {"Phong cách chiến đấu", {
+      {"Mua Combat", "$0 Tiền", {"Giáo Viên Phong Cách Chiến Đấu", "Maxwell"}},
+      {"Mua Baller", "10x Balls và $10.000.000", {"Giáo Viên Phong Cách Chiến Đấu", "Baller"}}
+    }}
   }
-  Loaded.WeaponsList = { "Fight", "Power", "Weapon" }
-  Loaded.EnemeiesList = {}
-  Loaded.EnemiesSpawns = {}
-  Loaded.EnemiesQuests = {}
-  Loaded.Islands = {}
-  Loaded.Quests = {}
-  
+
+Loaded.WeaponsList = { "Chiến đấu", "Sức mạnh", "Vũ khí" }
+Loaded.EnemeiesList = {}
+Loaded.EnemiesSpawns = {}
+Loaded.EnemiesQuests = {}
+Loaded.Islands = {}
+Loaded.Quests = {}
   local function RedeemCode(Code)
     return OtherEvent.MainEvents.Code:InvokeServer(Code)
   end
@@ -435,21 +435,22 @@ if not _env.LoadedFarm then
 end
 
 local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
-local Window = redzlib:MakeWindow({ Title = "Sweet Hub : Meme Sea", SubTitle = "by sweet", SaveFolder = "SweetHub-MemeSea.json" })
+local Window = redzlib:MakeWindow({ Title = "Sweet YT : Meme Sea", SubTitle = "by sweetyt", SaveFolder = "redzHub-MemeSea.json" })
 Window:AddMinimizeButton({
-  Button = { Image = "rbxassetid://18856351865", BackgroundTransparency = 0 },
+  Button = { Image = "rbxassetid://15298567397", BackgroundTransparency = 0 },
   Corner = { CornerRadius = UDim.new(0, 6) }
 })
 
 local Tabs = {
-  Discord = Window:MakeTab({"Máy chủ Discord", "Info"}),
-  MainFarm = Window:MakeTab({"Farm Ở Đây", "Home"}),
-  Items = Window:MakeTab({"Mặt hàng", "Swords"}),
-  Stats = Window:MakeTab({"Thống kê", "Signal"}),
-  Teleport = Window:MakeTab({"dịch chuyển", "Locate"}),
-  Shop = Window:MakeTab({"Cửa hàng", "ShoppingCart"}),
-  Misc = Window:MakeTab({"Cài đặt", "Settings"})
+  Discord = Window:MakeTab({"Discord", "Thông tin"}),
+  MainFarm = Window:MakeTab({"Nông trại chính", "Trang chủ"}),
+  Items = Window:MakeTab({"Vật phẩm", "Kiếm"}),
+  Stats = Window:MakeTab({"Thống kê", "Tín hiệu"}),
+  Teleport = Window:MakeTab({"Dịch chuyển", "Vị trí"}),
+  Shop = Window:MakeTab({"Cửa hàng", "Giỏ hàng"}),
+  Misc = Window:MakeTab({"Khác", "Cài đặt"})
 }
+
 
 Window:SelectTab(Tabs.MainFarm)
 
@@ -463,161 +464,137 @@ end
 
 local _Discord = Tabs.Discord do
   _Discord:AddDiscordInvite({
-    Name = "Stae Market",
-    Description = "ấn join rồi dán link lêm gg là vào được nha ae",
-    Invite = "https://discord.gg/stae"
+    Name = "redz Hub | Community",
+    Description = "Join our discord community to receive information about the next update",
+    Logo = "rbxassetid://17382040552",
+    Invite = "https://discord.gg/7aR7kNVt4g"
   })
 end
 
 local _MainFarm = Tabs.MainFarm do
   _MainFarm:AddDropdown({"Công cụ Farm", Loaded.WeaponsList, Settings.ToolFarm, function(Value)
     Settings.ToolFarm = Value
-  end, "Chính/CôngCụFarm"})
-  
-_MainFarm:AddSection("Farm")
-
-AddToggle(_MainFarm, {"Tự động Farm Cấp độ", ("Cấp độ Tối đa: %i"):format(MSetting.Setting.MaxLevel)}, "Farm Cấp độ")
-
-AddToggle(_MainFarm, {"Tự động Farm Gần nhất"}, "Farm Gần nhất")
-
-_MainFarm:AddSection("Kẻ thù")
-
-_MainFarm:AddDropdown({"Chọn Kẻ thù", Loaded.EnemeiesList, {Loaded.EnemeiesList[1]}, function(Value)
-    _env.SelectedEnemie = Value
-  end, "Chính/KẻThùĐượcChọn"})
-
-AddToggle(_MainFarm, {"Tự động Farm Kẻ thù Được chọn"}, "Farm Kẻ thù Được chọn")
-AddToggle(_MainFarm, {"Nhận Nhiệm vụ [ Kẻ thù Được chọn ]", true}, "Farm Nhận Nhiệm vụ")
-
-_MainFarm:AddSection("Farm Boss")
-
-AddToggle(_MainFarm, {"Tự động Meme Quái vật [ Xuất hiện mỗi 30 phút ]", "Rơi: Cổng ( <25% ), Khối Meme ( <50% )"}, "Quái vật Meme")
-
-_MainFarm:AddSection("Đột kích")
-
-AddToggle(_MainFarm, {"Tự động Farm Đột kích", "Yêu cầu: Cấp độ 1000"}, "Farm Đột kích")
+  end, "Main/FarmTool"})
+  _MainFarm:AddSection("Farm")
+  AddToggle(_MainFarm, {"Tự động Farm Level", ("MaxLevel: %i"):format(MSetting.Setting.MaxLevel)}, "Farm Level")
+  AddToggle(_MainFarm, {"Tự động Farm Gần Nhất"}, "Farm Gần Nhất")
+  _MainFarm:AddSection("Kẻ Thù")
+  _MainFarm:AddDropdown({"Chọn Kẻ Thù", Loaded.EnemeiesList, {Loaded.EnemeiesList[1]}, function(Value)
+    _env.SelecetedEnemie = Value
+  end, "Main/SEnemy"})
+  AddToggle(_MainFarm, {"Tự động Farm Kẻ Thù Đã Chọn"}, "FS Kẻ Thù")
+  AddToggle(_MainFarm, {"Nhận Quest [ Kẻ Thù Đã Chọn ]", true}, "FS Nhận Quest")
+  _MainFarm:AddSection("Farm Boss")
+  AddToggle(_MainFarm, {"Tự động Farm Meme Beast [ Xuất hiện mỗi 30 Phút ]", "Rơi: Cổng ( <25% ), Meme Cube ( <50% )"}, "Meme Beast")
+  _MainFarm:AddSection("Raid")
+  AddToggle(_MainFarm, {"Tự động Farm Raid", "Yêu cầu: Cấp 1000"}, "Farm Raid")
+end
 
 local _Items = Tabs.Items do
-  _Items:AddSection("Quyền năng")
-  _Items:AddButton({"Reroll Quyền năng 10 lần [ 250k Tiền ]", function()
+  _Items:AddSection("Sức Mạnh")
+  _Items:AddButton({"Reroll Sức Mạnh 10X [ 250k Tiền ]", function()
     OtherEvent.MainEvents.Modules:FireServer("Random_Power", {
       Type = "Decuple",
       NPCName = "Floppa Gacha",
       GachaType = "Money"
     })
   end})
-  _Items:AddButton({"Reroll Quyền năng 10 lần [ 250k Tiền ]", function()
-    OtherEvent.MainEvents.Modules:FireServer("Random_Power", {
-        Type = "Decuple",
-        NPCName = "Floppa Gacha",
-        GachaType = "Money"
-    })
-  end})
-
-_Items:AddToggle({"Tự động Lưu Quyền năng", false, function(Value)
+  _Items:AddToggle({"Tự động Lưu Sức Mạnh", false, function(Value)
     _env.AutoStorePowers = Value
     while _env.AutoStorePowers do _wait()
       for _,v in ipairs(Player.Backpack:GetChildren()) do
-        if v:IsA("Tool") and v.ToolTip == "Quyền năng" and v:GetAttribute("Using") == nil then
+        if v:IsA("Tool") and v.ToolTip == "Power" and v:GetAttribute("Using") == nil then
           v.Parent = Player.Character
-          OtherEvent.MainEvents.Modules:FireServer("Eatable_Power", { Action = "Lưu", Tool = v })
+          OtherEvent.MainEvents.Modules:FireServer("Eatable_Power", { Action = "Store", Tool = v })
         end
       end
     end
-  end, "Tự động Lưu"})
-
-_Items:AddSection("Màu Sắc Aura")
-
-_Items:AddButton({"Reroll Màu Sắc Aura [ 10 Đá quý ]", function()
+  end, "AutoStore"})
+  _Items:AddSection("Màu Aura")
+  _Items:AddButton({"Reroll Màu Aura [ 10 Gems ]", function()
     OtherEvent.MainEvents.Modules:FireServer("Reroll_Color", "Halfed Sorcerer")
   end})
-
-_Items:AddSection("Bosses")
-AddToggle(_Items, {"Tự động Quả Bí Ngô Khổng Lồ", "Rơi: Đầu Bí Ngô ( <10% ), Nugget Man ( <25% )"}, "Quả Bí Ngô Khổng Lồ")
-AddToggle(_Items, {"Tự động Noob Ác Quỷ", "Rơi: Lưỡi Gươm Vàng ( <5% ), Bạn Noob ( <10% )"}, "Noob Ác Quỷ")
-AddToggle(_Items, {"Tự động Chúa Tể Sus", "Rơi: Kiếm Tím ( <5% ), Bạn Sus ( <10% )"}, "Chúa Tể Sus")
-
-_Items:AddSection("Chủng tộc")
-AddToggle(_Items, {"Tự động Thức Tỉnh Orb", "Yêu cầu: Cấp độ 500"}, "Orb Chủng tộc V2")
-
-_Items:AddSection("Vũ khí")
-AddToggle(_Items, {"Tự động Floppa [ Kiếm Độc Quyền ]"}, "Kiếm Floppa")
-
-_Items:AddSection("Popcat")
-_Items:AddToggle({"Tự động Popcat", false, function(Value)
+  _Items:AddSection("Bosses")
+  AddToggle(_Items, {"Tự động Giant Pumpkin", "Rơi: Pumpkin Head ( <10% ), Nugget Man ( <25% )"}, "Giant Pumpkin")
+  AddToggle(_Items, {"Tự động Evil Noob", "Rơi: Yellow Blade ( <5% ), Noob Friend ( <10% )"}, "Evil Noob")
+  AddToggle(_Items, {"Tự động Lord Sus", "Rơi: Purple Sword ( <5% ), Sus Pals ( <10% )"}, "Lord Sus")
+  _Items:AddSection("Race")
+  AddToggle(_Items, {"Tự động Awakening Orb", "Yêu cầu: Cấp 500"}, "Race V2 Orb")
+  _Items:AddSection("Vũ Khí")
+  AddToggle(_Items, {"Tự động Floppa [ Kiếm Đặc Biệt ]"}, "_Floppa Sword")
+  _Items:AddSection("Popcat")
+  _Items:AddToggle({"Tự động Popcat", false, function(Value)
     _env.AutoPopcat = Value
     local ClickDetector = Island.FloppaIsland.Popcat_Clickable.Part.ClickDetector
     local Heartbeat = RunService.Heartbeat
     if Value then GoTo(CFrame_new(400, -37, -588)) end
     
-    while _env.AutoPopcat do Heartbeat:Wait()
+   while _env.AutoPopcat do Heartbeat:Wait()
       fireclickdetector(ClickDetector)
     end
-  end, "Tự động Popcat"})
+  end, "AutoPopcat"})
 end
 
 local _Stats = Tabs.Stats do
   local StatsName, SelectedStats = {
-    ["Quyền năng"] = "MemePowerLevel", ["Sức khỏe"] = "DefenseLevel",
-    ["Vũ khí"] = "SwordLevel", ["Cận chiến"] = "MeleeLevel"
+    ["Power"] = "MemePowerLevel", ["Health"] = "DefenseLevel",
+    ["Weapon"] = "SwordLevel", ["Melee"] = "MeleeLevel"
   }, {}
   
   _Stats:AddSlider({"Chọn Điểm", 1, 100, Settings.AutoStats_Points, 1, function(Value)
     Settings.AutoStats_Points = Value
-  end, "Chỉ số/Chọn Điểm"})
-
-  _Stats:AddToggle({"Tự động Phân bổ Chỉ số", false, function(Value)
+  end, "Stats/SelectPoints"})
+  _Stats:AddToggle({"Tự động Cải Thiện", false, function(Value)
     _env.AutoStats = Value
     local _Points = PlayerData.SkillPoint
     while _env.AutoStats do _wait(0.5)
       for _,Stats in pairs(SelectedStats) do
         local _p, _s = _Points.Value, PlayerData[StatsName[_]]
         if Stats and _p > 0 and _s.Value < MSetting.Setting.MaxLevel then
-          OtherEvent.MainEvents.StatsFunction:InvokeServer({
+         OtherEvent.MainEvents.StatsFunction:InvokeServer({
             ["Target"] = StatsName[_],
-            ["Action"] = "Nâng cấp Chỉ số",
+            ["Action"] = "Cải ThiệnThốngKê",
             ["Amount"] = math.clamp(Settings.AutoStats_Points, 0, MSetting.Setting.MaxLevel - _s.Value)
           })
         end
       end
     end
   end})
-
-  _Stats:AddSection("Chọn Chỉ số")
+  _Stats:AddSection("Chọn Thống Kê")
   for _,v in next, StatsName do
     _Stats:AddToggle({_, false, function(Value)
       SelectedStats[_] = Value
-    end, "Chỉ số_" .. _})
+    end, "Stats_" .. _})
   end
 end
 
 local _Teleport = Tabs.Teleport do
-  _Teleport:AddSection("Dịch chuyển")
-  _Teleport:AddDropdown({"Đảo", Location:WaitForChild("Vị trí xuất hiện"):GetChildren(), {}, function(Value)
+  _Teleport:AddSection("Di Chuyển")
+  _Teleport:AddDropdown({"Đảo", Location:WaitForChild("SpawnLocations"):GetChildren(), {}, function(Value)
     GoTo(Location.SpawnLocations[Value].CFrame)
   end})
-
-  _Teleport:AddDropdown({"Nhiệm vụ", Location:WaitForChild("Vị trí Nhiệm vụ"):GetChildren(), {}, function(Value)
-    GoTo(Location.QuestLocation[Value].CFrame)
+ _Teleport:AddDropdown({"Nhiệm Vụ", Location:WaitForChild("QuestLocaion"):GetChildren(), {}, function(Value)
+    GoTo(Location.QuestLocaion[Value].CFrame)
   end})
 end
+
 local _Shop = Tabs.Shop do
-  _Shop:AddSection("Tự động Mua")
-  _Shop:AddToggle({"Tự động Mua Kỹ năng", false, function(Value)
+  _Shop:AddSection("Tự Động Mua")
+  _Shop:AddToggle({"Tự Động Mua Khả Năng", false, function(Value)
     _env.AutoBuyAbility = Value
     while _env.AutoBuyAbility do  _wait(1)
-      if not Funcs:AbilityUnlocked("Bản năng") and Funcs:CanBuy("Bản năng") then
+      if not Funcs:AbilityUnlocked("Instinct") and Funcs:CanBuy("Instinct") then
         OtherEvent.MainEvents.Modules:FireServer("Ability_Teacher", "Nugget Man")
-      elseif not Funcs:AbilityUnlocked("Bước Chớp nhoáng") and Funcs:CanBuy("Bước Chớp nhoáng") then
+      elseif not Funcs:AbilityUnlocked("FlashStep") and Funcs:CanBuy("FlashStep") then
         OtherEvent.MainEvents.Modules:FireServer("Ability_Teacher", "Giga Chad")
       elseif not Funcs:AbilityUnlocked("Aura") and Funcs:CanBuy("Aura") then
-        OtherEvent.MainEvents.Modules:FireServer("Ability_Teacher", "Bậc thầy Aura")
+        OtherEvent.MainEvents.Modules:FireServer("Ability_Teacher", "Aura Master")
       else wait(3) end
     end
-  end, "Tự động Mua Kỹ năng", Desc = "Aura, Bản năng & Bước Chớp nhoáng"})
+  end, "Tự Động Mua Khả Năng", Desc = "Aura, Instinct & Flash Step"})
   
   for _,s in next, Loaded.Shop do
-    _Shop:AddSection({s[1]})
+   _Shop:AddSection({s[1]})
     for _,item in pairs(s[2]) do
       local buyfunc = item[3]
       if type(buyfunc) == "table" then
@@ -630,39 +607,29 @@ local _Shop = Tabs.Shop do
     end
   end
 end
+
 local _Misc = Tabs.Misc do
-  _Misc:AddButton({"Nhập Tất Cả Mã", Funcs.RAllCodes})
-  
-  _Misc:AddSection("Cài đặt")
-  
-  _Misc:AddSlider({"Khoảng cách Farm", 5, 15, 1, 8, function(Value)
+  _Misc:AddButton({"Đổi Tất Cả Mã", Funcs.RAllCodes})
+  _Misc:AddSection("Cài Đặt")
+  _Misc:AddSlider({"Khoảng Cách Farm", 5, 15, 1, 8, function(Value)
     Settings.FarmDistance = Value or 8
     Settings.FarmCFrame = CFrame_new(0, Value or 8, 0) * CFrame_Angles(math.rad(-90), 0, 0)
-  end, "Khoảng cách Farm"})
-  
-  _Misc:AddToggle({"Tự động Aura", Settings.AutoHaki, function(Value) Settings.AutoHaki = Value end, "Tự động Haki"})
-  
-  _Misc:AddToggle({"Tự động Tấn công", Settings.AutoClick, function(Value) Settings.AutoClick = Value end, "Tự động Tấn công"})
-  
-  _Misc:AddToggle({"Kéo Kẻ Thù", Settings.BringMobs, function(Value) Settings.BringMobs = Value end, "Kéo Kẻ Thù"})
-  
+  end, "Khoảng Cách Farm"})
+  _Misc:AddToggle({"Tự Động Aura", Settings.AutoHaki, function(Value) Settings.AutoHaki = Value end, "Tự Động Haki"})
+  _Misc:AddToggle({"Tự Động Tấn Công", Settings.AutoClick, function(Value) Settings.AutoClick = Value end, "Tự Động Tấn Công"})
+  _Misc:AddToggle({"Dẫn Mobs", Settings.BringMobs, function(Value) Settings.BringMobs = Value end, "Dẫn Mobs"})
   _Misc:AddToggle({"Chống AFK", Settings.AntiAFK, function(Value) Settings.AntiAFK = Value end, "Chống AFK"})
-  
   _Misc:AddSection("Đội")
-  
-  _Misc:AddButton({"Tham gia Đội Cheems", function()
+  _Misc:AddButton({"Tham Gia Đội Cheems", function()
     OtherEvent.MainEvents.Modules:FireServer("Change_Team", "Cheems Recruiter")
   end})
-  
-  _Misc:AddButton({"Tham gia Đội Floppa", function()
+  _Misc:AddButton({"Tham Gia Đội Floppa", function()
     OtherEvent.MainEvents.Modules:FireServer("Change_Team", "Floppa Recruiter")
   end})
-  
   _Misc:AddSection("Khác")
-  
-  _Misc:AddToggle({"Tắt Thông Báo", false, function(Value)
+  _Misc:AddToggle({"Xóa Thông Báo", false, function(Value)
     Player.PlayerGui.AnnounceGui.Enabled = not Value
-  end, "Tắt Thông Báo"})
+  end, "Xóa Thông Báo"})
 end
 
 task.spawn(function()
@@ -677,4 +644,3 @@ task.spawn(function()
     end
   end
 end)
-
