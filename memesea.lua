@@ -91,7 +91,7 @@ local Loaded, Funcs, Folders = {}, {}, {} do
       {"Mua Baller", "10x Balls and $10.000.000", {"FightingStyle_Teacher", "Baller"}}
     }}
   }
-  Loaded.WeaponsList = { "Đánh Tay", "Trái Ác Quỷ", "Vũ Khí" }
+  Loaded.WeaponsList = { "Võ", "Trái Ác Quỷ", "Vũ Khí" }
   Loaded.EnemeiesList = {}
   Loaded.EnemiesSpawns = {}
   Loaded.EnemiesQuests = {}
