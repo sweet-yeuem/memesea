@@ -1,11 +1,3 @@
---[[
-  Dev: redz9999
-  Lib: redzLibV5
-  github: REDzHUB
-  
-  Game: Roblox-MemeSea
-]]
-
 local _wait = task.wait
 repeat _wait() until game:IsLoaded()
 local _env = getgenv and getgenv() or {}
