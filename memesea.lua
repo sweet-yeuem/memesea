@@ -1,11 +1,6 @@
 --[[
-  Dev: redz9999
-  Lib: redzLibV5
-  github: REDzHUB
-  
   Game: Roblox-MemeSea
 ]]
-
 local _wait = task.wait
 repeat _wait() until game:IsLoaded()
 local _env = getgenv and getgenv() or {}
@@ -442,7 +437,7 @@ if not _env.LoadedFarm then
   end)
 end
 
-local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
+local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/sweet-yeuem/memesea/main/souce.lua"))()
 local Window = redzlib:MakeWindow({ Title = "redz Hub : Meme Sea", SubTitle = "by redz9999", SaveFolder = "redzHub-MemeSea.json" })
 Window:AddMinimizeButton({
   Button = { Image = "rbxassetid://15298567397", BackgroundTransparency = 0 },
