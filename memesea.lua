@@ -69,24 +69,24 @@ local Loaded, Funcs, Folders = {}, {}, {} do
     end
   }
   Loaded.Shop = {
-    {"Weapons", {
-      {"Buy Katana", "$5.000 Money", {"Weapon_Seller", "Doge"}},
-      {"Buy Hanger", "$25.000 Money", {"Weapon_Seller", "Hanger"}},
-      {"Buy Flame Katana", "1x Cheems Cola and $50.000", {"Weapon_Seller", "Cheems"}},
-      {"Buy Banana", "1x Cat Food and $350.000", {"Weapon_Seller", "Smiling Cat"}},
-      {"Buy Bonk", "5x Money Bags and $1.000.000", {"Weapon_Seller", "Meme Man"}},
-      {"Buy Pumpkin", "1x Nugget Man and $3.500.000", {"Weapon_Seller", "Gravestone"}},
-      {"Buy Popcat", "10.000 Pops Clicker", {"Weapon_Seller", "Ohio Popcat"}}
-    }},
-    {"Ability", {
-      {"Buy Flash Step", "$100.000 Money", {"Ability_Teacher", "Giga Chad"}},
-      {"Buy Instinct", "$2.500.000 Money", {"Ability_Teacher", "Nugget Man"}},
-      {"Buy Aura", "1x Meme Cube and $10.000.000", {"Ability_Teacher", "Aura Master"}}
-    }},
-    {"Fighting Style", {
-      {"Buy Combat", "$0 Money", {"FightingStyle_Teacher", "Maxwell"}},
-      {"Buy Baller", "10x Balls and $10.000.000", {"FightingStyle_Teacher", "Baller"}}
-    }}
+    {"Vũ khí", {
+{"Mua Katana", "Tiền 5.000 đô la", {"Weapon_Seller", "Doge"}},
+{"Mua Hanger", "Tiền 25.000 đô la", {"Weapon_Seller", "Hanger"}},
+{"Mua Flame Katana", "1x Cheems Cola và 50.000 đô la", {"Weapon_Seller", "Cheems"}},
+{"Mua Banana", "1x Thức ăn cho mèo và 350.000 đô la", {"Weapon_Seller", "Mèo cười"}},
+{"Mua Bonk", "5x Túi tiền và 1.000.000 đô la", {"Weapon_Seller", "Meme Man"}},
+{"Mua Pumpkin", "1x Nugget Man và 3.500.000 đô la", {"Weapon_Seller", "Gravestone"}},
+{"Mua Popcat", "10.000 Pops Clicker", {"Weapon_Seller", "Ohio Popcat"}}
+}},
+{"Khả năng", {
+{"Mua Flash Step", "Tiền 100.000 đô la", {"Ability_Teacher", "Giga Chad"}},
+{"Mua Instinct", "Tiền 2.500.000 đô la", {"Ability_Teacher", "Nugget Man"}},
+{"Mua Aura", "1x Meme Cube và 10.000.000 đô la", {"Ability_Teacher", "Aura Master"}}
+}},
+{"Phong cách chiến đấu", {
+{"Mua Combat", "Tiền 0 đô la", {"FightingStyle_Teacher", "Maxwell"}},
+{"Mua Baller", "10x Balls và 10.000.000 đô la", {"FightingStyle_Teacher", "Baller"}}
+}}
   }
   Loaded.WeaponsList = { "Fight", "Power", "Weapon" }
   Loaded.EnemeiesList = {}
