@@ -302,8 +302,7 @@ local function VerifyQuest(QName)
   local Quest = Funcs:CheckQuest()
   return Quest and Quest.QuestGiver.Value == QName
 end
-
-_env.FarmFuncs = {
+_env.FarmFuncs = 
     {"_Kiếm Floppa", (function()
       if not Funcs:VerifySword("Floppa") then
         if VerifyQuest("Nhiệm Vụ Floppa Ngầu") then
