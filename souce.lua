@@ -62,7 +62,7 @@ local redzlib = {
   Options = {},
   Flags = {},
   Tabs = {},
-  Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/sweet-yeuem/memesea/main/icon.lua"))()
+  Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Icons.Lua"))()
 }
 
 local ViewportSize = workspace.CurrentCamera.ViewportSize
@@ -575,8 +575,8 @@ function redzlib:SetScale(NewScale)
 end
 
 function redzlib:MakeWindow(Configs)
-  local WTitle = Configs[1] or Configs.Name or Configs.Title or "sweet"
-  local WMiniText = Configs[2] or Configs.SubTitle or "by : sweetyt"
+  local WTitle = Configs[1] or Configs.Name or Configs.Title or "redz Library V5"
+  local WMiniText = Configs[2] or Configs.SubTitle or "by : redz9999"
   
   Settings.ScriptFile = Configs[3] or Configs.SaveFolder or false
   
@@ -1744,7 +1744,7 @@ function redzlib:MakeWindow(Configs)
         Size = UDim2.new(0, 12, 0, 12),
         Position = UDim2.new(0, -5, 0.5),
         AnchorPoint = Vector2.new(1, 0.5),
-        Image = "rbxassetid://18856351865",
+        Image = "rbxassetid://15637081879",
         BackgroundTransparency = 1
       })
       
@@ -1837,7 +1837,7 @@ function redzlib:MakeWindow(Configs)
         Size = UDim2.new(1, -14, 0, 16),
         AnchorPoint = Vector2.new(0.5, 1),
         Position = UDim2.new(0.5, 0, 1, -7),
-        Text = "Vào",
+        Text = "Join",
         Font = Enum.Font.GothamBold,
         TextSize = 12,
         TextColor3 = Color3.fromRGB(220, 220, 220),
@@ -1851,12 +1851,12 @@ function redzlib:MakeWindow(Configs)
         
         ClickDelay = true
         SetProps(JoinButton, {
-          Text = "Sao chép link",
+          Text = "Copied to Clipboard",
           BackgroundColor3 = Color3.fromRGB(100, 100, 100),
           TextColor3 = Color3.fromRGB(150, 150, 150)
         })task.wait(5)
         SetProps(JoinButton, {
-          Text = "Vào",
+          Text = "Join",
           BackgroundColor3 = Color3.fromRGB(50, 150, 50),
           TextColor3 = Color3.fromRGB(220, 220, 220)
         })ClickDelay = false
