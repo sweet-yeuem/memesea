@@ -1,2 +1,646 @@
-vào đây bố mày chặt cu bây giờ :))
-local v0=task.wait;repeat v0();until game:IsLoaded() local v1=(getgenv and getgenv()) or {} ;local v2=game:GetService("ReplicatedStorage");local v3=game:GetService("VirtualUser");local v4=game:GetService("RunService");local v5=game:GetService("Players");local v6=v5.LocalPlayer;local v7=v2:WaitForChild("MonsterSpawn");local v8=v2:WaitForChild("ModuleScript");local v9=v2:WaitForChild("OtherEvent");local v10=workspace:WaitForChild("Monster");local v11=require(v8:WaitForChild("Quest_Settings"));local v12=require(v8:WaitForChild("Setting"));local v13=workspace:WaitForChild("NPCs");local v14=workspace:WaitForChild("Raids");local v15=workspace:WaitForChild("Location");local v16=workspace:WaitForChild("Region");local v17=workspace:WaitForChild("Island");local v18=v13:WaitForChild("Quests_Npc");local v19=v15:WaitForChild("Enemy_Location");local v20=v15:WaitForChild("QuestLocaion");local v21=v6:WaitForChild("Items");local v22=v6:WaitForChild("QuestFolder");local v23=v6:WaitForChild("Ability");local v24=v6:WaitForChild("PlayerData");local v25=v24:WaitForChild("Level");local v26=sethiddenproperty or (function() end) ;local v27=CFrame.Angles;local v28=CFrame.new;local v29=Vector3.new;local v30=math.huge;task.spawn(function() if  not v1.LoadedHideUsername then local v170=0;local v171;local v172;while true do if (v170==(285 -(134 + 151))) then v1.LoadedHideUsername=true;v171=v6.PlayerGui.MainGui.PlayerName;v170=1;end if (v170==(1666 -(970 + 695))) then v172=nil;function v172() local v265=0 -0 ;local v266;local v267;while true do if (v265==(1990 -(582 + 1408))) then v266=v25.Value;v267=v266>=v12.Setting.MaxLevel ;v265=1;end if (v265==(3 -2)) then v171.Text=("%s • Lv. %i%s"):format("Anonymous",v266,(v267 and " (Max)") or "" );break;end end end v170=2 -0 ;end if (v170==(7 -5)) then v171:GetPropertyChangedSignal("Text"):Connect(v172);v172();break;end end end end);local v31,v32,v33={},{},{};do v31.ItemsPrice={Aura=function() return (v32:GetMaterial("Meme Cube")>(1824 -(1195 + 629))) and (v32:GetData("Money")>=(13224980 -3224980)) ;end,FlashStep=function() return v32:GetData("Money")>=100000 ;end,Instinct=function() return v32:GetData("Money")>=2500000 ;end};v31.Shop={{"Vũ khí",{{"Mua Katana","$5.000 Tiền",{"Người Bán Vũ Khí","Doge"}},{"Mua Hanger","$25.000 Tiền",{"Người Bán Vũ Khí","Hanger"}},{"Mua Flame Katana","1x Cheems Cola và $50.000",{"Người Bán Vũ Khí","Cheems"}},{"Mua Banana","1x Cat Food và $350.000",{"Người Bán Vũ Khí","Mèo Cười"}},{"Mua Bonk","5x Túi Tiền và $1.000.000",{"Người Bán Vũ Khí","Meme Man"}},{"Mua Pumpkin","1x Nugget Man và $3.500.000",{"Người Bán Vũ Khí","Mộ Đá"}},{"Mua Popcat","10.000 Pops Clicker",{"Người Bán Vũ Khí","Popcat Ohio"}}}},{"Khả năng",{{"Mua Flash Step","$100.000 Tiền",{"Giáo Viên Khả Năng","Giga Chad"}},{"Mua Instinct","$2.500.000 Tiền",{"Giáo Viên Khả Năng","Nugget Man"}},{"Mua Aura","1x Meme Cube và $10.000.000",{"Giáo Viên Khả Năng","Bậc Thầy Aura"}}}},{"Phong cách chiến đấu",{{"Mua Combat","$0 Tiền",{"Giáo Viên Phong Cách Chiến Đấu","Maxwell"}},{"Mua Baller","10x Balls và $10.000.000",{"Giáo Viên Phong Cách Chiến Đấu","Baller"}}}}};v31.WeaponsList={"Chiến đấu","Sức mạnh","Vũ khí"};v31.EnemeiesList={};v31.EnemiesSpawns={};v31.EnemiesQuests={};v31.Islands={};v31.Quests={};local function v67(v133) return v9.MainEvents.Code:InvokeServer(v133);end v32.RAllCodes=function(v134) if v8:FindFirstChild("CodeList") then local v184=0;local v185;while true do if (v184==(0 + 0)) then v185=require(v8.CodeList);for v274,v275 in pairs(((type(v185)=="table") and v185) or {} ) do if ((type(v274)=="string") and (type(v275)=="table") and v275.Status) then v67(v274);end end break;end end end end;v32.GetPlayerLevel=function(v135) return v25.Value;end;v32.GetCurrentQuest=function(v136) for v173,v174 in pairs(v31.Quests) do if ((v174.Level<=v136:GetPlayerLevel()) and  not v174.RaidBoss and  not v174.SpecialQuest) then return v174;end end end;v32.CheckQuest=function(v137) for v175,v176 in ipairs(v22:GetChildren()) do if (v176.Target.Value~="None") then return v176;end end end;v32.VerifySword=function(v138,v139) local v140=0;local v141;while true do if (v140==(1322 -(1249 + 73))) then v141=v21.Weapon;return v141:FindFirstChild(v139) and (v141[v139].Value>(0 + 0)) ;end end end;v32.VerifyAccessory=function(v142,v143) local v144=1145 -(466 + 679) ;local v145;while true do if (v144==(0 -0)) then v145=v21.Accessory;return v145:FindFirstChild(v143) and (v145[v143].Value>(0 -0)) ;end end end;v32.GetMaterial=function(v146,v147) local v148=v21.ItemStorage;return (v148:FindFirstChild(v147) and v148[v147].Value) or 0 ;end;v32.AbilityUnlocked=function(v149,v150) return v23:FindFirstChild(v150) and v23[v150].Value ;end;v32.CanBuy=function(v151,v152) local v153=1900 -(106 + 1794) ;while true do if (v153==(0 + 0)) then if v31.ItemsPrice[v152] then return v31.ItemsPrice[v152]();end return false;end end end;v32.GetData=function(v154,v155) return (v24:FindFirstChild(v155) and v24[v155].Value) or (0 + 0) ;end;for v156,v157 in pairs(v11) do if v20:FindFirstChild(v156) then table.insert(v31.Quests,{RaidBoss=v157.Raid_Boss,SpecialQuest=v157.Special_Quest,QuestPos=v20[v156].CFrame,EnemyPos=v19[v157.Target].CFrame,Level=v157.LevelNeed,Enemy=v157.Target,NpcName=v156});end end table.sort(v31.Quests,function(v158,v159) return v158.Level>v159.Level ;end);for v160,v161 in ipairs(v31.Quests) do local v162=0 -0 ;while true do if (v162==0) then table.insert(v31.EnemeiesList,v161.Enemy);v31.EnemiesQuests[v161.Enemy]=v161.NpcName;break;end end end end local v34=Settings or {} ;do local v78=0;while true do if ((7 -4)==v78) then v34.AutoClick=true;v34.ToolFarm="Fight";v78=4;end if (v78==(115 -(4 + 110))) then v34.FarmDistance=9;v34.ViewHitbox=false;v78=586 -(57 + 527) ;end if ((1431 -(41 + 1386))==v78) then v34.FarmCFrame=v28(103 -(17 + 86) ,v34.FarmDistance,0 + 0 ) * v27(math.rad( -90),0,0) ;break;end if (v78==2) then v34.AntiAFK=true;v34.AutoHaki=true;v78=6 -3 ;end if (v78==0) then v34.AutoStats_Points=2 -1 ;v34.BringMobs=true;v78=167 -(122 + 44) ;end end end local function v35() local v79=v6.Character;if v79 then local v177=0;while true do if (0==v177) then if v34.AutoClick then local v276=0;while true do if ((0 -0)==v276) then v3:CaptureController();v3:Button1Down(Vector2.new(33174 -23174 ,8135 + 1865 ));break;end end end if (v34.AutoHaki and v79:FindFirstChild("AuraColor_Folder") and v32:AbilityUnlocked("Aura")) then if ( #v79.AuraColor_Folder:GetChildren()<1) then v9.MainEvents.Ability:InvokeServer("Aura");end end break;end end end end local function v36(v80) local v81=0 + 0 ;local v82;while true do if (v81==(0 -0)) then v82=v80 and v80:FindFirstChild("Humanoid") ;return v82 and (v82.Health>(65 -(30 + 35))) ;end end end local function v37(v83) local v84=0 + 0 ;while true do if ((1257 -(1043 + 214))==v84) then for v208,v209 in ipairs(v10:GetChildren()) do if (( not v83 or (v209.Name==v83)) and v36(v209)) then return v209;end end return false;end end end local function v38(v85,v86) local v87=0 -0 ;local v88;while true do if (v87==(1212 -(323 + 889))) then v88=v6.Character;if v36(v88) then return (v86 and (v88:MoveTo(v85.p) or true)) or v88:SetPrimaryPartCFrame(v85) ;end break;end end end local function v39() local v89,v90=v6:FindFirstChild("Backpack"),v6.Character;if (v36(v90) and v89) then for v196,v197 in ipairs(v89:GetChildren()) do if (v197:IsA("Tool") and v197.ToolTip:find(v34.ToolFarm)) then v90.Humanoid:EquipTool(v197);end end end end local function v40(v91,v92,v93) local v94=0 -0 ;while true do if (v94==0) then for v210,v211 in ipairs(v10:GetChildren()) do if ((v93 or (v211.Name==v91)) and v36(v211)) then local v268=0;local v269;local v270;while true do if ((580 -(361 + 219))==v268) then v269,v270=v211.PrimaryPart,v211.Humanoid;if (v269 and ((v269.Position-v92.p).Magnitude<500)) then local v304=320 -(53 + 267) ;while true do if (v304==1) then v269.CFrame=v92;v269.CanCollide=false;v304=1 + 1 ;end if (v304==(413 -(15 + 398))) then v270.WalkSpeed=982 -(18 + 964) ;v270:ChangeState(52 -38 );v304=1 + 0 ;end if (v304==(2 + 0)) then v269.Transparency=(v34.ViewHitbox and 0.8) or (851 -(20 + 830)) ;v269.Size=Vector3.new(40 + 10 ,176 -(116 + 10) ,4 + 46 );break;end end end break;end end end end return pcall(v26,v6,"SimulationRadius",v30);end end end local function v41(v95,v96) local v97=((typeof(v95)=="Instance") and v95) or v37(v95) ;if (v36(v97) and v97.PrimaryPart) then local v178=0;while true do if (v178==(739 -(542 + 196))) then if  not v97:FindFirstChild("Reverse_Mark") then v35();end if v34.BringMobs then v40(v95,v97.PrimaryPart.CFrame,v96);end v178=3 -1 ;end if (v178==(1 + 1)) then return true;end if (v178==(0 + 0)) then v38(v97.PrimaryPart.CFrame * v34.FarmCFrame );v39();v178=1 + 0 ;end end end end local function v42(v98,v99,v100) local v101=0;local v102;while true do if (v101==1) then v38(v99 or v20[v98].CFrame );break;end if (v101==(0 -0)) then v102=v18:FindFirstChild(v98);if (v102 and (v6:DistanceFromCharacter(v102.WorldPivot.p)<5)) then return fireproximityprompt(v102.Block.QuestPrompt),v0(v100 or 0.1 );end v101=2 -1 ;end end end local function v43(v103) for v163,v164 in ipairs(v22:GetChildren()) do if ((v164.QuestGiver.Value~=v103) and (v164.Target.Value~="None")) then v9.QuestEvents.Quest:FireServer("Abandon_Quest",{QuestSlot=v164.Name});end end end local function v44() for v165,v166 in ipairs(v10:GetChildren()) do if (v166:GetAttribute("Raid_Enemy") and v36(v166)) then return v166;end end end local function v45() for v167,v168 in ipairs(v14:GetChildren()) do if v168.Joiners:FindFirstChild(v6.Name) then return v168;end end end local function v46(v104) local v105=1551 -(1126 + 425) ;local v106;while true do if (v105==(405 -(118 + 287))) then v106=v32:CheckQuest();return v106 and (v106.QuestGiver.Value==v104) ;end end end v1.FarmFuncs={{"_Floppa Sword",(function() if  not v32:VerifySword("Floppa") then local v179=1121 -(118 + 1003) ;while true do if (v179==(0 -0)) then if v46("Cool Floppa Quest") then local v277=377 -(142 + 235) ;while true do if (v277==(0 -0)) then v38(v28(173 + 621 , -(1008 -(553 + 424)), -(832 -392)));fireproximityprompt(v17.FloppaIsland["Lava Floppa"].ClickPart.ProximityPrompt);break;end end else v43("Cool Floppa Quest");v42("Cool Floppa Quest",v28(668 + 90 , -(31 + 0), -(247 + 177)));end return true;end end end end)},{"Meme Beast",(function() local v107=0 + 0 ;local v108;while true do if (v107==0) then v108=v10:FindFirstChild("Meme Beast") or v7:FindFirstChild("Meme Beast") ;if v108 then local v255=0;while true do if (v255==(2 -1)) then v35();return true;end if (v255==0) then v38(v108.WorldPivot);v39();v255=2 -1 ;end end end break;end end end)},{"Lord Sus",(function() local v109=0;local v110;while true do if (v109==(0 + 0)) then v110=v10:FindFirstChild("Lord Sus") or v7:FindFirstChild("Lord Sus") ;if v110 then if ( not v46("Floppa Quest 32") and (v32:GetPlayerLevel()>=(7490 -5940))) then v43("Floppa Quest 32");v42("Floppa Quest 32",nil,754 -(239 + 514) );else v41(v110);end return true;elseif (v32:GetMaterial("Sussy Orb")>(0 + 0)) then local v278=0;while true do if (v278==(1329 -(797 + 532))) then if (v6:DistanceFromCharacter(v29(4828 + 1816 , -(33 + 62),11311 -6500 ))<(1207 -(373 + 829))) then fireproximityprompt(v17.ForgottenIsland.Summon3.Summon.SummonPrompt);else v38(v28(7375 -(476 + 255) , -95,4811));end return true;end end end break;end end end)},{"Evil Noob",(function() local v111=1130 -(369 + 761) ;local v112;while true do if (v111==(0 + 0)) then v112=v10:FindFirstChild("Evil Noob") or v7:FindFirstChild("Evil Noob") ;if v112 then if ( not v46("Floppa Quest 29") and (v32:GetPlayerLevel()>=1400)) then local v279=0;while true do if (v279==(0 -0)) then v43("Floppa Quest 29");v42("Floppa Quest 29",nil,1 -0 );break;end end else v41(v112);end return true;elseif (v32:GetMaterial("Noob Head")>0) then if (v6:DistanceFromCharacter(v29( -(2594 -(64 + 174)), -(12 + 69),3180))<5) then fireproximityprompt(v17.MoaiIsland.Summon2.Summon.SummonPrompt);else v38(v28( -(3488 -1132), -81,3516 -(144 + 192) ));end return true;end break;end end end)},{"Giant Pumpkin",(function() local v113=0 + 0 ;local v114;while true do if (v113==0) then v114=v10:FindFirstChild("Giant Pumpkin") or v7:FindFirstChild("Giant Pumpkin") ;if v114 then local v256=1504 -(363 + 1141) ;while true do if (v256==(1580 -(1183 + 397))) then if ( not v46("Floppa Quest 23") and (v32:GetPlayerLevel()>=1100)) then local v303=0 -0 ;while true do if (v303==0) then v43("Floppa Quest 23");v42("Floppa Quest 23",nil,1 + 0 );break;end end else v41(v114);end return true;end end elseif (v32:GetMaterial("Flame Orb")>0) then local v280=0 + 0 ;while true do if (v280==0) then if (v6:DistanceFromCharacter(v29( -(3155 -(1913 + 62)), -(59 + 34),3870 -2408 ))<(1938 -(565 + 1368))) then fireproximityprompt(v17.PumpkinIsland.Summon1.Summon.SummonPrompt);else v38(v28( -(4437 -3257), -(1754 -(1477 + 184)),1991 -529 ));end return true;end end end break;end end end)},{"Race V2 Orb",(function() if (v32:GetPlayerLevel()>=(862 -362)) then local v180,v181="Dancing Banana Quest","Sogga";if v46(v180) then if v41(v181) then else v38(v19[v181].CFrame);end else local v212=0 -0 ;while true do if (v212==(304 -(244 + 60))) then v43(v180);v42(v180,v28( -(2015 + 605), -(556 -(41 + 435)), -2001));break;end end end return true;end end)},{"Level Farm",(function() local v115=0;local v116;local v117;while true do if ((1125 -(936 + 189))==v115) then v116,v117=v32:GetCurrentQuest(),v32:CheckQuest();if v116 then if v117 then local v281=v117.QuestGiver.Value;if (v281==v116.NpcName) then if v41(v116.Enemy) then else v38(v116.EnemyPos);end elseif v41(v117.Target.Value) then else v38(v20[v281].CFrame);end else v42(v116.NpcName);end end v115=1 + 0 ;end if (1==v115) then return true;end end end)},{"Raid Farm",(function() if (v32:GetPlayerLevel()>=(2138 -(782 + 356))) then local v182=v45();if v182 then if (v182:GetAttribute("Starting")~=0) then local v271=267 -(176 + 91) ;while true do if (v271==(0 -0)) then v9.MiscEvents.StartRaid:FireServer("Start");v0(1);break;end end else local v272=0 -0 ;local v273;while true do if (v272==0) then v273=v44();if v273 then v41(v273,true);else local v305=1092 -(975 + 117) ;local v306;while true do if ((1875 -(157 + 1718))==v305) then v306=v182:FindFirstChild("Spawn_Location");if v306 then v38(v306.CFrame);end break;end end end break;end end end else local v213=0 + 0 ;local v214;while true do if (v213==(0 -0)) then v214=v16:FindFirstChild("RaidArea");if v214 then v38(v28(v214.Position));end break;end end end return true;end end)},{"FS Enemie",(function() local v118=0;local v119;local v120;while true do if (v118==(2 -1)) then if (v46(v120) or  not v1["FS Take Quest"]) then if v41(v119) then else v38(v19[v119].CFrame);end else local v257=0 -0 ;while true do if (v257==(0 -0)) then v43(v120);v42(v120);break;end end end return true;end if (v118==(0 + 0)) then v119=v1.SelecetedEnemie;v120=v31.EnemiesQuests[v119];v118=1;end end end)},{"Nearest Farm",(function() return v41(v37());end)}};if  not v1.LoadedFarm then local v169=0 -0 ;while true do if (v169==(1227 -(322 + 905))) then v1.LoadedFarm=true;task.spawn(function() while v0() do for v282,v283 in v1.FarmFuncs do if v1[v283[612 -(602 + 9) ]] then local v299,v300=pcall(v283[1191 -(449 + 740) ]);if (v299 and v300) then break;end end end end end);break;end end end local v48=loadstring(game:HttpGet("https://raw.githubusercontent.com/sweet-yeuem/memesea/main/souce.lua"))();local v49=v48:MakeWindow({Title="Sweet YT : Meme Sea",SubTitle="by sweetyt",SaveFolder="redzHub-MemeSea.json"});v49:AddMinimizeButton({Button={Image="rbxassetid://18856351865",BackgroundTransparency=872 -(826 + 46) },Corner={CornerRadius=UDim.new(947 -(245 + 702) ,18 -12 )}});local v50={Discord=v49:MakeTab({"Discord","Thông tin"}),MainFarm=v49:MakeTab({"Nông trại chính","Trang chủ"}),Items=v49:MakeTab({"Vật phẩm","Kiếm"}),Stats=v49:MakeTab({"Thống kê","Tín hiệu"}),Teleport=v49:MakeTab({"Dịch chuyển","Vị trí"}),Shop=v49:MakeTab({"Cửa hàng","Giỏ hàng"}),Misc=v49:MakeTab({"Khác","Cài đặt"})};v49:SelectTab(v50.MainFarm);local function v51(v121,v122,v123) local v124=0 -0 ;while true do if (v124==0) then v122.Description=(type(v122[1207 -(902 + 303) ])=="string") and v122[3 -1 ] ;v122.Default=(type(v122[4 -2 ])~="string") and v122[2] ;v124=1 + 0 ;end if (v124==(1691 -(1121 + 569))) then v122.Flag=v122.Flag or v123 ;v122.Callback=function(v216) v1[v122.Flag]=v216;end;v124=2;end if (v124==(216 -(22 + 192))) then v121:AddToggle(v122);break;end end end local v52=v50.Discord;do v52:AddDiscordInvite({Name="Stae Market",Description="nhớ tham gia sever discord nha mọi người",Logo="rbxassetid://18856351865",Invite="https://discord.gg/stae"});end local v53=v50.MainFarm;do local v125=683 -(483 + 200) ;while true do if (v125==(1463 -(1404 + 59))) then v53:AddDropdown({"Công cụ Farm",v31.WeaponsList,v34.ToolFarm,function(v218) v34.ToolFarm=v218;end,"Main/FarmTool"});v53:AddSection("Farm");v51(v53,{"Tự động Farm Level",("MaxLevel: %i"):format(v12.Setting.MaxLevel)},"Farm Level");v125=1;end if (v125==(767 -(468 + 297))) then v51(v53,{"Tự động Farm Kẻ Thù Đã Chọn"},"FS Kẻ Thù");v51(v53,{"Nhận Quest [ Kẻ Thù Đã Chọn ]",true},"FS Nhận Quest");v53:AddSection("Farm Boss");v125=6 -3 ;end if (v125==(1 -0)) then v51(v53,{"Tự động Farm Gần Nhất"},"Farm Gần Nhất");v53:AddSection("Kẻ Thù");v53:AddDropdown({"Chọn Kẻ Thù",v31.EnemeiesList,{v31.EnemeiesList[2 -1 ]},function(v220) v1.SelecetedEnemie=v220;end,"Main/SEnemy"});v125=2;end if (v125==(3 + 0)) then v51(v53,{"Tự động Farm Meme Beast [ Xuất hiện mỗi 30 Phút ]","Rơi: Cổng ( <25% ), Meme Cube ( <50% )"},"Meme Beast");v53:AddSection("Raid");v51(v53,{"Tự động Farm Raid","Yêu cầu: Cấp 1000"},"Farm Raid");break;end end end local v54=v50.Items;do local v126=163 -(92 + 71) ;while true do if (v126==(1 + 0)) then v54:AddButton({"Reroll Màu Aura [ 10 Gems ]",function() v9.MainEvents.Modules:FireServer("Reroll_Color","Halfed Sorcerer");end});v54:AddSection("Bosses");v51(v54,{"Tự động Giant Pumpkin","Rơi: Pumpkin Head ( <10% ), Nugget Man ( <25% )"},"Giant Pumpkin");v51(v54,{"Tự động Evil Noob","Rơi: Yellow Blade ( <5% ), Noob Friend ( <10% )"},"Evil Noob");v126=4 -2 ;end if (v126==(2 + 1)) then v51(v54,{"Tự động Floppa [ Kiếm Đặc Biệt ]"},"_Floppa Sword");v54:AddSection("Popcat");v54:AddToggle({"Tự động Popcat",false,function(v222) local v223=0 -0 ;local v224;local v225;while true do if (v223==(1 + 1)) then while v1.AutoPopcat do local v292=0 -0 ;while true do if (v292==(939 -(714 + 225))) then v225:Wait();fireclickdetector(v224);break;end end end break;end if (v223==(0 -0)) then v1.AutoPopcat=v222;v224=v17.FloppaIsland.Popcat_Clickable.Part.ClickDetector;v223=1 -0 ;end if (v223==1) then v225=v4.Heartbeat;if v222 then v38(v28(44 + 356 , -(53 -16), -588));end v223=808 -(118 + 688) ;end end end,"AutoPopcat"});break;end if (v126==0) then v54:AddSection("Sức Mạnh");v54:AddButton({"Reroll Sức Mạnh 10X [ 250k Tiền ]",function() v9.MainEvents.Modules:FireServer("Random_Power",{Type="Decuple",NPCName="Floppa Gacha",GachaType="Money"});end});v54:AddToggle({"Tự động Lưu Sức Mạnh",false,function(v226) v1.AutoStorePowers=v226;while v1.AutoStorePowers do local v258=0;while true do if (v258==0) then v0();for v301,v302 in ipairs(v6.Backpack:GetChildren()) do if (v302:IsA("Tool") and (v302.ToolTip=="Power") and (v302:GetAttribute("Using")==nil)) then v302.Parent=v6.Character;v9.MainEvents.Modules:FireServer("Eatable_Power",{Action="Store",Tool=v302});end end break;end end end end,"AutoStore"});v54:AddSection("Màu Aura");v126=1 -0 ;end if (v126==2) then v51(v54,{"Tự động Lord Sus","Rơi: Purple Sword ( <5% ), Sus Pals ( <10% )"},"Lord Sus");v54:AddSection("Race");v51(v54,{"Tự động Awakening Orb","Yêu cầu: Cấp 500"},"Race V2 Orb");v54:AddSection("Vũ Khí");v126=3;end end end local v55=v50.Stats;do local v127=0 -0 ;local v128;local v129;while true do if ((285 -(175 + 110))==v127) then v128,v129={Power="MemePowerLevel",Health="DefenseLevel",Weapon="SwordLevel",Melee="MeleeLevel"},{};v55:AddSlider({"Chọn Điểm",1,100,v34.AutoStats_Points,1,function(v228) v34.AutoStats_Points=v228;end,"Stats/SelectPoints"});v127=1;end if (v127==(1062 -(810 + 251))) then v55:AddToggle({"Tự động Cải Thiện",false,function(v230) local v231=0 + 0 ;local v232;while true do if ((1 + 0)==v231) then while v1.AutoStats do local v293=533 -(43 + 490) ;while true do if (v293==(733 -(711 + 22))) then v0(0.5 -0 );for v309,v310 in pairs(v129) do local v311,v312=v232.Value,v24[v128[v309]];if (v310 and (v311>(859 -(240 + 619))) and (v312.Value<v12.Setting.MaxLevel)) then v9.MainEvents.StatsFunction:InvokeServer({Target=v128[v309],Action="Cải ThiệnThốngKê",Amount=math.clamp(v34.AutoStats_Points,0 + 0 ,v12.Setting.MaxLevel-v312.Value )});end end break;end end end break;end if (v231==0) then v1.AutoStats=v230;v232=v24.SkillPoint;v231=1 -0 ;end end end});v55:AddSection("Chọn Thống Kê");v127=1 + 1 ;end if (v127==(1746 -(1344 + 400))) then for v233,v234 in next,v128 do v55:AddToggle({v233,false,function(v259) v129[v233]=v259;end,"Stats_"   .. v233 });end break;end end end local v56=v50.Teleport;do local v130=0 + 0 ;while true do if (v130==1) then v56:AddDropdown({"Nhiệm Vụ",v15:WaitForChild("QuestLocaion"):GetChildren(),{},function(v235) v38(v15.QuestLocaion[v235].CFrame);end});break;end if (v130==(406 -(183 + 223))) then v56:AddSection("Di Chuyển");v56:AddDropdown({"Đảo",v15:WaitForChild("SpawnLocations"):GetChildren(),{},function(v236) v38(v15.SpawnLocations[v236].CFrame);end});v130=1;end end end local v57=v50.Shop;do local v131=0;while true do if (v131==(337 -(10 + 327))) then v57:AddSection("Tự Động Mua");v57:AddToggle({"Tự Động Mua Khả Năng",false,function(v237) local v238=338 -(118 + 220) ;while true do if (v238==(0 + 0)) then v1.AutoBuyAbility=v237;while v1.AutoBuyAbility do v0(450 -(108 + 341) );if ( not v32:AbilityUnlocked("Instinct") and v32:CanBuy("Instinct")) then v9.MainEvents.Modules:FireServer("Ability_Teacher","Nugget Man");elseif ( not v32:AbilityUnlocked("FlashStep") and v32:CanBuy("FlashStep")) then v9.MainEvents.Modules:FireServer("Ability_Teacher","Giga Chad");elseif ( not v32:AbilityUnlocked("Aura") and v32:CanBuy("Aura")) then v9.MainEvents.Modules:FireServer("Ability_Teacher","Aura Master");else wait(2 + 1 );end end break;end end end,"Tự Động Mua Khả Năng",Desc="Aura, Instinct & Flash Step"});v131=1494 -(711 + 782) ;end if (v131==(1 -0)) then for v239,v240 in next,v31.Shop do v57:AddSection({v240[1 + 0 ]});for v261,v262 in pairs(v240[2]) do local v263=v262[1822 -(580 + 1239) ];if (type(v263)=="table") then function v263() v9.MainEvents.Modules:FireServer(unpack(v262[8 -5 ]));end end v57:AddButton({v262[1],v263,Desc=v262[1 + 1 ]});end end break;end end end local v58=v50.Misc;do local v132=0 + 0 ;while true do if (v132==(0 -0)) then v58:AddButton({"Đổi Tất Cả Mã",v32.RAllCodes});v58:AddSection("Cài Đặt");v58:AddSlider({"Khoảng Cách Farm",5,71 -56 ,1,8,function(v241) local v242=0 -0 ;while true do if (v242==(505 -(351 + 154))) then v34.FarmDistance=v241 or (1582 -(1281 + 293)) ;v34.FarmCFrame=v28(0,v241 or 8 ,266 -(28 + 238) ) * v27(math.rad( -90),0 -0 ,1559 -(1381 + 178) ) ;break;end end end,"Khoảng Cách Farm"});v132=1 + 0 ;end if (v132==(1 + 0)) then v58:AddToggle({"Tự Động Aura",v34.AutoHaki,function(v243) v34.AutoHaki=v243;end,"Tự Động Haki"});v58:AddToggle({"Tự Động Tấn Công",v34.AutoClick,function(v245) v34.AutoClick=v245;end,"Tự Động Tấn Công"});v58:AddToggle({"Dẫn Mobs",v34.BringMobs,function(v247) v34.BringMobs=v247;end,"Dẫn Mobs"});v132=1786 -(214 + 1570) ;end if (v132==3) then v58:AddButton({"Tham Gia Đội Floppa",function() v9.MainEvents.Modules:FireServer("Change_Team","Floppa Recruiter");end});v58:AddSection("Khác");v58:AddToggle({"Xóa Thông Báo",false,function(v249) v6.PlayerGui.AnnounceGui.Enabled= not v249;end,"Xóa Thông Báo"});break;end if (v132==(2 + 0)) then v58:AddToggle({"Chống AFK",v34.AntiAFK,function(v251) v34.AntiAFK=v251;end,"Chống AFK"});v58:AddSection("Đội");v58:AddButton({"Tham Gia Đội Cheems",function() v9.MainEvents.Modules:FireServer("Change_Team","Cheems Recruiter");end});v132=3;end end end task.spawn(function() if  not v1.AntiAfk then local v183=0 -0 ;while true do if (v183==0) then v1.AntiAfk=true;while v0((124 -64) * (34 -24) ) do if v34.AntiAFK then local v294=0;while true do if ((0 + 0)==v294) then v3:CaptureController();v3:ClickButton2(Vector2.new());break;end end end end break;end end end end);
+local _wait = task.wait
+repeat _wait() until game:IsLoaded()
+local _env = getgenv and getgenv() or {}
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local VirtualUser = game:GetService("VirtualUser")
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+
+local Player = Players.LocalPlayer
+
+local rs_Monsters = ReplicatedStorage:WaitForChild("MonsterSpawn")
+local Modules = ReplicatedStorage:WaitForChild("ModuleScript")
+local OtherEvent = ReplicatedStorage:WaitForChild("OtherEvent")
+local Monsters = workspace:WaitForChild("Monster")
+
+local MQuestSettings = require(Modules:WaitForChild("Quest_Settings"))
+local MSetting = require(Modules:WaitForChild("Setting"))
+
+local NPCs = workspace:WaitForChild("NPCs")
+local Raids = workspace:WaitForChild("Raids")
+local Location = workspace:WaitForChild("Location")
+local Region = workspace:WaitForChild("Region")
+local Island = workspace:WaitForChild("Island")
+
+local Quests_Npc = NPCs:WaitForChild("Quests_Npc")
+local EnemyLocation = Location:WaitForChild("Enemy_Location")
+local QuestLocation = Location:WaitForChild("QuestLocaion")
+
+local Items = Player:WaitForChild("Items")
+local QuestFolder = Player:WaitForChild("QuestFolder")
+local Ability = Player:WaitForChild("Ability")
+local PlayerData = Player:WaitForChild("PlayerData")
+local PlayerLevel = PlayerData:WaitForChild("Level")
+
+local sethiddenproperty = sethiddenproperty or (function()end)
+
+local CFrame_Angles = CFrame.Angles
+local CFrame_new = CFrame.new
+local Vector3_new = Vector3.new
+
+local _huge = math.huge
+
+task.spawn(function()
+  if not _env.LoadedHideUsername then
+    _env.LoadedHideUsername = true
+    local Label = Player.PlayerGui.MainGui.PlayerName
+    
+    local function Update()
+      local Level = PlayerLevel.Value
+      local IsMax = Level >= MSetting.Setting.MaxLevel
+      Label.Text = ("%s • Lv. %i%s"):format("Anonymous", Level, IsMax and " (Max)" or "")
+    end
+    
+    Label:GetPropertyChangedSignal("Text"):Connect(Update)Update()
+  end
+end)
+
+local Loaded, Funcs, Folders = {}, {}, {} do
+  Loaded.ItemsPrice = {
+    Aura = function()
+      return Funcs:GetMaterial("Meme Cube") > 0 and Funcs:GetData("Money") >= 10000000 -- 1x Meme Cube, $10.000.000
+    end,
+    FlashStep = function()
+      return Funcs:GetData("Money") >= 100000 -- $100.000
+    end,
+    Instinct = function()
+      return Funcs:GetData("Money") >= 2500000 -- $2.500.000
+    end
+  }
+  Loaded.Shop = {
+    {"Vũ khí", {
+      {"Mua Katana", "$5.000 Tiền", {"Người Bán Vũ Khí", "Doge"}},
+      {"Mua Hanger", "$25.000 Tiền", {"Người Bán Vũ Khí", "Hanger"}},
+      {"Mua Flame Katana", "1x Cheems Cola và $50.000", {"Người Bán Vũ Khí", "Cheems"}},
+      {"Mua Banana", "1x Cat Food và $350.000", {"Người Bán Vũ Khí", "Mèo Cười"}},
+      {"Mua Bonk", "5x Túi Tiền và $1.000.000", {"Người Bán Vũ Khí", "Meme Man"}},
+      {"Mua Pumpkin", "1x Nugget Man và $3.500.000", {"Người Bán Vũ Khí", "Mộ Đá"}},
+      {"Mua Popcat", "10.000 Pops Clicker", {"Người Bán Vũ Khí", "Popcat Ohio"}}
+    }},
+    {"Khả năng", {
+      {"Mua Flash Step", "$100.000 Tiền", {"Giáo Viên Khả Năng", "Giga Chad"}},
+      {"Mua Instinct", "$2.500.000 Tiền", {"Giáo Viên Khả Năng", "Nugget Man"}},
+      {"Mua Aura", "1x Meme Cube và $10.000.000", {"Giáo Viên Khả Năng", "Bậc Thầy Aura"}}
+    }},
+    {"Phong cách chiến đấu", {
+      {"Mua Combat", "$0 Tiền", {"Giáo Viên Phong Cách Chiến Đấu", "Maxwell"}},
+      {"Mua Baller", "10x Balls và $10.000.000", {"Giáo Viên Phong Cách Chiến Đấu", "Baller"}}
+    }}
+  }
+
+Loaded.WeaponsList = { "Chiến đấu", "Sức mạnh", "Vũ khí" }
+Loaded.EnemeiesList = {}
+Loaded.EnemiesSpawns = {}
+Loaded.EnemiesQuests = {}
+Loaded.Islands = {}
+Loaded.Quests = {}
+  local function RedeemCode(Code)
+    return OtherEvent.MainEvents.Code:InvokeServer(Code)
+  end
+  
+  Funcs.RAllCodes = function(self)
+    if Modules:FindFirstChild("CodeList") then
+      local List = require(Modules.CodeList)
+      for Code, Info in pairs(type(List) == "table" and List or {}) do
+        if type(Code) == "string" and type(Info) == "table" and Info.Status then RedeemCode(Code) end
+      end
+    end
+  end
+  
+  Funcs.GetPlayerLevel = function(self)
+    return PlayerLevel.Value
+  end
+  
+  Funcs.GetCurrentQuest = function(self)
+    for _,Quest in pairs(Loaded.Quests) do
+      if Quest.Level <= self:GetPlayerLevel() and not Quest.RaidBoss and not Quest.SpecialQuest then
+        return Quest
+      end
+    end
+  end
+  
+  Funcs.CheckQuest = function(self)
+    for _,v in ipairs(QuestFolder:GetChildren()) do
+      if v.Target.Value ~= "None" then
+        return v
+      end
+    end
+  end
+  
+  Funcs.VerifySword = function(self, SName)
+    local Swords = Items.Weapon
+    return Swords:FindFirstChild(SName) and Swords[SName].Value > 0
+  end
+  
+  Funcs.VerifyAccessory = function(self, AName)
+    local Accessories = Items.Accessory
+    return Accessories:FindFirstChild(AName) and Accessories[AName].Value > 0
+  end
+  
+  Funcs.GetMaterial = function(self, MName)
+    local ItemStorage = Items.ItemStorage
+    return ItemStorage:FindFirstChild(MName) and ItemStorage[MName].Value or 0
+  end
+  
+  Funcs.AbilityUnlocked = function(self, Ablt)
+    return Ability:FindFirstChild(Ablt) and Ability[Ablt].Value
+  end
+  
+  Funcs.CanBuy = function(self, Item)
+    if Loaded.ItemsPrice[Item] then
+      return Loaded.ItemsPrice[Item]()
+    end
+    return false
+  end
+  
+  Funcs.GetData = function(self, Data)
+    return PlayerData:FindFirstChild(Data) and PlayerData[Data].Value or 0
+  end
+  
+  for Npc,Quest in pairs(MQuestSettings) do
+    if QuestLocation:FindFirstChild(Npc) then
+      table.insert(Loaded.Quests, {
+        RaidBoss = Quest.Raid_Boss,
+        SpecialQuest = Quest.Special_Quest,
+        QuestPos = QuestLocation[Npc].CFrame,
+        EnemyPos = EnemyLocation[Quest.Target].CFrame,
+        Level = Quest.LevelNeed,
+        Enemy = Quest.Target,
+        NpcName = Npc
+      })
+    end
+  end
+  
+  table.sort(Loaded.Quests, function(a, b) return a.Level > b.Level end)
+  for _,v in ipairs(Loaded.Quests) do
+    table.insert(Loaded.EnemeiesList, v.Enemy)Loaded.EnemiesQuests[v.Enemy] = v.NpcName
+  end
+end
+
+local Settings = Settings or {} do
+  Settings.AutoStats_Points = 1
+  Settings.BringMobs = true
+  Settings.FarmDistance = 9
+  Settings.ViewHitbox = false
+  Settings.AntiAFK = true
+  Settings.AutoHaki = true
+  Settings.AutoClick = true
+  Settings.ToolFarm = "Fight" -- [[ "Fight", "Power", "Weapon" ]]
+  Settings.FarmCFrame = CFrame_new(0, Settings.FarmDistance, 0) * CFrame_Angles(math.rad(-90), 0, 0)
+end
+
+local function PlayerClick()
+  local Char = Player.Character
+  if Char then
+    if Settings.AutoClick then
+      VirtualUser:CaptureController()
+      VirtualUser:Button1Down(Vector2.new(1e4, 1e4))
+    end
+    if Settings.AutoHaki and Char:FindFirstChild("AuraColor_Folder") and Funcs:AbilityUnlocked("Aura") then
+      if #Char.AuraColor_Folder:GetChildren() < 1 then
+        OtherEvent.MainEvents.Ability:InvokeServer("Aura")
+      end
+    end
+  end
+end
+
+local function IsAlive(Char)
+  local Hum = Char and Char:FindFirstChild("Humanoid")
+  return Hum and Hum.Health > 0
+end
+
+local function GetNextEnemie(EnemieName)
+  for _,v in ipairs(Monsters:GetChildren()) do
+    if (not EnemieName or v.Name == EnemieName) and IsAlive(v) then
+      return v
+    end
+  end
+  return false
+end
+
+local function GoTo(CFrame, Move)
+  local Char = Player.Character
+  if IsAlive(Char) then
+    return Move and ( Char:MoveTo(CFrame.p) or true ) or Char:SetPrimaryPartCFrame(CFrame)
+  end
+end
+
+local function EquipWeapon()
+  local Backpack, Char = Player:FindFirstChild("Backpack"), Player.Character
+  if IsAlive(Char) and Backpack then
+    for _,v in ipairs(Backpack:GetChildren()) do
+      if v:IsA("Tool") and v.ToolTip:find(Settings.ToolFarm) then
+        Char.Humanoid:EquipTool(v)
+      end
+    end
+  end
+end
+
+local function BringMobsTo(_Enemie, CFrame, SBring)
+  for _,v in ipairs(Monsters:GetChildren()) do
+    if (SBring or v.Name == _Enemie) and IsAlive(v) then
+      local PP, Hum = v.PrimaryPart, v.Humanoid
+      if PP and (PP.Position - CFrame.p).Magnitude < 500 then
+        Hum.WalkSpeed = 0
+        Hum:ChangeState(14)
+        PP.CFrame = CFrame
+        PP.CanCollide = false
+        PP.Transparency = Settings.ViewHitbox and 0.8 or 1
+        PP.Size = Vector3.new(50, 50, 50)
+      end
+    end
+  end
+  return pcall(sethiddenproperty, Player, "SimulationRadius", _huge)
+end
+
+local function KillMonster(_Enemie, SBring)
+  local Enemy = typeof(_Enemie) == "Instance" and _Enemie or GetNextEnemie(_Enemie)
+  if IsAlive(Enemy) and Enemy.PrimaryPart then
+    GoTo(Enemy.PrimaryPart.CFrame * Settings.FarmCFrame)EquipWeapon()
+    if not Enemy:FindFirstChild("Reverse_Mark") then PlayerClick() end
+    if Settings.BringMobs then BringMobsTo(_Enemie, Enemy.PrimaryPart.CFrame, SBring) end
+    return true
+  end
+end
+
+local function TakeQuest(QuestName, CFrame, Wait)
+  local QuestGiver = Quests_Npc:FindFirstChild(QuestName)
+  if QuestGiver and Player:DistanceFromCharacter(QuestGiver.WorldPivot.p) < 5 then
+    return fireproximityprompt(QuestGiver.Block.QuestPrompt), _wait(Wait or 0.1)
+  end
+  GoTo(CFrame or QuestLocation[QuestName].CFrame)
+end
+
+local function ClearQuests(Ignore)
+  for _,v in ipairs(QuestFolder:GetChildren()) do
+    if v.QuestGiver.Value ~= Ignore and v.Target.Value ~= "None" then
+      OtherEvent.QuestEvents.Quest:FireServer("Abandon_Quest", { QuestSlot = v.Name })
+    end
+  end
+end
+
+local function GetRaidEnemies()
+  for _,v in ipairs(Monsters:GetChildren()) do
+    if v:GetAttribute("Raid_Enemy") and IsAlive(v) then
+      return v
+    end
+  end
+end
+
+local function GetRaidMap()
+  for _,v in ipairs(Raids:GetChildren()) do
+    if v.Joiners:FindFirstChild(Player.Name) then
+      return v
+    end
+  end
+end
+
+local function VerifyQuest(QName)
+  local Quest = Funcs:CheckQuest()
+  return Quest and Quest.QuestGiver.Value == QName
+end
+
+_env.FarmFuncs = {
+  {"_Floppa Sword", (function()
+    if not Funcs:VerifySword("Floppa") then
+      if VerifyQuest("Cool Floppa Quest") then
+        GoTo(CFrame_new(794, -31, -440))
+        fireproximityprompt(Island.FloppaIsland["Lava Floppa"].ClickPart.ProximityPrompt)
+      else
+        ClearQuests("Cool Floppa Quest")
+        TakeQuest("Cool Floppa Quest", CFrame_new(758, -31, -424))
+      end
+      return true
+    end
+  end)},
+  {"Meme Beast", (function()
+    local MemeBeast = Monsters:FindFirstChild("Meme Beast") or rs_Monsters:FindFirstChild("Meme Beast")
+    if MemeBeast then
+      GoTo(MemeBeast.WorldPivot)EquipWeapon()PlayerClick()
+      return true
+    end
+  end)},
+  {"Lord Sus", (function()
+    local LordSus = Monsters:FindFirstChild("Lord Sus") or rs_Monsters:FindFirstChild("Lord Sus")
+    if LordSus then
+      if not VerifyQuest("Floppa Quest 32") and Funcs:GetPlayerLevel() >= 1550 then
+        ClearQuests("Floppa Quest 32")TakeQuest("Floppa Quest 32", nil, 1)
+      else
+        KillMonster(LordSus)
+      end
+      return true
+    elseif Funcs:GetMaterial("Sussy Orb") > 0 then
+      if Player:DistanceFromCharacter(Vector3_new(6644, -95, 4811)) < 5 then
+        fireproximityprompt(Island.ForgottenIsland.Summon3.Summon.SummonPrompt)
+      else GoTo(CFrame_new(6644, -95, 4811)) end
+      return true
+    end
+  end)},
+  {"Evil Noob", (function()
+    local EvilNoob = Monsters:FindFirstChild("Evil Noob") or rs_Monsters:FindFirstChild("Evil Noob")
+    if EvilNoob then
+      if not VerifyQuest("Floppa Quest 29") and Funcs:GetPlayerLevel() >= 1400 then
+        ClearQuests("Floppa Quest 29")TakeQuest("Floppa Quest 29", nil, 1)
+      else
+        KillMonster(EvilNoob)
+      end
+      return true
+    elseif Funcs:GetMaterial("Noob Head") > 0 then
+      if Player:DistanceFromCharacter(Vector3_new(-2356, -81, 3180)) < 5 then
+        fireproximityprompt(Island.MoaiIsland.Summon2.Summon.SummonPrompt)
+      else GoTo(CFrame_new(-2356, -81, 3180)) end
+      return true
+    end
+  end)},
+  {"Giant Pumpkin", (function()
+    local Pumpkin = Monsters:FindFirstChild("Giant Pumpkin") or rs_Monsters:FindFirstChild("Giant Pumpkin")
+    if Pumpkin then
+      if not VerifyQuest("Floppa Quest 23") and Funcs:GetPlayerLevel() >= 1100 then
+        ClearQuests("Floppa Quest 23")TakeQuest("Floppa Quest 23", nil, 1)
+      else
+        KillMonster(Pumpkin)
+      end
+      return true
+    elseif Funcs:GetMaterial("Flame Orb") > 0 then
+      if Player:DistanceFromCharacter(Vector3_new(-1180, -93, 1462)) < 5 then
+        fireproximityprompt(Island.PumpkinIsland.Summon1.Summon.SummonPrompt)
+      else GoTo(CFrame_new(-1180, -93, 1462)) end
+      return true
+    end
+  end)},
+  {"Race V2 Orb", (function()
+    if Funcs:GetPlayerLevel() >= 500 then
+      local Quest, Enemy = "Dancing Banana Quest", "Sogga"
+      if VerifyQuest(Quest) then
+        if KillMonster(Enemy) then else GoTo(EnemyLocation[Enemy].CFrame) end
+      else ClearQuests(Quest)TakeQuest(Quest, CFrame_new(-2620, -80, -2001)) end
+      return true
+    end
+  end)},
+  {"Level Farm", (function()
+    local Quest, QuestChecker = Funcs:GetCurrentQuest(), Funcs:CheckQuest()
+    if Quest then
+      if QuestChecker then
+        local _QuestName = QuestChecker.QuestGiver.Value
+        if _QuestName == Quest.NpcName then
+          if KillMonster(Quest.Enemy) then else GoTo(Quest.EnemyPos) end
+        else
+          if KillMonster(QuestChecker.Target.Value) then else GoTo(QuestLocation[_QuestName].CFrame) end
+        end
+      else TakeQuest(Quest.NpcName) end
+    end
+    return true
+  end)},
+  {"Raid Farm", (function()
+    if Funcs:GetPlayerLevel() >= 1000 then
+      local RaidMap = GetRaidMap()
+      if RaidMap then
+        if RaidMap:GetAttribute("Starting") ~= 0 then
+          OtherEvent.MiscEvents.StartRaid:FireServer("Start")_wait(1)
+        else
+          local Enemie = GetRaidEnemies()
+          if Enemie then KillMonster(Enemie, true) else
+            local Spawn = RaidMap:FindFirstChild("Spawn_Location")
+            if Spawn then GoTo(Spawn.CFrame) end
+          end
+        end
+      else
+        local Raid = Region:FindFirstChild("RaidArea")
+        if Raid then GoTo(CFrame_new(Raid.Position)) end
+      end
+      return true
+    end
+  end)},
+  {"FS Enemie", (function()
+    local Enemy = _env.SelecetedEnemie
+    local Quest = Loaded.EnemiesQuests[Enemy]
+    if VerifyQuest(Quest) or not _env["FS Take Quest"] then
+      if KillMonster(Enemy) then else GoTo(EnemyLocation[Enemy].CFrame) end
+    else ClearQuests(Quest)TakeQuest(Quest) end
+    return true
+  end)},
+  {"Nearest Farm", (function() return KillMonster(GetNextEnemie()) end)}
+}
+
+if not _env.LoadedFarm then
+  _env.LoadedFarm = true
+  task.spawn(function()
+    while _wait() do
+      for _,f in _env.FarmFuncs do
+        if _env[f[1]] then local s,r=pcall(f[2])if s and r then break end;end
+      end
+    end
+  end)
+end
+
+local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/sweet-yeuem/memesea/main/souce.lua"))()
+local Window = redzlib:MakeWindow({ Title = "Sweet YT : Meme Sea", SubTitle = "by sweetyt", SaveFolder = "redzHub-MemeSea.json" })
+Window:AddMinimizeButton({
+  Button = { Image = "rbxassetid://18856351865", BackgroundTransparency = 0 },
+  Corner = { CornerRadius = UDim.new(0, 6) }
+})
+
+local Tabs = {
+  Discord = Window:MakeTab({"Discord", "Thông tin"}),
+  MainFarm = Window:MakeTab({"Nông trại chính", "Trang chủ"}),
+  Items = Window:MakeTab({"Vật phẩm", "Kiếm"}),
+  Stats = Window:MakeTab({"Thống kê", "Tín hiệu"}),
+  Teleport = Window:MakeTab({"Dịch chuyển", "Vị trí"}),
+  Shop = Window:MakeTab({"Cửa hàng", "Giỏ hàng"}),
+  Misc = Window:MakeTab({"Khác", "Cài đặt"})
+}
+
+
+Window:SelectTab(Tabs.MainFarm)
+
+local function AddToggle(Tab, Settings, Flag)
+  Settings.Description = type(Settings[2]) == "string" and Settings[2]
+  Settings.Default = type(Settings[2]) ~= "string" and Settings[2]
+  Settings.Flag = Settings.Flag or Flag
+  Settings.Callback = function(Value) _env[Settings.Flag] = Value end
+  Tab:AddToggle(Settings)
+end
+
+local _Discord = Tabs.Discord do
+  _Discord:AddDiscordInvite({
+    Name = "Stae Market",
+    Description = "nhớ tham gia sever discord nha mọi người",
+    Logo = "rbxassetid://18856351865",
+    Invite = "https://discord.gg/stae"
+  })
+end
+
+local _MainFarm = Tabs.MainFarm do
+  _MainFarm:AddDropdown({"Công cụ Farm", Loaded.WeaponsList, Settings.ToolFarm, function(Value)
+    Settings.ToolFarm = Value
+  end, "Main/FarmTool"})
+  _MainFarm:AddSection("Farm")
+  AddToggle(_MainFarm, {"Tự động Farm Level", ("MaxLevel: %i"):format(MSetting.Setting.MaxLevel)}, "Farm Level")
+  AddToggle(_MainFarm, {"Tự động Farm Gần Nhất"}, "Farm Gần Nhất")
+  _MainFarm:AddSection("Kẻ Thù")
+  _MainFarm:AddDropdown({"Chọn Kẻ Thù", Loaded.EnemeiesList, {Loaded.EnemeiesList[1]}, function(Value)
+    _env.SelecetedEnemie = Value
+  end, "Main/SEnemy"})
+  AddToggle(_MainFarm, {"Tự động Farm Kẻ Thù Đã Chọn"}, "FS Kẻ Thù")
+  AddToggle(_MainFarm, {"Nhận Quest [ Kẻ Thù Đã Chọn ]", true}, "FS Nhận Quest")
+  _MainFarm:AddSection("Farm Boss")
+  AddToggle(_MainFarm, {"Tự động Farm Meme Beast [ Xuất hiện mỗi 30 Phút ]", "Rơi: Cổng ( <25% ), Meme Cube ( <50% )"}, "Meme Beast")
+  _MainFarm:AddSection("Raid")
+  AddToggle(_MainFarm, {"Tự động Farm Raid", "Yêu cầu: Cấp 1000"}, "Farm Raid")
+end
+
+local _Items = Tabs.Items do
+  _Items:AddSection("Sức Mạnh")
+  _Items:AddButton({"Reroll Sức Mạnh 10X [ 250k Tiền ]", function()
+    OtherEvent.MainEvents.Modules:FireServer("Random_Power", {
+      Type = "Decuple",
+      NPCName = "Floppa Gacha",
+      GachaType = "Money"
+    })
+  end})
+  _Items:AddToggle({"Tự động Lưu Sức Mạnh", false, function(Value)
+    _env.AutoStorePowers = Value
+    while _env.AutoStorePowers do _wait()
+      for _,v in ipairs(Player.Backpack:GetChildren()) do
+        if v:IsA("Tool") and v.ToolTip == "Power" and v:GetAttribute("Using") == nil then
+          v.Parent = Player.Character
+          OtherEvent.MainEvents.Modules:FireServer("Eatable_Power", { Action = "Store", Tool = v })
+        end
+      end
+    end
+  end, "AutoStore"})
+  _Items:AddSection("Màu Aura")
+  _Items:AddButton({"Reroll Màu Aura [ 10 Gems ]", function()
+    OtherEvent.MainEvents.Modules:FireServer("Reroll_Color", "Halfed Sorcerer")
+  end})
+  _Items:AddSection("Bosses")
+  AddToggle(_Items, {"Tự động Giant Pumpkin", "Rơi: Pumpkin Head ( <10% ), Nugget Man ( <25% )"}, "Giant Pumpkin")
+  AddToggle(_Items, {"Tự động Evil Noob", "Rơi: Yellow Blade ( <5% ), Noob Friend ( <10% )"}, "Evil Noob")
+  AddToggle(_Items, {"Tự động Lord Sus", "Rơi: Purple Sword ( <5% ), Sus Pals ( <10% )"}, "Lord Sus")
+  _Items:AddSection("Race")
+  AddToggle(_Items, {"Tự động Awakening Orb", "Yêu cầu: Cấp 500"}, "Race V2 Orb")
+  _Items:AddSection("Vũ Khí")
+  AddToggle(_Items, {"Tự động Floppa [ Kiếm Đặc Biệt ]"}, "_Floppa Sword")
+  _Items:AddSection("Popcat")
+  _Items:AddToggle({"Tự động Popcat", false, function(Value)
+    _env.AutoPopcat = Value
+    local ClickDetector = Island.FloppaIsland.Popcat_Clickable.Part.ClickDetector
+    local Heartbeat = RunService.Heartbeat
+    if Value then GoTo(CFrame_new(400, -37, -588)) end
+    
+   while _env.AutoPopcat do Heartbeat:Wait()
+      fireclickdetector(ClickDetector)
+    end
+  end, "AutoPopcat"})
+end
+
+local _Stats = Tabs.Stats do
+  local StatsName, SelectedStats = {
+    ["Power"] = "MemePowerLevel", ["Health"] = "DefenseLevel",
+    ["Weapon"] = "SwordLevel", ["Melee"] = "MeleeLevel"
+  }, {}
+  
+  _Stats:AddSlider({"Chọn Điểm", 1, 100, Settings.AutoStats_Points, 1, function(Value)
+    Settings.AutoStats_Points = Value
+  end, "Stats/SelectPoints"})
+  _Stats:AddToggle({"Tự động Cải Thiện", false, function(Value)
+    _env.AutoStats = Value
+    local _Points = PlayerData.SkillPoint
+    while _env.AutoStats do _wait(0.5)
+      for _,Stats in pairs(SelectedStats) do
+        local _p, _s = _Points.Value, PlayerData[StatsName[_]]
+        if Stats and _p > 0 and _s.Value < MSetting.Setting.MaxLevel then
+         OtherEvent.MainEvents.StatsFunction:InvokeServer({
+            ["Target"] = StatsName[_],
+            ["Action"] = "Cải ThiệnThốngKê",
+            ["Amount"] = math.clamp(Settings.AutoStats_Points, 0, MSetting.Setting.MaxLevel - _s.Value)
+          })
+        end
+      end
+    end
+  end})
+  _Stats:AddSection("Chọn Thống Kê")
+  for _,v in next, StatsName do
+    _Stats:AddToggle({_, false, function(Value)
+      SelectedStats[_] = Value
+    end, "Stats_" .. _})
+  end
+end
+
+local _Teleport = Tabs.Teleport do
+  _Teleport:AddSection("Di Chuyển")
+  _Teleport:AddDropdown({"Đảo", Location:WaitForChild("SpawnLocations"):GetChildren(), {}, function(Value)
+    GoTo(Location.SpawnLocations[Value].CFrame)
+  end})
+ _Teleport:AddDropdown({"Nhiệm Vụ", Location:WaitForChild("QuestLocaion"):GetChildren(), {}, function(Value)
+    GoTo(Location.QuestLocaion[Value].CFrame)
+  end})
+end
+
+local _Shop = Tabs.Shop do
+  _Shop:AddSection("Tự Động Mua")
+  _Shop:AddToggle({"Tự Động Mua Khả Năng", false, function(Value)
+    _env.AutoBuyAbility = Value
+    while _env.AutoBuyAbility do  _wait(1)
+      if not Funcs:AbilityUnlocked("Instinct") and Funcs:CanBuy("Instinct") then
+        OtherEvent.MainEvents.Modules:FireServer("Ability_Teacher", "Nugget Man")
+      elseif not Funcs:AbilityUnlocked("FlashStep") and Funcs:CanBuy("FlashStep") then
+        OtherEvent.MainEvents.Modules:FireServer("Ability_Teacher", "Giga Chad")
+      elseif not Funcs:AbilityUnlocked("Aura") and Funcs:CanBuy("Aura") then
+        OtherEvent.MainEvents.Modules:FireServer("Ability_Teacher", "Aura Master")
+      else wait(3) end
+    end
+  end, "Tự Động Mua Khả Năng", Desc = "Aura, Instinct & Flash Step"})
+  
+  for _,s in next, Loaded.Shop do
+   _Shop:AddSection({s[1]})
+    for _,item in pairs(s[2]) do
+      local buyfunc = item[3]
+      if type(buyfunc) == "table" then
+        buyfunc = function()
+          OtherEvent.MainEvents.Modules:FireServer(unpack(item[3]))
+        end
+      end
+      
+      _Shop:AddButton({item[1], buyfunc, Desc = item[2]})
+    end
+  end
+end
+
+local _Misc = Tabs.Misc do
+  _Misc:AddButton({"Đổi Tất Cả Mã", Funcs.RAllCodes})
+  _Misc:AddSection("Cài Đặt")
+  _Misc:AddSlider({"Khoảng Cách Farm", 5, 15, 1, 8, function(Value)
+    Settings.FarmDistance = Value or 8
+    Settings.FarmCFrame = CFrame_new(0, Value or 8, 0) * CFrame_Angles(math.rad(-90), 0, 0)
+  end, "Khoảng Cách Farm"})
+  _Misc:AddToggle({"Tự Động Aura", Settings.AutoHaki, function(Value) Settings.AutoHaki = Value end, "Tự Động Haki"})
+  _Misc:AddToggle({"Tự Động Tấn Công", Settings.AutoClick, function(Value) Settings.AutoClick = Value end, "Tự Động Tấn Công"})
+  _Misc:AddToggle({"Dẫn Mobs", Settings.BringMobs, function(Value) Settings.BringMobs = Value end, "Dẫn Mobs"})
+  _Misc:AddToggle({"Chống AFK", Settings.AntiAFK, function(Value) Settings.AntiAFK = Value end, "Chống AFK"})
+  _Misc:AddSection("Đội")
+  _Misc:AddButton({"Tham Gia Đội Cheems", function()
+    OtherEvent.MainEvents.Modules:FireServer("Change_Team", "Cheems Recruiter")
+  end})
+  _Misc:AddButton({"Tham Gia Đội Floppa", function()
+    OtherEvent.MainEvents.Modules:FireServer("Change_Team", "Floppa Recruiter")
+  end})
+  _Misc:AddSection("Khác")
+  _Misc:AddToggle({"Xóa Thông Báo", false, function(Value)
+    Player.PlayerGui.AnnounceGui.Enabled = not Value
+  end, "Xóa Thông Báo"})
+end
+
+task.spawn(function()
+  if not _env.AntiAfk then
+    _env.AntiAfk = true
+    
+    while _wait(60*10) do
+      if Settings.AntiAFK then
+        VirtualUser:CaptureController()
+        VirtualUser:ClickButton2(Vector2.new())
+      end
+    end
+  end
+end)
