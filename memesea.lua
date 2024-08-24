@@ -91,13 +91,12 @@ local Loaded, Funcs, Folders = {}, {}, {} do
         {"Mua Baller", "10x Bóng và $10.000.000", {"Người Dạy Phong Cách Chiến Đấu", "Baller"}}
       }}
     }
-    Loaded.DanhSachVuKhi = { "Chiến Đấu", "Sức Mạnh", "Vũ Khí" }
-    Loaded.DanhSachKeDich = {}
-    Loaded.DiemSpawnCuaKeDich = {}
-    Loaded.NhiemVuCuaKeDich = {}
-    Loaded.Dao = {}
-    Loaded.NhiemVu = {}  
-  
+    Loaded.WeaponsList = { "Đánh Tay", "Trái Ác Quỷ", "Vũ Khí" }
+    Loaded.EnemeiesList = {}
+    Loaded.EnemiesSpawns = {}
+    Loaded.EnemiesQuests = {}
+    Loaded.Islands = {}
+    Loaded.Quests = {}   
   local function RedeemCode(Code)
     return OtherEvent.MainEvents.Code:InvokeServer(Code)
   end
