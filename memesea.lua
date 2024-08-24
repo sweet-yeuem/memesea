@@ -435,9 +435,9 @@ if not _env.LoadedFarm then
 end
 
 local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/sweet-yeuem/memesea/main/souce.lua"))()
-local Window = redzlib:MakeWindow({ Title = "redz Hub : Meme Sea", SubTitle = "by redz9999", SaveFolder = "redzHub-MemeSea.json" })
+local Window = redzlib:MakeWindow({ Title = "Youtube : Sweet YT, SubTitle = "by Sweetyt", SaveFolder = "redzHub-MemeSea.json" })
 Window:AddMinimizeButton({
-  Button = { Image = "rbxassetid://15298567397", BackgroundTransparency = 0 },
+  Button = { Image = "rbxassetid://", BackgroundTransparency = 0 },
   Corner = { CornerRadius = UDim.new(0, 6) }
 })
 
@@ -463,10 +463,10 @@ end
 
 local _Discord = Tabs.Discord do
   _Discord:AddDiscordInvite({
-    Name = "redz Hub | Community",
-    Description = "Join our discord community to receive information about the next update",
-    Logo = "rbxassetid://17382040552",
-    Invite = "https://discord.gg/7aR7kNVt4g"
+    Name = "Stae Market",
+    Description = "Join our discord",
+    Logo = "rbxassetid://",
+    Invite = "https://discord.gg/stae"
   })
 end
 
