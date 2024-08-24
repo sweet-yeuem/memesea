@@ -464,9 +464,9 @@ end
 local _Discord = Tabs.Discord do
   _Discord:AddDiscordInvite({
     Name = "Stae Market",
-    Description = "Join our discord community to receive information about the next update",
+    Description = "Join our discord community",
     Logo = "rbxassetid://17382040552",
-    Invite = "https://discord.gg/7aR7kNVt4g"
+    Invite = "https://discord.gg/stae"
   })
 end
 
