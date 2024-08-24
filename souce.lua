@@ -1,2 +1,1878 @@
+local MarketplaceService = game:GetService("MarketplaceService")
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local HttpService = game:GetService("HttpService")
+local RunService = game:GetService("RunService")
+local CoreGui = game:GetService("CoreGui")
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+local PlayerMouse = Player:GetMouse()
 
-local v0=game:GetService("MarketplaceService");local v1=game:GetService("UserInputService");local v2=game:GetService("TweenService");local v3=game:GetService("HttpService");local v4=game:GetService("RunService");local v5=game:GetService("CoreGui");local v6=game:GetService("Players");local v7=v6.LocalPlayer;local v8=v7:GetMouse();local v9={Themes={Darker={["Color Hub 1"]=ColorSequence.new({ColorSequenceKeypoint.new(561 -(79 + 482) ,Color3.fromRGB(25,35 -10 ,25)),ColorSequenceKeypoint.new(285.5 -(134 + 151) ,Color3.fromRGB(1697.5 -(970 + 695) ,60.5 -28 ,2022.5 -(582 + 1408) )),ColorSequenceKeypoint.new(1 -0 ,Color3.fromRGB(94 -69 ,1849 -(1195 + 629) ,32 -7 ))}),["Color Hub 2"]=Color3.fromRGB(271 -(187 + 54) ,30,30),["Color Stroke"]=Color3.fromRGB(40,820 -(162 + 618) ,29 + 11 ),["Color Theme"]=Color3.fromRGB(59 + 29 ,101,515 -273 ),["Color Text"]=Color3.fromRGB(408 -165 ,243,19 + 224 ),["Color Dark Text"]=Color3.fromRGB(180,1816 -(1373 + 263) ,1180 -(451 + 549) )},Dark={["Color Hub 1"]=ColorSequence.new({ColorSequenceKeypoint.new(0 -0 ,Color3.fromRGB(67 -27 ,1424 -(746 + 638) ,16 + 24 )),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(70.5 -23 ,388.5 -(218 + 123) ,1628.5 -(1535 + 46) )),ColorSequenceKeypoint.new(1 + 0 ,Color3.fromRGB(600 -(306 + 254) ,40,40))}),["Color Hub 2"]=Color3.fromRGB(45,3 + 42 ,45),["Color Stroke"]=Color3.fromRGB(127 -62 ,1532 -(899 + 568) ,65),["Color Theme"]=Color3.fromRGB(43 + 22 ,150,617 -362 ),["Color Text"]=Color3.fromRGB(245,245,848 -(268 + 335) ),["Color Dark Text"]=Color3.fromRGB(480 -(60 + 230) ,762 -(426 + 146) ,23 + 167 )},Purple={["Color Hub 1"]=ColorSequence.new({ColorSequenceKeypoint.new(811 -(569 + 242) ,Color3.fromRGB(77.5 -50 ,2 + 23 ,1054 -(706 + 318) )),ColorSequenceKeypoint.new(1271.5 -(945 + 326) ,Color3.fromRGB(79.5 -47 ,29.5 + 3 ,32.5)),ColorSequenceKeypoint.new(1 + 0 ,Color3.fromRGB(1527.5 -(1408 + 92) ,1111 -(461 + 625) ,1318 -(993 + 295) ))}),["Color Hub 2"]=Color3.fromRGB(30,30,2 + 28 ),["Color Stroke"]=Color3.fromRGB(1211 -(418 + 753) ,16 + 24 ,5 + 35 ),["Color Theme"]=Color3.fromRGB(44 + 106 ,0 + 0 ,255),["Color Text"]=Color3.fromRGB(769 -(406 + 123) ,2009 -(1749 + 20) ,58 + 182 ),["Color Dark Text"]=Color3.fromRGB(1502 -(1249 + 73) ,65 + 115 ,1325 -(466 + 679) )}},Info={Version="1.1.0"},Save={UISize={550,2280 -(106 + 1794) },TabSize=160,Theme="Darker"},Settings={},Connection={},Instances={},Elements={},Options={},Flags={},Tabs={},Icons=loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Icons.Lua"))()};local v10=workspace.CurrentCamera.ViewportSize;local v11=v10.Y/(143 + 307) ;local v12=v9.Settings;local v13=v9.Flags;local v14,v15,v16,v17;do local v41=0;local v42;while true do if (v41==(1 + 1)) then v42=nil;function v42(v502) if (readfile and isfile and isfile(v502)) then local v587=v3:JSONDecode(readfile(v502));if (type(v587)=="table") then local v671=0 -0 ;while true do if (v671==0) then if rawget(v587,"UISize") then v9.Save['UISize']=v587['UISize'];end if rawget(v587,"TabSize") then v9.Save['TabSize']=v587['TabSize'];end v671=2 -1 ;end if (v671==(115 -(4 + 110))) then if (rawget(v587,"Theme") and VerifyTheme(v587['Theme'])) then v9.Save['Theme']=v587['Theme'];end break;end end end end end v41=587 -(57 + 527) ;end if (v41==(1427 -(41 + 1386))) then function v16(v503,v504) table.insert(v9.Instances,{Instance=v503,Type=v504});return v503;end function v15(v505,v506) if v506 then table.foreach(v506,function(v656,v657) v657.Parent=v505;end);end return v505;end v41=1;end if (v41==3) then pcall(v42,"redz library V5.json");break;end if (v41==1) then function v14(v507,v508) if v508 then table.foreach(v508,function(v659,v660) v507[v659]=v660;end);end return v507;end function v17(...) local v509=103 -(17 + 86) ;local v510;local v511;local v512;while true do if (v509==0) then v510={...};if (type(v510)~="table") then return;end v509=1 -0 ;end if (v509==2) then if (type(v510[5 -3 ])=="table") then local v692=166 -(122 + 44) ;while true do if (v692==(1 -0)) then v512=v510[9 -6 ] or {} ;break;end if (v692==(0 + 0)) then v14(v511,v510[1 + 1 ]);v15(v511,v510[3]);v692=1 -0 ;end end elseif (typeof(v510[67 -(30 + 35) ])=="Instance") then local v719=0;while true do if (v719==(1 + 0)) then v15(v511,v510[1261 -(1043 + 214) ]);v512=v510[15 -11 ] or {} ;break;end if (v719==(1212 -(323 + 889))) then v511.Parent=v510[5 -3 ];v14(v511,v510[3]);v719=1;end end end return v511;end if (v509==1) then v511=Instance.new(v510[581 -(361 + 219) ]);v512={};v509=322 -(53 + 267) ;end end end v41=1 + 1 ;end end end local v18={};do v18.InsertCallback=function(v148,v149,v150) if (type(v150)=="function") then table.insert(v149,v150);end return v150;end;v18.FireCallback=function(v151,v152,...) for v257,v258 in ipairs(v152) do if (type(v258)=="function") then task.spawn(v258,...);end end end;v18.ToggleVisible=function(v153,v154,v155) v154.Visible=((v155~=nil) and v155) or v154.Visible ;end;v18.ToggleParent=function(v157,v158,v159) if (Bool~=nil) then v158.Parent=Bool;else v158.Parent= not v158.Parent and v159 ;end end;v18.GetConnectionFunctions=function(v160,v161,v162) local v163=413 -(15 + 398) ;local v164;while true do if (v163==1) then v164.Fire=function(v552,...) if v552.Connected then task.spawn(v552.Function,...);end end;return v164;end if (0==v163) then v164={Function=v162,Connected=true};v164.Disconnect=function(v553) if v553.Connected then table.remove(v161,table.find(v161,v553.Function));v553.Connected=false;end end;v163=983 -(18 + 964) ;end end end;v18.GetCallback=function(v165,v166,v167) local v168=0 -0 ;local v169;while true do if ((1 + 0)==v168) then return {v169};end if (v168==0) then v169=v166[v167] or v166.Callback or function() end ;if (type(v169)=="table") then return {function(v663) v169[1 + 0 ][v169[2]]=v663;end};end v168=1;end end end;end local v19,v20={},v9.Connection;do local v49=126 -(116 + 10) ;local v50;while true do if (v49==(0 + 0)) then v50=nil;function v50(v515) if (type(v515)~="table") then return;end for v554,v555 in ipairs(v515) do local v556=738 -(542 + 196) ;local v557;local v558;while true do if (v556==(0 -0)) then v557,v558={},{};v20[v555]=v558;v556=1 + 0 ;end if (v556==1) then v19[v555]=v557;v558.Name=v555;v556=2;end if (v556==(2 + 0)) then v558.Connect=function(v693,v694) if (type(v694)=="function") then local v720=0 + 0 ;while true do if (v720==(0 -0)) then table.insert(v557,v694);return v18:GetConnectionFunctions(v557,v694);end end end end;v558.Once=function(v695,v696) if (type(v696)=="function") then local v721;local function v722(...) task.spawn(v696,...);v721:Disconnect();end v721=v18:GetConnectionFunctions(v557,v722);return v721;end end;break;end end end end v49=2 -1 ;end if (v49==(1552 -(1126 + 425))) then v20.FireConnection=function(v516,v517,...) local v518=405 -(118 + 287) ;local v519;while true do if (v518==(0 -0)) then v519=((type(v517)=="string") and v19[v517]) or v19[v517.Name] ;for v677,v678 in pairs(v519) do task.spawn(v678,...);end break;end end end;v50({"FlagsChanged","ThemeChanged","FileSaved","ThemeChanging","OptionAdded"});break;end end end local v21,v22,v23;do function v23(v170) return (type(v170)=="string") and (v13[v170]~=nil) ;end function v21(v171) return (type(v171)=="string") and v13[v171] ;end function v22(v172,v173) if (v172 and ((v173~=v13[v172]) or (type(v173)=="table"))) then v13[v172]=v173;v20:FireConnection("FlagsChanged",v172,v173);end end local v51;v20.FlagsChanged:Connect(function(v174,v175) local v176=v12.ScriptFile;if ( not v51 and v176 and writefile) then v51=true;task.wait(0.1);v51=false;local v426,v427=pcall(function() return v3:JSONEncode(v13);end);if v426 then local v559=0;local v560;while true do if (v559==0) then v560=pcall(writefile,v176,v427);if v560 then v20:FireConnection("FileSaved","Script-Flags",v176,v427);end break;end end end end end);end local v24=v17("ScreenGui",v5,{Name="redz Library V5"},{v17("UIScale",{Scale=v11,Name="Scale"})});local v25=v5:FindFirstChild(v24.Name);if (v25 and (v25~=v24)) then v25:Destroy();end local function v26(v52) if (type(v52)=="function") then return v52();end return v52;end local function v27(v53,v54) v53.InputBegan:Connect(function(v177) local v178=0 -0 ;while true do if (v178==(0 + 0)) then if ((v177.UserInputType==Enum.UserInputType.MouseButton1) or (v177.UserInputType==Enum.UserInputType.Touch)) then while v1:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do task.wait();end end v54();break;end end end);end local function v28(v55) local v56=v55[1 + 0 ] or v55.Instance ;local v57=v55[2 + 0 ] or v55.Prop ;local v58=v55[2 + 1 ] or v55.NewVal ;local v59=v55[4] or v55.Time or (0.5 + 0) ;local v60=v55[10 -5 ] or v55.wait or false ;local v61=TweenInfo.new(v59,Enum.EasingStyle.Quint);local v62=v2:Create(v56,v61,{[v57]=v58});v62:Play();if v60 then v62.Completed:Wait();end return v62;end local function v29(v63) task.spawn(function() v14(v63,{Active=true,AutoButtonColor=false});local v179,v180,v181;local function v182(v259) local v260=0 -0 ;local v261;local v262;while true do if (v260==(0 -0)) then v261=v259.Position-v179 ;v262=UDim2.new(v180.X.Scale,v180.X.Offset + (v261.X/v11) ,v180.Y.Scale,v180.Y.Offset + (v261.Y/v11) );v260=1 + 0 ;end if (v260==(4 -3)) then v28({v63,"Position",v262,0.35 + 0 });break;end end end v63.MouseButton1Down:Connect(function() v181=true;end);v63.InputBegan:Connect(function(v263) if ((v263.UserInputType==Enum.UserInputType.MouseButton1) or (v263.UserInputType==Enum.UserInputType.Touch)) then local v520=0 -0 ;while true do if (v520==(1202 -(373 + 829))) then v180=v63.Position;v179=v263.Position;v520=732 -(476 + 255) ;end if (v520==1) then while v1:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do local v679=1130 -(369 + 761) ;while true do if (v679==0) then v4.Heartbeat:Wait();if v181 then v182(v263);end break;end end end v181=false;break;end end end end);end);return v63;end local function v30(v64) for v183,v184 in pairs(v9.Themes) do if (v183==v64) then return true;end end end local function v31(v65,v66) if writefile then local v264=0 + 0 ;local v265;while true do if ((0 -0)==v264) then v265=v3:JSONEncode(v66);writefile(v65,v265);break;end end end end local v32=v9.Themes[v9.Save.Theme];local function v33(v67,v68) v9.Elements[v67]=v68;end local function v34(v70,v71,v72,...) local v73=0 -0 ;local v74;while true do if (v73==(238 -(64 + 174))) then v74=v9.Elements[v70](v71,v72,...);return v74;end end end v33("Corner",function(v75,v76) local v77=v14(v17("UICorner",v75,{CornerRadius=v76 or UDim.new(0 + 0 ,10 -3 ) }),props);return v77;end);v33("Stroke",function(v78,v79,...) local v80=336 -(144 + 192) ;local v81;local v82;while true do if ((216 -(42 + 174))==v80) then v81={...};v82=v16(v14(v17("UIStroke",v78,{Color=v81[1 + 0 ] or v32["Color Stroke"] ,Thickness=v81[2] or (1 + 0) ,ApplyStrokeMode="Border"}),v79),"Stroke");v80=1;end if (v80==(1505 -(363 + 1141))) then return v82;end end end);v33("Button",function(v83,v84,...) local v85={...};local v86=v16(v14(v17("TextButton",v83,{Text="",Size=UDim2.fromScale(1,1),BackgroundColor3=v32["Color Hub 2"],AutoButtonColor=false}),v84),"Frame");v86.MouseEnter:Connect(function() v86.BackgroundTransparency=1580.4 -(1183 + 397) ;end);v86.MouseLeave:Connect(function() v86.BackgroundTransparency=0;end);if v85[1] then v86.Activated:Connect(v85[1]);end return v86;end);v33("Gradient",function(v87,v88,...) local v89={...};local v90=v16(v14(v17("UIGradient",v87,{Color=v32["Color Hub 1"]}),v88),"Gradient");return v90;end);local function v35(v91,v92,v93,v94) local v95=v16(v17("TextLabel",{Font=Enum.Font.GothamMedium,TextColor3=v32["Color Text"],Size=UDim2.new(1 + 0 , -(15 + 5)),AutomaticSize="Y",Position=UDim2.new(0,1975 -(1913 + 62) ,0.5 + 0 ),AnchorPoint=Vector2.new(0,0.5 -0 ),BackgroundTransparency=1934 -(565 + 1368) ,TextTruncate="AtEnd",TextSize=10,TextXAlignment="Left",Text="",RichText=true}),"Text");local v96=v16(v17("TextLabel",{Font=Enum.Font.Gotham,TextColor3=v32["Color Dark Text"],Size=UDim2.new(3 -2 , -(1681 -(1477 + 184))),AutomaticSize="Y",Position=UDim2.new(0 -0 ,12,0,14 + 1 ),BackgroundTransparency=1,TextWrapped=true,TextSize=8,TextXAlignment="Left",Text="",RichText=true}),"DarkText");local v97=v34("Button",v91,{Size=UDim2.new(1,0,856 -(564 + 292) ,42 -17 ),AutomaticSize="Y",Name="Option"});v34("Corner",v97,UDim.new(0 -0 ,6));LabelHolder=v17("Frame",v97,{AutomaticSize="Y",BackgroundTransparency=305 -(244 + 60) ,Size=v94,Position=UDim2.new(0 + 0 ,486 -(41 + 435) ,0),AnchorPoint=Vector2.new(0,0)},{v17("UIListLayout",{SortOrder="LayoutOrder",VerticalAlignment="Center",Padding=UDim.new(1001 -(938 + 63) ,2 + 0 )}),v17("UIPadding",{PaddingBottom=UDim.new(0,2 + 3 ),PaddingTop=UDim.new(1613 -(1565 + 48) ,5)}),v95,v96});local v98={};v98.SetTitle=function(v187,v188) if ((type(v188)=="string") and (v188:gsub(" ",""):len()>0)) then v95.Text=v188;end end;v98.SetDesc=function(v189,v190) if ((type(v190)=="string") and (v190:gsub(" ",""):len()>(267 -(176 + 91)))) then v96.Visible=true;v96.Text=v190;LabelHolder.Position=UDim2.new(0,10,0 -0 );LabelHolder.AnchorPoint=Vector2.new(0 -0 ,0);else local v433=1092 -(975 + 117) ;while true do if (v433==(1875 -(157 + 1718))) then v96.Visible=false;v96.Text="";v433=1 + 0 ;end if (v433==1) then LabelHolder.Position=UDim2.new(0,35 -25 ,0.5);LabelHolder.AnchorPoint=Vector2.new(0 -0 ,1018.5 -(697 + 321) );break;end end end end;v98:SetTitle(v92);v98:SetDesc(v93);return v97,v98;end local function v36(v101) if v101:IsA("Frame") then return "BackgroundColor3";elseif v101:IsA("ImageLabel") then return "ImageColor3";elseif v101:IsA("TextLabel") then return "TextColor3";elseif v101:IsA("ScrollingFrame") then return "ScrollBarImageColor3";elseif v101:IsA("UIStroke") then return "Color";end return "";end v9.GetIcon=function(v102,v103) local v104=0;while true do if (v104==(2 -1)) then for v521,v522 in pairs(v9.Icons) do v521=v521:gsub("lucide",""):gsub("-","");if (v521==v103) then return v522;end end for v523,v524 in pairs(v9.Icons) do v523=v523:gsub("lucide",""):gsub("-","");if v523:find(v103) then return v524;end end v104=3 -1 ;end if (v104==(4 -2)) then return v103;end if (v104==0) then if (v103:find("rbxassetid://") or (v103:len()<(1 + 0))) then return v103;end v103=v103:lower():gsub("lucide",""):gsub("-","");v104=1 -0 ;end end end;v9.SetTheme=function(v105,v106) if  not v30(v106) then return;end v9.Save.Theme=v106;v31("redz library V5.json",v9.Save);v32=v9.Themes[v106];Comnection:FireConnection("ThemeChanged",v106);table.foreach(v9.Instances,function(v191,v192) if (v192.Type=="Gradient") then v192.Instance.Color=v32["Color Hub 1"];elseif (v192.Type=="Frame") then v192.Instance.BackgroundColor3=v32["Color Hub 2"];elseif (v192.Type=="Stroke") then v192.Instance[v36(v192.Instance)]=v32["Color Stroke"];elseif (v192.Type=="Theme") then v192.Instance[v36(v192.Instance)]=v32["Color Theme"];elseif (v192.Type=="Text") then v192.Instance[v36(v192.Instance)]=v32["Color Text"];elseif (v192.Type=="DarkText") then v192.Instance[v36(v192.Instance)]=v32["Color Dark Text"];elseif (v192.Type=="ScrollBar") then v192.Instance[v36(v192.Instance)]=v32["Color Theme"];end end);end;v9.SetScale=function(v109,v110) local v111=0 -0 ;while true do if (v111==(1227 -(322 + 905))) then v110=v10.Y/math.clamp(v110,911 -(602 + 9) ,2000) ;v11,v24.Scale.Scale=v110,v110;break;end end end;v9.MakeWindow=function(v112,v113) local v114=v113[1190 -(449 + 740) ] or v113.Name or v113.Title or "redz Library V5" ;local v115=v113[874 -(826 + 46) ] or v113.SubTitle or "by : redz9999" ;v12.ScriptFile=v113[3] or v113.SaveFolder or false ;local function v117() local v193=v12.ScriptFile;if (type(v193)~="string") then return;end if ( not readfile or  not isfile) then return;end local v194,v195=pcall(isfile,v193);if (v194 and v195) then local v437,v438=pcall(readfile,v193);if (v437 and (type(v438)=="string")) then local v563,v564=pcall(function() return v3:JSONDecode(v438);end);v13=(v563 and v564) or {} ;end end end v117();local v118,v119=unpack(v9.Save.UISize);local v120=v16(v17("ImageButton",v24,{Size=UDim2.fromOffset(v118,v119),Position=UDim2.new(0.5, -v118/(949 -(245 + 702)) ,0.5 -0 , -v119/(1 + 1) ),BackgroundTransparency=0.03,Name="Hub"}),"Main");v34("Gradient",v120,{Rotation=45});v29(v120);local v121=v34("Corner",v120);local v122=v17("Folder",v120,{Name="Components"});local v123=v17("Folder",v24,{Name="Dropdown"});local v124=v17("Frame",v122,{Size=UDim2.new(1,1898 -(260 + 1638) ,440 -(382 + 58) ,89 -61 ),BackgroundTransparency=1 + 0 ,Name="Top Bar"});local v125=v16(v17("TextLabel",v124,{Position=UDim2.new(0 -0 ,44 -29 ,1205.5 -(902 + 303) ),AnchorPoint=Vector2.new(0 -0 ,0.5),AutomaticSize="XY",Text=v114,TextXAlignment="Left",TextSize=28 -16 ,TextColor3=v32["Color Text"],BackgroundTransparency=1 + 0 ,Font=Enum.Font.GothamMedium,Name="Title"},{v16(v17("TextLabel",{Size=UDim2.fromScale(0,1691 -(1121 + 569) ),AutomaticSize="X",AnchorPoint=Vector2.new(0,215 -(22 + 192) ),Position=UDim2.new(1,688 -(483 + 200) ,1463.9 -(1404 + 59) ),Text=v115,TextColor3=v32["Color Dark Text"],BackgroundTransparency=1,TextXAlignment="Left",TextYAlignment="Bottom",TextSize=21 -13 ,Font=Enum.Font.Gotham,Name="SubTitle"}),"DarkText")}),"Text");local v126=v16(v17("ScrollingFrame",v122,{Size=UDim2.new(0,v9.Save.TabSize,1 -0 , -v124.Size.Y.Offset),ScrollBarImageColor3=v32["Color Theme"],Position=UDim2.new(0,765 -(468 + 297) ,1,562 -(334 + 228) ),AnchorPoint=Vector2.new(0 -0 ,1),ScrollBarThickness=1.5,BackgroundTransparency=2 -1 ,ScrollBarImageTransparency=0.2,CanvasSize=UDim2.new(),AutomaticCanvasSize="Y",ScrollingDirection="Y",BorderSizePixel=0 -0 ,Name="Tab Scroll"},{v17("UIPadding",{PaddingLeft=UDim.new(0,10),PaddingRight=UDim.new(0,10),PaddingTop=UDim.new(236 -(141 + 95) ,10 + 0 ),PaddingBottom=UDim.new(0,25 -15 )}),v17("UIListLayout",{Padding=UDim.new(0 + 0 ,13 -8 )})}),"ScrollBar");local v127=v17("Frame",v122,{Size=UDim2.new(1 + 0 , -v126.Size.X.Offset,1, -v124.Size.Y.Offset),AnchorPoint=Vector2.new(1,1 + 0 ),Position=UDim2.new(1,0 -0 ,1 + 0 ,163 -(92 + 71) ),BackgroundTransparency=1 + 0 ,ClipsDescendants=true,Name="Containers"});local v128,v129=v29(v17("ImageButton",v120,{Size=UDim2.new(0,58 -23 ,765 -(574 + 191) ,35),Position=v120.Size,Active=true,AnchorPoint=Vector2.new(0.8 + 0 ,0.8),BackgroundTransparency=2 -1 ,Name="Control Hub Size"})),v29(v17("ImageButton",v120,{Size=UDim2.new(0 + 0 ,869 -(254 + 595) ,127 -(55 + 71) , -(39 -9)),Position=UDim2.new(1790 -(573 + 1217) ,v126.Size.X.Offset,2 -1 ,0 + 0 ),AnchorPoint=Vector2.new(0.5 -0 ,940 -(714 + 225) ),Active=true,BackgroundTransparency=2 -1 ,Name="Control Tab Size"}));local function v130() local v196=0 -0 ;local v197;local v198;while true do if (0==v196) then v197,v198=v128.Position,v129.Position;v128.Position=UDim2.fromOffset(math.clamp(v197.X.Offset,430,109 + 891 ),math.clamp(v197.Y.Offset,200,723 -223 ));v196=807 -(118 + 688) ;end if (v196==(50 -(25 + 23))) then v127.Size=UDim2.new(1, -v126.Size.X.Offset,1, -v124.Size.Y.Offset);v120.Size=v128.Position;break;end if (v196==(1 + 0)) then v129.Position=UDim2.new(1886 -(927 + 959) ,math.clamp(v198.X.Offset,455 -320 ,250),733 -(16 + 716) ,0);v126.Size=UDim2.new(0,v129.Position.X.Offset,1 -0 , -v124.Size.Y.Offset);v196=2;end end end v128:GetPropertyChangedSignal("Position"):Connect(v130);v129:GetPropertyChangedSignal("Position"):Connect(v130);v27(v128,function() if  not Minimized then v9.Save.UISize={v120.Size.X.Offset,v120.Size.Y.Offset};v31("redz library V5.json",v9.Save);end end);v27(v129,function() v9.Save.TabSize=v126.Size.X.Offset;v31("redz library V5.json",v9.Save);end);local v131=v17("Folder",v124,{Name="Buttons"});local v132=v17("ImageButton",{Size=UDim2.new(0 -0 ,14,285 -(175 + 110) ,14),Position=UDim2.new(2 -1 , -10,0.5),AnchorPoint=Vector2.new(4 -3 ,1796.5 -(503 + 1293) ),BackgroundTransparency=2 -1 ,Image="rbxassetid://10747384394",AutoButtonColor=false,Name="Close"});local v133=v14(v132:Clone(),{Position=UDim2.new(1 + 0 , -(1096 -(810 + 251)),0.5),Image="rbxassetid://10734896206",Name="Minimize"});v15(v131,{v132,v133});local v134,v135,v136;local v137,v138={},false;v137.CloseBtn=function(v201) local v202=v137:Dialog({Title="Close",Text="Are you sure you want to close this script??",Options={{"Confirm",function() v24:Destroy();end},{"Cancel"}}});end;v137.MinimizeBtn=function(v203) local v204=0 -0 ;while true do if (v204==1) then if v134 then v133.Image="rbxassetid://10734896206";v28({v120,"Size",v135,0.25,true});v128.Visible=true;v129.Visible=true;v134=false;else v133.Image="rbxassetid://10734924532";v135=v120.Size;v128.Visible=false;v129.Visible=false;v28({v120,"Size",UDim2.fromOffset(v120.Size.X.Offset,28),0.25 + 0 ,true});v134=true;end v136=false;break;end if (v204==(0 -0)) then if v136 then return;end v136=true;v204=1740 -(404 + 1335) ;end end end;v137.Minimize=function(v205) v120.Visible= not v120.Visible;end;v137.AddMinimizeButton=function(v207,v208) local v209=406 -(183 + 223) ;local v210;local v211;local v212;while true do if (v209==(3 -0)) then return {Stroke=v211,Corner=v212,Button=v210};end if (v209==(2 + 0)) then v14(v210,v208.Button);v210.Activated:Connect(v137.Minimize);v209=2 + 1 ;end if (v209==(337 -(10 + 327))) then v210=v29(v17("ImageButton",v24,{Size=UDim2.fromOffset(25 + 10 ,35),Position=UDim2.fromScale(338.15 -(118 + 220) ,0.15 + 0 ),BackgroundTransparency=1,BackgroundColor3=v32["Color Hub 2"],AutoButtonColor=false}));v211,v212=nil;v209=450 -(108 + 341) ;end if (v209==(1 + 0)) then if v208.Corner then local v599=0;while true do if ((0 -0)==v599) then v212=v34("Corner",v210);v14(v212,v208.Corner);break;end end end if v208.Stroke then v211=v34("Stroke",v210);v14(v211,v208.Corner);end v209=1495 -(711 + 782) ;end end end;v137.Set=function(v213,v214,v215) if ((type(v214)=="string") and (type(v215)=="string")) then local v440=0 -0 ;while true do if (v440==0) then v125.Text=v214;v125.SubTitle.Text=v215;break;end end elseif (type(v214)=="string") then v125.Text=v214;end end;v137.Dialog=function(v216,v217) if v120:FindFirstChild("Dialog") then return;end if v134 then v137:MinimizeBtn();end local v218=v217[470 -(270 + 199) ] or v217.Title or "Dialog" ;local v219=v217[2] or v217.Text or "This is a Dialog" ;local v220=v217[3] or v217.Options or {} ;local v221=v17("Frame",{Active=true,Size=UDim2.fromOffset(250 * 1.08 ,(49 + 101) * (1820.08 -(580 + 1239)) ),Position=UDim2.fromScale(0.5,0.5),AnchorPoint=Vector2.new(0.5 -0 ,0.5)},{v16(v17("TextLabel",{Font=Enum.Font.GothamBold,Size=UDim2.new(1 + 0 ,0,0 + 0 ,20),Text=v218,TextXAlignment="Left",TextColor3=v32["Color Text"],TextSize=39 -24 ,Position=UDim2.fromOffset(15,4 + 1 ),BackgroundTransparency=1168 -(645 + 522) }),"Text"),v16(v17("TextLabel",{Font=Enum.Font.GothamMedium,Size=UDim2.new(1 + 0 , -25),AutomaticSize="Y",Text=v219,TextXAlignment="Left",TextColor3=v32["Color Dark Text"],TextSize=57 -45 ,Position=UDim2.fromOffset(15,73 -48 ),BackgroundTransparency=1,TextWrapped=true}),"DarkText")});v34("Gradient",v221,{Rotation=2106 -(1045 + 791) });v34("Corner",v221);local v222=v17("Frame",v221,{Size=UDim2.fromScale(2 -1 ,0.35 -0 ),Position=UDim2.fromScale(505 -(351 + 154) ,1),AnchorPoint=Vector2.new(0,1575 -(1281 + 293) ),BackgroundColor3=v32["Color Hub 2"],BackgroundTransparency=267 -(28 + 238) },{v17("UIListLayout",{Padding=UDim.new(1559 -(1381 + 178) ,10),VerticalAlignment="Center",FillDirection="Horizontal",HorizontalAlignment="Center"})});local v223=v16(v17("Frame",v120,{BackgroundTransparency=0.6 + 0 ,Active=true,BackgroundColor3=v32["Color Hub 2"],Size=UDim2.new(1,0 + 0 ,1,0),BackgroundColor3=v32["Color Stroke"],Name="Dialog"}),"Stroke");v121:Clone().Parent=v223;v221.Parent=v223;v28({v221,"Size",UDim2.fromOffset(130 + 120 ,150),0.2 + 0 });v28({v221,"Transparency",0 -0 ,1455.15 -(990 + 465) });v28({v223,"Transparency",0.3 -0 ,626.15 -(512 + 114) });local v226,v227=2 -1 ,{};v227.Button=function(v266,v267) local v268=0 -0 ;local v269;local v270;local v271;while true do if (v268==3) then for v602,v603 in pairs(v222:GetChildren()) do if v603:IsA("TextButton") then v603.Size=UDim2.new(1/v226 , -(((v226-(3 -2)) * (10 + 10))/v226),0 + 0 ,28 + 4 );end end v271.Activated:Connect(v227.Close);v268=13 -9 ;end if ((1994 -(109 + 1885))==v268) then v269=v267[1470 -(1269 + 200) ] or v267.Name or v267.Title or "" ;v270=v267[3 -1 ] or v267.Callback or function() end ;v268=816 -(98 + 717) ;end if (v268==(830 -(802 + 24))) then v271.Activated:Connect(v270);break;end if (2==v268) then v34("Corner",v271);v14(v271,{Text=v269,Font=Enum.Font.GothamBold,TextColor3=v32["Color Text"],TextSize=20 -8 });v268=3 -0 ;end if (v268==(1 + 0)) then v226=v226 + 1 ;v271=v34("Button",v222);v268=2 + 0 ;end end end;v227.Close=function(v272) v28({v221,"Size",UDim2.fromOffset(250 * (2.08 -1) ,(500 -350) * (1.08 + 0) ),0.2 + 0 });v28({v223,"Transparency",1 + 0 ,1433.15 -(797 + 636) });v28({v221,"Transparency",2 -1 ,0.15 + 0 ,true});v223:Destroy();end;table.foreach(v220,function(v273,v274) v227:Button(v274);end);return v227;end;v137.SelectTab=function(v230,v231) if (type(v231)=="number") then v9.Tabs[v231].func:Enable();else for v532,v533 in pairs(v9.Tabs) do if (v533.Cont==v231.Cont) then v533.func:Enable();end end end end;local v146={};v137.MakeTab=function(v232,v233,v234) if (type(v233)=="table") then v234=v233;end local v235=v234[327 -(192 + 134) ] or v234.Title or "Tab!" ;local v236=v234[1278 -(316 + 960) ] or v234.Icon or "" ;v236=v9:GetIcon(v236);if ( not v236:find("rbxassetid://") or (v236:gsub("rbxassetid://",""):len()<6)) then v236=false;end local v237=v34("Button",v126,{Size=UDim2.new(1 + 0 ,0,0,19 + 5 )});v34("Corner",v237);local v238=v16(v17("TextLabel",v237,{Size=UDim2.new(1,(v236 and  -(24 + 1)) or  -(57 -42) ,552 -(83 + 468) ),Position=UDim2.fromOffset((v236 and (1831 -(1202 + 604))) or (70 -55) ),BackgroundTransparency=1 -0 ,Font=Enum.Font.GothamMedium,Text=v235,TextColor3=v32["Color Text"],TextSize=10,TextXAlignment=Enum.TextXAlignment.Left,TextTransparency=(v138 and (0.3 -0)) or 0 ,TextTruncate="AtEnd"}),"Text");local v239=v16(v17("ImageLabel",v237,{Position=UDim2.new(325 -(45 + 280) ,8 + 0 ,0.5 + 0 ),Size=UDim2.new(0,5 + 8 ,0,8 + 5 ),AnchorPoint=Vector2.new(0 + 0 ,0.5 -0 ),Image=v236 or "" ,BackgroundTransparency=1912 -(340 + 1571) ,ImageTransparency=(v138 and 0.3) or 0 }),"Text");local v240=v16(v17("Frame",v237,{Size=(v138 and UDim2.new(0 + 0 ,1776 -(1733 + 39) ,0 -0 ,1038 -(125 + 909) )) or UDim2.new(1948 -(1096 + 852) ,4,0,13) ,Position=UDim2.new(0 + 0 ,1 -0 ,0.5),AnchorPoint=Vector2.new(0 + 0 ,0.5),BackgroundColor3=v32["Color Theme"],BackgroundTransparency=(v138 and (513 -(409 + 103))) or (236 -(46 + 190)) }),"Theme");v34("Corner",v240,UDim.new(95.5 -(51 + 44) ,0 + 0 ));local v241=v16(v17("ScrollingFrame",{Size=UDim2.new(1318 -(1114 + 203) ,0,727 -(228 + 498) ,0 + 0 ),Position=UDim2.new(0 + 0 ,663 -(174 + 489) ,1),AnchorPoint=Vector2.new(0 -0 ,1906 -(830 + 1075) ),ScrollBarThickness=525.5 -(303 + 221) ,BackgroundTransparency=1,ScrollBarImageTransparency=0.2,ScrollBarImageColor3=v32["Color Theme"],AutomaticCanvasSize="Y",ScrollingDirection="Y",BorderSizePixel=1269 -(231 + 1038) ,CanvasSize=UDim2.new(),Name=("Container %i [ %s ]"):format( #v146 + 1 ,v235)},{v17("UIPadding",{PaddingLeft=UDim.new(1162 -(171 + 991) ,41 -31 ),PaddingRight=UDim.new(0 -0 ,24 -14 ),PaddingTop=UDim.new(0 + 0 ,10),PaddingBottom=UDim.new(0,35 -25 )}),v17("UIListLayout",{Padding=UDim.new(0,5)})}),"ScrollBar");table.insert(v146,v241);if  not v138 then v241.Parent=v127;end local function v242() if v241.Parent then return;end for v442,v443 in pairs(v146) do if (v443:IsA("ScrollingFrame") and (v443~=v241)) then v443.Parent=nil;end end v241.Parent=v127;v241.Size=UDim2.new(2 -1 ,0 -0 ,3 -2 ,150);table.foreach(v9.Tabs,function(v444,v445) if (v445.Cont~=v241) then v445.func:Disable();end end);v28({v241,"Size",UDim2.new(1,0,1,0 -0 ),523.3 -(423 + 100) });v28({v238,"TextTransparency",771 -(326 + 445) ,0.35 -0 });v28({v239,"ImageTransparency",32 -(19 + 13) ,0.35 -0 });v28({v240,"Size",UDim2.new(0 -0 ,4,0 -0 ,1825 -(1293 + 519) ),0.35});v28({v240,"BackgroundTransparency",0 -0 ,0.35 + 0 });end v237.Activated:Connect(v242);v138=true;local v243={};table.insert(v9.Tabs,{TabInfo={Name=v235,Icon=v236},func=v243,Cont=v241});v243.Cont=v241;v243.Disable=function(v277) local v278=0 + 0 ;while true do if (v278==(2 -1)) then v28({v239,"ImageTransparency",0.3 + 0 ,0.35});v28({v240,"Size",UDim2.new(0,6 -2 ,0,3 + 1 ),0.35 -0 });v278=2;end if (v278==(1 + 1)) then v28({v240,"BackgroundTransparency",1,1880.35 -(446 + 1434) });break;end if (v278==(1283 -(1040 + 243))) then v241.Parent=nil;v28({v238,"TextTransparency",0.3,0.35 -0 });v278=2 -1 ;end end end;v243.Enable=function(v279) v242();end;v243.Visible=function(v280,v281) local v282=0;while true do if (v282==(0 -0)) then v18:ToggleVisible(v237,v281);v18:ToggleParent(v241,v281,v127);break;end end end;v243.Destroy=function(v283) local v284=0;while true do if (v284==(0 + 0)) then v237:Destroy();v241:Destroy();break;end end end;v243.AddSection=function(v285,v286) local v287=0 -0 ;local v288;local v289;local v290;local v291;while true do if (v287==(1 + 1)) then table.insert(v9.Options,{type="Section",Name=v288,func=v291});v291.Visible=function(v604,v605) local v606=0;while true do if (v606==(0 + 0)) then if (v605==nil) then v289.Visible= not v289.Visible;return;end v289.Visible=v605;break;end end end;v287=8 -5 ;end if (v287==(3 + 1)) then return v291;end if (v287==(1 -0)) then v290=v16(v17("TextLabel",v289,{Font=Enum.Font.GothamBold,Text=v288,TextColor3=v32["Color Text"],Size=UDim2.new(1, -(17 + 8),1,0 + 0 ),Position=UDim2.new(0 + 0 ,5),BackgroundTransparency=1,TextTruncate="AtEnd",TextSize=12 + 2 ,TextXAlignment="Left"}),"Text");v291={};v287=2 + 0 ;end if (v287==3) then v291.Destroy=function(v607) v289:Destroy();end;v291.Set=function(v608,v609) if v609 then v290.Text=v26(v609);end end;v287=437 -(153 + 280) ;end if (0==v287) then v288=((type(v286)=="string") and v286) or v286[2 -1 ] or v286.Name or v286.Title or v286.Section ;v289=v17("Frame",v241,{Size=UDim2.new(1 + 0 ,0 + 0 ,0 + 0 ,19 + 1 ),BackgroundTransparency=1,Name="Option"});v287=1;end end end;v243.AddParagraph=function(v292,v293) local v294=0 + 0 ;local v295;local v296;local v297;local v298;local v299;while true do if ((4 -1)==v294) then v299.SetTitle=function(v610,v611) v298:SetTitle(v26(v611));end;v299.SetDesc=function(v612,v613) v298:SetDesc(v26(v613));end;v294=3 + 1 ;end if (v294==2) then v299.Visible=function(v614,...) v18:ToggleVisible(v297,...);end;v299.Destroy=function(v615) v297:Destroy();end;v294=670 -(89 + 578) ;end if (v294==(0 + 0)) then v295=v293[1 -0 ] or v293.Title or "Paragraph" ;v296=v293[1051 -(572 + 477) ] or v293.Text or "" ;v294=1 + 0 ;end if (v294==(1 + 0)) then v297,v298=v35(v241,v295,v296,UDim2.new(1 + 0 , -(106 -(84 + 2))));v299={};v294=2;end if (v294==4) then v299.Set=function(v616,v617,v618) if (v617 and v618) then local v682=0;while true do if (v682==0) then v298:SetTitle(v26(v617));v298:SetDesc(v26(v618));break;end end elseif v617 then v298:SetDesc(v26(v617));end end;return v299;end end end;v243.AddButton=function(v300,v301) local v302=0 -0 ;local v303;local v304;local v305;local v306;local v307;local v308;local v309;while true do if (v302==1) then v306,v307=v35(v241,v303,v304,UDim2.new(1, -20));v308=v17("ImageLabel",v306,{Size=UDim2.new(0 + 0 ,14,0,856 -(497 + 345) ),Position=UDim2.new(1 + 0 , -10,0.5 + 0 ),AnchorPoint=Vector2.new(1334 -(605 + 728) ,0.5 + 0 ),BackgroundTransparency=1,Image="rbxassetid://10709791437"});v306.Activated:Connect(function() v18:FireCallback(v305);end);v302=2;end if (v302==2) then v309={};v309.Visible=function(v619,...) v18:ToggleVisible(v306,...);end;v309.Destroy=function(v620) v306:Destroy();end;v302=6 -3 ;end if (0==v302) then v303=v301[1 + 0 ] or v301.Name or v301.Title or "Button!" ;v304=v301.Desc or v301.Description or "" ;v305=v18:GetCallback(v301,2);v302=3 -2 ;end if (v302==(3 + 0)) then v309.Callback=function(v621,...) v18:InsertCallback(v305,...);end;v309.Set=function(v622,v623,v624) if ((type(v623)=="string") and (type(v624)=="string")) then local v683=0 -0 ;while true do if (v683==(0 + 0)) then v307:SetTitle(v623);v307:SetDesc(v624);break;end end elseif (type(v623)=="string") then v307:SetTitle(v623);elseif (type(v623)=="function") then v305=v623;end end;return v309;end end end;v243.AddToggle=function(v310,v311) local v312=0;local v313;local v314;local v315;local v316;local v317;local v318;local v319;local v320;local v321;local v322;local v323;local v324;while true do if (v312==(493 -(457 + 32))) then v318.Activated:Connect(function() v324( not v317);end);v322={};v322.Visible=function(v625,...) v18:ToggleVisible(v318,...);end;v322.Destroy=function(v626) v318:Destroy();end;v312=5;end if (1==v312) then v317=v311[1 + 1 ] or v311.Default or false ;if v23(v316) then v317=v21(v316);end v318,v319=v35(v241,v313,v314,UDim2.new(1, -(1440 -(832 + 570))));v320=v16(v17("Frame",v318,{Size=UDim2.new(0 + 0 ,35,0 + 0 ,63 -45 ),Position=UDim2.new(1 + 0 , -10,796.5 -(588 + 208) ),AnchorPoint=Vector2.new(2 -1 ,0.5),BackgroundColor3=v32["Color Stroke"]}),"Stroke");v312=2;end if (v312==(1803 -(884 + 916))) then v323=nil;v324=nil;function v324(v627) if v323 then return;end v323,v317=true,v627;v22(v316,v317);v18:FireCallback(v315,v317);if v317 then v28({v322,"Position",UDim2.new(1 + 0 ,0,653.5 -(232 + 421) ),0.25 + 0 });v28({v322,"BackgroundTransparency",0,0.25 -0 });v28({v322,"AnchorPoint",Vector2.new(1,0.5),0.25,Wait or false });else v28({v322,"Position",UDim2.new(0 + 0 ,0 -0 ,0.5),899.25 -(503 + 396) });v28({v322,"BackgroundTransparency",0.8,0.25});v28({v322,"AnchorPoint",Vector2.new(0,0.5 -0 ),0.25,Wait or false });end v323=false;end task.spawn(v324,v317);v312=4;end if (v312==0) then v313=v311[1 + 0 ] or v311.Name or v311.Title or "Toggle" ;v314=v311.Desc or v311.Description or "" ;v315=v18:GetCallback(v311,3);v316=v311[4] or v311.Flag or false ;v312=2 -1 ;end if (v312==(1 + 4)) then v322.Callback=function(v628,...) v18:InsertCallback(v315,...)();end;v322.Set=function(v629,v630,v631) if ((type(v630)=="string") and (type(v631)=="string")) then local v684=0 -0 ;while true do if ((1244 -(485 + 759))==v684) then v319:SetTitle(v630);v319:SetDesc(v631);break;end end elseif (type(v630)=="string") then v319:SetTitle(v630,false,true);elseif (type(v630)=="boolean") then local v732=0 -0 ;while true do if (v732==(1189 -(442 + 747))) then if (v323 and v631) then repeat task.wait();until  not v323 end task.spawn(v324,v630);break;end end elseif (type(v630)=="function") then v315=v630;end end;return v322;end if (v312==(1137 -(832 + 303))) then v34("Corner",v320,UDim.new(0.5,0));v321=v17("Frame",v320,{BackgroundTransparency=947 -(88 + 858) ,Size=UDim2.new(0.8,0 + 0 ,0.8 + 0 ,0 + 0 ),Position=UDim2.new(789.5 -(766 + 23) ,0 -0 ,0.5,0),AnchorPoint=Vector2.new(0.5,0.5 -0 )});v322=v16(v17("Frame",v321,{Size=UDim2.new(0 -0 ,12,0,12),Position=UDim2.new(0 -0 ,1073 -(1036 + 37) ,0.5 + 0 ),AnchorPoint=Vector2.new(0,0.5 -0 ),BackgroundColor3=v32["Color Theme"]}),"Theme");v34("Corner",v322,UDim.new(0.5 + 0 ,1480 -(641 + 839) ));v312=3;end end end;v243.AddDropdown=function(v325,v326) local v327=v326[914 -(910 + 3) ] or v326.Name or v326.Title or "Dropdown" ;local v328=v326.Desc or v326.Description or "" ;local v329=v326[4 -2 ] or v326.Options or {} ;local v330=v326[3] or v326.Default or {} ;local v331=v326[5] or v326.Flag or false ;local v332=v326.MultiSelect or false ;local v333=v18:GetCallback(v326,1688 -(1466 + 218) );local v334,v335=v35(v241,v327,v328,UDim2.new(1, -(83 + 97)));local v336=v16(v17("Frame",v334,{Size=UDim2.new(0,1298 -(556 + 592) ,0 + 0 ,826 -(329 + 479) ),Position=UDim2.new(855 -(174 + 680) , -10,0.5 -0 ),AnchorPoint=Vector2.new(1 -0 ,0.5 + 0 ),BackgroundColor3=v32["Color Stroke"]}),"Stroke");v34("Corner",v336,UDim.new(739 -(396 + 343) ,1 + 3 ));local v337=v16(v17("TextLabel",v336,{Size=UDim2.new(1477.85 -(29 + 1448) ,1389 -(135 + 1254) ,0.85,0 -0 ),AnchorPoint=Vector2.new(0.5 -0 ,0.5 + 0 ),Position=UDim2.new(0.5,0,1527.5 -(389 + 1138) ,574 -(102 + 472) ),BackgroundTransparency=1,Font=Enum.Font.GothamBold,TextScaled=true,TextColor3=v32["Color Text"],Text="..."}),"Text");local v338=v17("ImageLabel",v336,{Size=UDim2.new(0 + 0 ,9 + 6 ,0 + 0 ,1560 -(320 + 1225) ),Position=UDim2.new(0, -(8 -3),0.5 + 0 ),AnchorPoint=Vector2.new(1465 -(157 + 1307) ,1859.5 -(821 + 1038) ),Image="rbxassetid://10709791523",BackgroundTransparency=2 -1 });local v339=v17("TextButton",v123,{Name="AntiClick",Size=UDim2.new(1 + 0 ,0 -0 ,1 + 0 ,0 -0 ),BackgroundTransparency=1027 -(834 + 192) ,Visible=false,Text=""});local v340=v17("Frame",v339,{Size=UDim2.new(v336.Size.X,0 + 0 ,0),BackgroundTransparency=0.1 + 0 ,BackgroundColor3=Color3.fromRGB(6 + 249 ,255,255),AnchorPoint=Vector2.new(0,1),Name="DropdownFrame",ClipsDescendants=true,Active=true});v34("Corner",v340);v34("Stroke",v340);v34("Gradient",v340,{Rotation=92 -32 });local v341=v16(v17("ScrollingFrame",v340,{ScrollBarImageColor3=v32["Color Theme"],Size=UDim2.new(1,0,305 -(300 + 4) ,0 + 0 ),ScrollBarThickness=1.5,BackgroundTransparency=2 -1 ,BorderSizePixel=362 -(112 + 250) ,CanvasSize=UDim2.new(),ScrollingDirection="Y",AutomaticCanvasSize="Y",Active=true},{v17("UIPadding",{PaddingLeft=UDim.new(0 -0 ,8),PaddingRight=UDim.new(0 + 0 ,5 + 3 ),PaddingTop=UDim.new(0 + 0 ,5),PaddingBottom=UDim.new(0 + 0 ,4 + 1 )}),v17("UIListLayout",{Padding=UDim.new(0 -0 ,886 -(244 + 638) )})}),"ScrollBar");local v342,v343=5;local function v344() v343=true;v28({v338,"Rotation",0,1906.2 -(1665 + 241) });v28({v340,"Size",UDim2.new(0 + 0 ,41 + 111 ,0 -0 ,0 -0 ),0.2,true});v28({v338,"ImageColor3",Color3.fromRGB(2 + 253 ,255,1491 -(298 + 938) ),1259.2 -(233 + 1026) });v338.Image="rbxassetid://10709791523";v339.Visible=false;v343=false;end local function v345() return UDim2.fromOffset(152,v342);end local function v346() local v448=1666 -(636 + 1030) ;local v449;while true do if (v448==(0 + 0)) then v449=0;for v669,v670 in pairs(v341:GetChildren()) do if (v670:IsA("Frame") or (v670.Name=="Option")) then v449=v449 + 1 + 0 ;end end v448=1;end if (v448==1) then v342=(math.clamp(v449,0 + 0 ,1 + 9 ) * 25) + (231 -(55 + 166)) ;if v339.Visible then local v685=0 + 0 ;while true do if (0==v685) then v339.Visible=true;v28({v340,"Size",v345(),0.2 -0 ,true});break;end end end break;end end end local function v347() local v450=1368 -(34 + 1334) ;while true do if (v450==(1 + 0)) then if v339.Visible then local v686=0;while true do if ((0 + 0)==v686) then v338.Image="rbxassetid://10709791523";v28({v338,"ImageColor3",Color3.fromRGB(133 + 122 ,574 -(134 + 185) ,1388 -(549 + 584) ),0.2});v686=3 -2 ;end if (v686==(969 -(478 + 490))) then v28({v340,"Size",UDim2.new(1172 -(786 + 386) ,492 -340 ,1379 -(1055 + 324) ,1340 -(1093 + 247) ),0.2,true});v339.Visible=false;break;end end else local v687=0 + 0 ;while true do if (v687==(3 -2)) then v28({v338,"ImageColor3",v32["Color Theme"],0.2 -0 });v28({v340,"Size",v345(),688.2 -(364 + 324) ,true});break;end if (v687==(0 -0)) then v339.Visible=true;v338.Image="rbxassetid://10709790948";v687=1 + 0 ;end end end v343=false;break;end if (v450==(0 -0)) then if v343 then return;end v343=true;v450=1 -0 ;end end end local function v348() local v451=v336.AbsolutePosition;local v452=v24.AbsoluteSize;local v453=math.clamp(v451.X/v11 ,0 -0 ,(v452.X/v11) -v340.Size.X.Offset );local v454=math.clamp(v451.Y/v11 ,1268 -(1249 + 19) ,v452.Y/v11 );local v455=UDim2.fromOffset(v453,v454);local v456=((v451.Y>(v452.Y/(1.4 + 0))) and 1) or ((v342>(311 -231)) and (1086.5 -(686 + 400))) or (0 + 0) ;v340.AnchorPoint=Vector2.new(229 -(73 + 156) ,v456);v28({v340,"Position",v455,0.1 + 0 });end local v349,v350,v351,v352,v353;do local v458=((type(v330)~="table") and {v330}) or v330 ;local v459=v332;local v460={};v353=(v459 and {}) or (v23(v331) and v21(v331)) or v458[471 -(224 + 246) ] ;if v459 then for v632,v633 in pairs((v23(v331) and v21(v331)) or v458 ) do if ((type(v632)=="string") and (v329[v632] or table.find(v329,v632))) then v353[v632]=v633;elseif v329[v633] then v353[v633]=true;end end end local function v461() local v534=0;while true do if (v534==0) then v22(v331,(v459 and v353) or tostring(v353) );v18:FireCallback(v333,v353);break;end end end local function v462() if v459 then local v634=0;local v635;while true do if (1==v634) then v337.Text=(( #v635>0) and table.concat(v635,", ")) or "..." ;break;end if ((0 -0)==v634) then v635={};for v709,v710 in pairs(v353) do if v710 then table.insert(v635,v709);end end v634=1 -0 ;end end else v337.Text=tostring(v353 or "..." );end end local function v463() local v535=0 + 0 ;while true do if (v535==0) then if v459 then for v711,v712 in pairs(v460) do local v713,v714=v712.nodes,v712.Stats;v28({v713[2 + 0 ],"BackgroundTransparency",(v714 and (0 -0)) or 0.8 ,513.35 -(203 + 310) });v28({v713[1995 -(1238 + 755) ],"Size",(v714 and UDim2.fromOffset(7 -3 ,16 -4 )) or UDim2.fromOffset(4,868 -(196 + 668) ) ,0.35 -0 });v28({v713[3],"TextTransparency",(v714 and 0) or (0.4 + 0) ,0.35 + 0 });end else for v715,v716 in pairs(v460) do local v717=v716.Value==v353 ;local v718=v716.nodes;v28({v718[1488 -(35 + 1451) ],"BackgroundTransparency",(v717 and 0) or 1 ,0.35 + 0 });v28({v718[2 -0 ],"Size",(v717 and UDim2.fromOffset(4,311 -(45 + 252) )) or UDim2.fromOffset(4 + 0 ,4) ,0.35 -0 });v28({v718[436 -(114 + 319) ],"TextTransparency",(v717 and 0) or 0.4 ,0.35 -0 });end end v462();break;end end end local function v464(v536) if v459 then local v637=0;while true do if (v637==(0 -0)) then v536.Stats= not v536.Stats;v536.LastCB=tick();v637=1;end if (v637==(1964 -(556 + 1407))) then v353[v536.Name]=v536.Stats;v461();break;end end else local v638=1206 -(741 + 465) ;while true do if (v638==(465 -(170 + 295))) then v536.LastCB=tick();v353=v536.Value;v638=1 + 0 ;end if (v638==(1 + 0)) then v461();break;end end end v463();end function v351(v537,v538) local v539=tostring(((type(v537)=="string") and v537) or v538 );if v460[v539] then return;end v460[v539]={index=v537,Value=v538,Name=v539,Stats=false,LastCB=0 -0 };if v459 then local v639=v353[v539];v353[v539]=v639 or false ;v460[v539].Stats=v639;end local v541=v34("Button",v341,{Name="Option",Size=UDim2.new(1 + 0 ,0 + 0 ,0 + 0 ,1251 -(957 + 273) ),Position=UDim2.new(0 + 0 ,0 + 0 ,0.5),AnchorPoint=Vector2.new(0 -0 ,0.5)});v34("Corner",v541,UDim.new(0 -0 ,4));local v542=v16(v17("Frame",v541,{Position=UDim2.new(0 -0 ,4 -3 ,1780.5 -(389 + 1391) ),Size=UDim2.new(0,4,0 + 0 ,1 + 3 ),BackgroundColor3=v32["Color Theme"],BackgroundTransparency=2 -1 ,AnchorPoint=Vector2.new(951 -(783 + 168) ,0.5 -0 )}),"Theme");v34("Corner",v542,UDim.new(0.5 + 0 ,311 -(309 + 2) ));local v543=v16(v17("TextLabel",v541,{Size=UDim2.new(1,0 -0 ,1),Position=UDim2.new(1212 -(1090 + 122) ,4 + 6 ),Text=v539,TextColor3=v32["Color Text"],Font=Enum.Font.GothamBold,TextXAlignment="Left",BackgroundTransparency=3 -2 ,TextTransparency=0.4}),"Text");v541.Activated:Connect(function() v464(v460[v539]);end);v460[v539].nodes={v541,v542,v543};end function v352(v545,v546) local v547=tostring(((type(v545)=="string") and v545) or v546 );if v460[v547] then local v642=1118 -(628 + 490) ;while true do if (v642==0) then if v459 then v353[v547]=nil;else v353=nil;end v460[v547].nodes[1 + 0 ]:Destroy();v642=2 -1 ;end if (v642==(4 -3)) then table.clear(v460[v547]);v460[v547]=nil;break;end end end end function v350() return v460;end function v349(v548,v549) if v549 then table.foreach(v460,v352);end table.foreach(v548,v351);v461();v463();end table.foreach(v329,v351);v461();v463();end v334.Activated:Connect(v347);v339.MouseButton1Down:Connect(v344);v339.MouseButton1Click:Connect(v344);v120:GetPropertyChangedSignal("Visible"):Connect(v344);v336:GetPropertyChangedSignal("AbsolutePosition"):Connect(v348);v334.Activated:Connect(v346);v341.ChildAdded:Connect(v346);v341.ChildRemoved:Connect(v346);v348();v346();local v354={};v354.Visible=function(v465,...) v18:ToggleVisible(v334,...);end;v354.Destroy=function(v466) v334:Destroy();end;v354.Callback=function(v467,...) v18:InsertCallback(v333,...)(v353);end;v354.Add=function(v468,...) local v469={...};if (type(v469[775 -(431 + 343) ])=="table") then table.foreach(Option,function(v643,v644) v351(v644);end);else table.foreach(v469,function(v645,v646) v351(v646);end);end end;v354.Remove=function(v470,v471) for v550,v551 in pairs(v350()) do if (((type(v471)=="number") and (v550==v471)) or (v551.Name=="Option")) then v352(v550,v551.Value);end end end;v354.Select=function(v472,v473) if (type(v473)=="string") then for v647,v648 in pairs(Options) do if (v648.Name==v473) then v648.Active();end end elseif (type(v473)=="number") then for v689,v690 in pairs(Options) do if (v689==v473) then v690.Active();end end end end;v354.Set=function(v474,v475,v476) if (type(v475)=="table") then v349(v475, not v476);elseif (type(v475)=="function") then v333=v475;end end;return v354;end;v243.AddSlider=function(v362,v363) local v364=v363[1] or v363.Name or v363.Title or "Slider!" ;local v365=v363.Desc or v363.Description or "" ;local v366=v363[3 -1 ] or v363.MinValue or v363.Min or (28 -18) ;local v367=v363[3 + 0 ] or v363.MaxValue or v363.Max or (13 + 87) ;local v368=v363[1699 -(556 + 1139) ] or v363.Increase or (16 -(6 + 9)) ;local v369=v18:GetCallback(v363,6);local v370=v363[2 + 5 ] or v363.Flag or false ;local v371=v363[3 + 2 ] or v363.Default or (194 -(28 + 141)) ;if v23(v370) then v371=v21(v370);end v366,v367=v366/v368 ,v367/v368 ;local v372,v373=v35(v241,v364,v365,UDim2.new(1 + 0 , -(222 -42)));local v374=v17("TextButton",v372,{Size=UDim2.new(0.45 + 0 ,1317 -(486 + 831) ,1),Position=UDim2.new(1),AnchorPoint=Vector2.new(1,0 -0 ),AutoButtonColor=false,Text="",BackgroundTransparency=3 -2 });local v375=v16(v17("Frame",v374,{BackgroundColor3=v32["Color Stroke"],Size=UDim2.new(1 + 0 , -(63 -43),1263 -(668 + 595) ,6 + 0 ),Position=UDim2.new(0.5,0 + 0 ,0.5),AnchorPoint=Vector2.new(0.5,0.5 -0 )}),"Stroke");v34("Corner",v375);local v376=v16(v17("Frame",v375,{BackgroundColor3=v32["Color Theme"],Size=UDim2.fromScale(0.3,1),BorderSizePixel=290 -(23 + 267) }),"Theme");v34("Corner",v376);local v377=v17("Frame",v375,{Size=UDim2.new(1944 -(1129 + 815) ,393 -(371 + 16) ,0,12),BackgroundColor3=Color3.fromRGB(1970 -(1326 + 424) ,416 -196 ,803 -583 ),Position=UDim2.fromScale(118.3 -(88 + 30) ,771.5 -(720 + 51) ),AnchorPoint=Vector2.new(0.5,0.5 -0 ),BackgroundTransparency=0.2});v34("Corner",v377);local v378=v16(v17("TextLabel",v374,{Size=UDim2.new(1776 -(421 + 1355) ,14,0 -0 ,7 + 7 ),AnchorPoint=Vector2.new(1,1083.5 -(286 + 797) ),Position=UDim2.new(0 -0 ,0 -0 ,439.5 -(397 + 42) ),BackgroundTransparency=1 + 0 ,TextColor3=v32["Color Text"],Font=Enum.Font.FredokaOne,TextSize=812 -(24 + 776) }),"Text");local v379=v17("UIScale",v378);local v380=v17("Frame",v375,{Position=UDim2.new(0 -0 ,785 -(222 + 563) ,0.5,0 -0 ),Visible=false});local function v381(v477) local v478=tonumber(v477 * v368 );v478=math.floor(v478 * (72 + 28) )/(290 -(23 + 167)) ;v371,v378.Text=v478,tostring(v478);v18:FireCallback(v369,v371);end local function v382() local v480=1798 -(690 + 1108) ;local v481;local v482;local v483;while true do if (v480==(1 + 0)) then v483=v482/v375.AbsoluteSize.X ;v377.Position=UDim2.new(math.clamp(v483,0,1),0,0.5,0 + 0 );break;end if (v480==(848 -(40 + 808))) then v481=v7:GetMouse();v482=v481.X-v380.AbsolutePosition.X ;v480=1;end end end local function v383() v376.Size=UDim2.new(v377.Position.X.Scale,0 + 0 ,3 -2 ,0 + 0 );local v485=v377.Position.X.Scale;local v486=math.floor((((v485 * v367)/v367) * (v367-v366)) + v366 );v381(v486);end v374.MouseButton1Down:Connect(function() local v487=0;while true do if (v487==1) then while v1:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do task.wait();v382();end v28({v377,"Transparency",571.2 -(47 + 524) ,0.3 -0 });v487=2;end if (2==v487) then v241.ScrollingEnabled=true;v22(v370,v371);break;end if (v487==(0 -0)) then v28({v377,"Transparency",1726 -(1165 + 561) ,0.3 -0 });v241.ScrollingEnabled=false;v487=1 + 0 ;end end end);v378:GetPropertyChangedSignal("Text"):Connect(function() local v488=479 -(341 + 138) ;while true do if (v488==(1 + 1)) then v28({v378,"Rotation",0 -0 ,0.1 -0 });break;end if (v488==(881 -(581 + 300))) then v379.Scale=1220.3 -(855 + 365) ;v28({v379,"Scale",1.2,0.1 + 0 });v488=1 + 0 ;end if (v488==(287 -(156 + 130))) then v28({v378,"Rotation",math.random( -1,1 -0 ) * (10 -5) ,0.15 + 0 ,true});v28({v379,"Scale",1164 -(671 + 492) ,1215.2 -(369 + 846) });v488=1 + 1 ;end end end);function SetSlider(v489) if (type(v489)~="number") then return;end local v490,v491=v366 * v368 ,v367 * v368 ;local v492=(v489-v490)/(v491-v490) ;v22(v370,v489);v28({v377,"Position",UDim2.fromScale(math.clamp(v492,0 + 0 ,1 -0 ),203.5 -(11 + 192) ),0.3 + 0 ,true});end SetSlider(v371);v377:GetPropertyChangedSignal("Position"):Connect(v383);v383();local v384={};v384.Set=function(v493,v494,v495) if (v494 and v495) then v373:SetTitle(v494);v373:SetDesc(v495);elseif (type(v494)=="string") then v373:SetTitle(v494);elseif (type(v494)=="function") then v369=v494;elseif (type(v494)=="number") then SetSlider(v494);end end;v384.Callback=function(v496,...) v18:InsertCallback(v369,...)(tonumber(v371));end;v384.Visible=function(v497,...) v18:ToggleVisible(v372,...);end;v384.Destroy=function(v498) v372:Destroy();end;return v384;end;v243.AddTextBox=function(v389,v390) local v391=0 -0 ;local v392;local v393;local v394;local v395;local v396;local v397;local v398;local v399;local v400;local v401;local v402;local v403;local v404;while true do if (v391==(4 + 1)) then v403.Visible=function(v653,...) v18:ToggleVisible(v398,...);end;v403.Destroy=function(v654) v398:Destroy();end;return v403;end if (v391==(2 -1)) then v396=v390[4 -1 ] or v390.ClearText or false ;v397=v18:GetCallback(v390,180 -(50 + 126) );if ((type(v394)~="string") or (v394:gsub(" ",""):len()<1)) then v394=false;end v398,v399=v35(v241,v392,v393,UDim2.new(2 -1 , -38));v391=1 + 1 ;end if (v391==(1416 -(1233 + 180))) then v403={};v404=nil;function v404() local v655=v401.Text;if (v655:gsub(" ",""):len()>0) then if type(v403.OnChanging) then v655=v403.OnChanging(v655) or v655 ;end v18:FireCallback(v397,v655);v401.Text=v655;end end v401.FocusLost:Connect(v404);v391=973 -(522 + 447) ;end if (v391==(1425 -(107 + 1314))) then v404();v401.FocusLost:Connect(function() v28({v402,"ImageColor3",Color3.fromRGB(109 + 146 ,255,255),0.2 -0 });end);v401.Focused:Connect(function() v28({v402,"ImageColor3",v32["Color Theme"],0.2});end);v403.OnChanging=false;v391=5;end if (v391==(0 + 0)) then v392=v390[1 + 0 ] or v390.Name or v390.Title or "Text Box" ;v393=v390.Desc or v390.Description or "" ;v394=v390[2] or v390.Default or "" ;v395=v390[508 -(74 + 429) ] or v390.PlaceholderText or "Input" ;v391=1 -0 ;end if (v391==2) then v400=v16(v17("Frame",v398,{Size=UDim2.new(0 + 0 ,343 -193 ,0,13 + 5 ),Position=UDim2.new(1, -(30 -20),0.5 -0 ),AnchorPoint=Vector2.new(1,433.5 -(279 + 154) ),BackgroundColor3=v32["Color Stroke"]}),"Stroke");v34("Corner",v400,UDim.new(778 -(454 + 324) ,4 + 0 ));v401=v16(v17("TextBox",v400,{Size=UDim2.new(17.85 -(12 + 5) ,0,0.85 + 0 ,0),AnchorPoint=Vector2.new(0.5 -0 ,0.5),Position=UDim2.new(0.5,0,0.5 + 0 ,1093 -(277 + 816) ),BackgroundTransparency=1,Font=Enum.Font.GothamBold,TextScaled=true,TextColor3=v32["Color Text"],ClearTextOnFocus=v396,PlaceholderText=v395,Text=""}),"Text");v402=v17("ImageLabel",v400,{Size=UDim2.new(0,12,0 -0 ,1195 -(1058 + 125) ),Position=UDim2.new(0 + 0 , -5,0.5),AnchorPoint=Vector2.new(976 -(815 + 160) ,0.5 -0 ),Image="rbxassetid://15637081879",BackgroundTransparency=2 -1 });v391=1 + 2 ;end end end;v243.AddDiscordInvite=function(v405,v406) local v407=v406[2 -1 ] or v406.Name or v406.Title or "Discord" ;local v408=v406.Desc or v406.Description or "" ;local v409=v406[1900 -(41 + 1857) ] or v406.Logo or "" ;local v410=v406[1896 -(1222 + 671) ] or v406.Invite or "" ;local v411=v17("Frame",v241,{Size=UDim2.new(2 -1 ,0 -0 ,1182 -(229 + 953) ,1854 -(1111 + 663) ),Name="Option",BackgroundTransparency=1580 -(874 + 705) });local v412=v17("TextLabel",v411,{Size=UDim2.new(1,0 + 0 ,0,15),Position=UDim2.new(0,4 + 1 ),TextColor3=Color3.fromRGB(40,311 -161 ,8 + 247 ),Font=Enum.Font.GothamBold,TextXAlignment="Left",BackgroundTransparency=680 -(642 + 37) ,TextSize=3 + 7 ,Text=v410});local v413=v16(v17("Frame",v411,{Size=UDim2.new(1 + 0 ,0,0 -0 ,519 -(233 + 221) ),AnchorPoint=Vector2.new(0,2 -1 ),Position=UDim2.new(0 + 0 ,1541 -(718 + 823) ,1 + 0 ),BackgroundColor3=v32["Color Hub 2"]}),"Frame");v34("Corner",v413);local v414=v17("ImageLabel",v413,{Size=UDim2.new(805 -(266 + 539) ,84 -54 ,0,1255 -(636 + 589) ),Position=UDim2.new(0 -0 ,14 -7 ,0 + 0 ,3 + 4 ),Image=v409,BackgroundTransparency=1016 -(657 + 358) });v34("Corner",v414,UDim.new(0 -0 ,8 -4 ));v34("Stroke",v414);local v415=v16(v17("TextLabel",v413,{Size=UDim2.new(1188 -(1151 + 36) , -(51 + 1),0,15),Position=UDim2.new(0 + 0 ,131 -87 ,1832 -(1552 + 280) ,841 -(64 + 770) ),Font=Enum.Font.GothamBold,TextColor3=v32["Color Text"],TextXAlignment="Left",BackgroundTransparency=1,TextSize=7 + 3 ,Text=v407}),"Text");local v416=v16(v17("TextLabel",v413,{Size=UDim2.new(1, -(117 -65),0 + 0 ,0),Position=UDim2.new(0,1287 -(157 + 1086) ,0 -0 ,22),TextWrapped="Y",AutomaticSize="Y",Font=Enum.Font.Gotham,TextColor3=v32["Color Dark Text"],TextXAlignment="Left",BackgroundTransparency=4 -3 ,TextSize=11 -3 ,Text=v408}),"DarkText");local v417=v17("TextButton",v413,{Size=UDim2.new(1, -(18 -4),819 -(599 + 220) ,31 -15 ),AnchorPoint=Vector2.new(0.5,1),Position=UDim2.new(1931.5 -(1813 + 118) ,0,1 + 0 , -7),Text="Join",Font=Enum.Font.GothamBold,TextSize=1229 -(841 + 376) ,TextColor3=Color3.fromRGB(220,220,308 -88 ),BackgroundColor3=Color3.fromRGB(50,150,50)});v34("Corner",v417,UDim.new(0,2 + 3 ));local v418;v417.Activated:Connect(function() local v499=0 -0 ;while true do if (v499==(859 -(464 + 395))) then setclipboard(v410);if v418 then return;end v499=2 -1 ;end if (v499==(1 + 1)) then task.wait(842 -(467 + 370) );v14(v417,{Text="Join",BackgroundColor3=Color3.fromRGB(103 -53 ,111 + 39 ,171 -121 ),TextColor3=Color3.fromRGB(35 + 185 ,511 -291 ,740 -(150 + 370) )});v499=1285 -(74 + 1208) ;end if (3==v499) then v418=false;break;end if (v499==1) then v418=true;v14(v417,{Text="Copied to Clipboard",BackgroundColor3=Color3.fromRGB(100,245 -145 ,474 -374 ),TextColor3=Color3.fromRGB(107 + 43 ,150,540 -(14 + 376) )});v499=3 -1 ;end end end);local v419={};v419.Destroy=function(v500) v411:Destroy();end;v419.Visible=function(v501,...) v18:ToggleVisible(v411,...);end;return v419;end;return v243;end;v132.Activated:Connect(v137.CloseBtn);v133.Activated:Connect(v137.MinimizeBtn);return v137;end;return v9;
+local redzlib = {
+  Themes = {
+    Darker = {
+      ["Color Hub 1"] = ColorSequence.new({
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 25, 25)),
+        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(32.5, 32.5, 32.5)),
+        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 25))
+      }),
+      ["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
+      ["Color Stroke"] = Color3.fromRGB(40, 40, 40),
+      ["Color Theme"] = Color3.fromRGB(88, 101, 242),
+      ["Color Text"] = Color3.fromRGB(243, 243, 243),
+      ["Color Dark Text"] = Color3.fromRGB(180, 180, 180)
+    },
+    Dark = {
+      ["Color Hub 1"] = ColorSequence.new({
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(40, 40, 40)),
+        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(47.5, 47.5, 47.5)),
+        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(40, 40, 40))
+      }),
+      ["Color Hub 2"] = Color3.fromRGB(45, 45, 45),
+      ["Color Stroke"] = Color3.fromRGB(65, 65, 65),
+      ["Color Theme"] = Color3.fromRGB(65, 150, 255),
+      ["Color Text"] = Color3.fromRGB(245, 245, 245),
+      ["Color Dark Text"] = Color3.fromRGB(190, 190, 190)
+    },
+    Purple = {
+      ["Color Hub 1"] = ColorSequence.new({
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(27.5, 25, 30)),
+        ColorSequenceKeypoint.new(0.50, Color3.fromRGB(32.5, 32.5, 32.5)),
+        ColorSequenceKeypoint.new(1.00, Color3.fromRGB(27.5, 25, 30))
+      }),
+      ["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
+      ["Color Stroke"] = Color3.fromRGB(40, 40, 40),
+      ["Color Theme"] = Color3.fromRGB(150, 0, 255),
+      ["Color Text"] = Color3.fromRGB(240, 240, 240),
+      ["Color Dark Text"] = Color3.fromRGB(180, 180, 180)
+    }
+  },
+  Info = {
+    Version = "1.1.0"
+  },
+  Save = {
+    UISize = {550, 380},
+    TabSize = 160,
+    Theme = "Darker"
+  },
+  Settings = {},
+  Connection = {},
+  Instances = {},
+  Elements = {},
+  Options = {},
+  Flags = {},
+  Tabs = {},
+  Icons = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Icons.Lua"))()
+}
+
+local ViewportSize = workspace.CurrentCamera.ViewportSize
+local UIScale = ViewportSize.Y / 450
+
+local Settings = redzlib.Settings
+local Flags = redzlib.Flags
+
+local SetProps, SetChildren, InsertTheme, Create do
+  InsertTheme = function(Instance, Type)
+    table.insert(redzlib.Instances, {
+      Instance = Instance,
+      Type = Type
+    })
+    return Instance
+  end
+  
+  SetChildren = function(Instance, Children)
+    if Children then
+      table.foreach(Children, function(_,Child)
+        Child.Parent = Instance
+      end)
+    end
+    return Instance
+  end
+  
+  SetProps = function(Instance, Props)
+    if Props then
+      table.foreach(Props, function(prop, value)
+        Instance[prop] = value
+      end)
+    end
+    return Instance
+  end
+  
+  Create = function(...)
+    local args = {...}
+    if type(args) ~= "table" then return end
+    local new = Instance.new(args[1])
+    local Children = {}
+    
+    if type(args[2]) == "table" then
+      SetProps(new, args[2])
+      SetChildren(new, args[3])
+      Children = args[3] or {}
+    elseif typeof(args[2]) == "Instance" then
+      new.Parent = args[2]
+      SetProps(new, args[3])
+      SetChildren(new, args[4])
+      Children = args[4] or {}
+    end
+    return new
+  end
+  
+  local function Save(file)
+    if readfile and isfile and isfile(file) then
+      local decode = HttpService:JSONDecode(readfile(file))
+      
+      if type(decode) == "table" then
+        if rawget(decode, "UISize") then redzlib.Save["UISize"] = decode["UISize"] end
+        if rawget(decode, "TabSize") then redzlib.Save["TabSize"] = decode["TabSize"] end
+        if rawget(decode, "Theme") and VerifyTheme(decode["Theme"]) then redzlib.Save["Theme"] = decode["Theme"] end
+      end
+    end
+  end
+  
+  pcall(Save, "redz library V5.json")
+end
+
+local Funcs = {} do
+  function Funcs:InsertCallback(tab, func)
+    if type(func) == "function" then
+      table.insert(tab, func)
+    end
+    return func
+  end
+  
+  function Funcs:FireCallback(tab, ...)
+    for _,v in ipairs(tab) do
+      if type(v) == "function" then
+        task.spawn(v, ...)
+      end
+    end
+  end
+  
+  function Funcs:ToggleVisible(Obj, Bool)
+    Obj.Visible = Bool ~= nil and Bool or Obj.Visible
+  end
+  
+  function Funcs:ToggleParent(Obj, Parent)
+    if Bool ~= nil then
+      Obj.Parent = Bool
+    else
+      Obj.Parent = not Obj.Parent and Parent
+    end
+  end
+  
+  function Funcs:GetConnectionFunctions(ConnectedFuncs, func)
+    local Connected = { Function = func, Connected = true }
+    
+    function Connected:Disconnect()
+      if self.Connected then
+        table.remove(ConnectedFuncs, table.find(ConnectedFuncs, self.Function))
+        self.Connected = false
+      end
+    end
+    
+    function Connected:Fire(...)
+      if self.Connected then
+        task.spawn(self.Function, ...)
+      end
+    end
+    
+    return Connected
+  end
+  
+  function Funcs:GetCallback(Configs, index)
+    local func = Configs[index] or Configs.Callback or function()end
+    
+    if type(func) == "table" then
+      return ({function(Value) func[1][func[2]] = Value end})
+    end
+    return {func}
+  end
+end
+
+local Connections, Connection = {}, redzlib.Connection do
+  local function NewConnectionList(List)
+    if type(List) ~= "table" then return end
+    
+    for _,CoName in ipairs(List) do
+      local ConnectedFuncs, Connect = {}, {}
+      Connection[CoName] = Connect
+      Connections[CoName] = ConnectedFuncs
+      Connect.Name = CoName
+      
+      function Connect:Connect(func)
+        if type(func) == "function" then
+          table.insert(ConnectedFuncs, func)
+          return Funcs:GetConnectionFunctions(ConnectedFuncs, func)
+        end
+      end
+      
+      function Connect:Once(func)
+        if type(func) == "function" then
+          local Connected;
+          
+          local _NFunc;_NFunc = function(...)
+            task.spawn(func, ...)
+            Connected:Disconnect()
+          end
+          
+          Connected = Funcs:GetConnectionFunctions(ConnectedFuncs, _NFunc)
+          return Connected
+        end
+      end
+    end
+  end
+  
+  function Connection:FireConnection(CoName, ...)
+    local Connection = type(CoName) == "string" and Connections[CoName] or Connections[CoName.Name]
+    for _,Func in pairs(Connection) do
+      task.spawn(Func, ...)
+    end
+  end
+  
+  NewConnectionList({"FlagsChanged", "ThemeChanged", "FileSaved", "ThemeChanging", "OptionAdded"})
+end
+
+local GetFlag, SetFlag, CheckFlag do
+  CheckFlag = function(Name)
+    return type(Name) == "string" and Flags[Name] ~= nil
+  end
+  
+  GetFlag = function(Name)
+    return type(Name) == "string" and Flags[Name]
+  end
+  
+  SetFlag = function(Flag, Value)
+    if Flag and (Value ~= Flags[Flag] or type(Value) == "table") then
+      Flags[Flag] = Value
+      Connection:FireConnection("FlagsChanged", Flag, Value)
+    end
+  end
+  
+  local db
+  Connection.FlagsChanged:Connect(function(Flag, Value)
+    local ScriptFile = Settings.ScriptFile
+    if not db and ScriptFile and writefile then
+      db=true;task.wait(0.1);db=false
+      
+      local Success, Encoded = pcall(function()
+        -- local _Flags = {}
+        -- for _,Flag in pairs(Flags) do _Flags[_] = Flag.Value end
+        return HttpService:JSONEncode(Flags)
+      end)
+      
+      if Success then
+        local Success = pcall(writefile, ScriptFile, Encoded)
+        if Success then
+          Connection:FireConnection("FileSaved", "Script-Flags", ScriptFile, Encoded)
+        end
+      end
+    end
+  end)
+end
+
+local ScreenGui = Create("ScreenGui", CoreGui, {
+  Name = "redz Library V5",
+}, {
+  Create("UIScale", {
+    Scale = UIScale,
+    Name = "Scale"
+  })
+})
+
+local ScreenFind = CoreGui:FindFirstChild(ScreenGui.Name)
+if ScreenFind and ScreenFind ~= ScreenGui then
+  ScreenFind:Destroy()
+end
+
+local function GetStr(val)
+  if type(val) == "function" then
+    return val()
+  end
+  return val
+end
+
+local function ConnectSave(Instance, func)
+  Instance.InputBegan:Connect(function(Input)
+    if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
+      while UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do task.wait()
+      end
+    end
+    func()
+  end)
+end
+
+local function CreateTween(Configs)
+  local Instance = Configs[1] or Configs.Instance
+  local Prop = Configs[2] or Configs.Prop
+  local NewVal = Configs[3] or Configs.NewVal
+  local Time = Configs[4] or Configs.Time or 0.5
+  local TweenWait = Configs[5] or Configs.wait or false
+  local TweenInfo = TweenInfo.new(Time, Enum.EasingStyle.Quint)
+  
+  local Tween = TweenService:Create(Instance, TweenInfo, {[Prop] = NewVal})
+  Tween:Play()
+  if TweenWait then
+    Tween.Completed:Wait()
+  end
+  return Tween
+end
+
+local function MakeDrag(Instance)
+  task.spawn(function()
+    SetProps(Instance, {
+      Active = true,
+      AutoButtonColor = false
+    })
+    
+		local DragStart, StartPos, InputOn
+		
+		local function Update(Input)
+			local delta = Input.Position - DragStart
+			local Position = UDim2.new(StartPos.X.Scale, StartPos.X.Offset + delta.X / UIScale, StartPos.Y.Scale, StartPos.Y.Offset + delta.Y / UIScale)
+			-- Instance.Position = Position
+			CreateTween({Instance, "Position", Position, 0.35})
+		end
+		
+		Instance.MouseButton1Down:Connect(function()
+		  InputOn = true
+		end)
+		
+    Instance.InputBegan:Connect(function(Input)
+      if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
+        StartPos = Instance.Position
+        DragStart = Input.Position
+        
+        while UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do RunService.Heartbeat:Wait()
+          if InputOn then
+            Update(Input)
+          end
+        end
+        InputOn = false
+      end
+    end)
+	end)
+	return Instance
+end
+
+local function VerifyTheme(Theme)
+  for name,_ in pairs(redzlib.Themes) do
+    if name == Theme then
+      return true
+    end
+  end
+end
+
+local function SaveJson(FileName, save)
+  if writefile then
+    local json = HttpService:JSONEncode(save)
+    writefile(FileName, json)
+  end
+end
+
+local Theme = redzlib.Themes[redzlib.Save.Theme]
+
+local function AddEle(Name, Func)
+  redzlib.Elements[Name] = Func
+end
+
+local function Make(Ele, Instance, props, ...)
+  local Element = redzlib.Elements[Ele](Instance, props, ...)
+  return Element
+end
+
+AddEle("Corner", function(parent, CornerRadius)
+  local New = SetProps(Create("UICorner", parent, {
+    CornerRadius = CornerRadius or UDim.new(0, 7)
+  }), props)
+  return New
+end)
+
+AddEle("Stroke", function(parent, props, ...)
+  local args = {...}
+  local New = InsertTheme(SetProps(Create("UIStroke", parent, {
+    Color = args[1] or Theme["Color Stroke"],
+    Thickness = args[2] or 1,
+    ApplyStrokeMode = "Border"
+  }), props), "Stroke")
+  return New
+end)
+
+AddEle("Button", function(parent, props, ...)
+  local args = {...}
+  local New = InsertTheme(SetProps(Create("TextButton", parent, {
+    Text = "",
+    Size = UDim2.fromScale(1, 1),
+    BackgroundColor3 = Theme["Color Hub 2"],
+    AutoButtonColor = false
+  }), props), "Frame")
+  
+  New.MouseEnter:Connect(function()
+    New.BackgroundTransparency = 0.4
+  end)
+  New.MouseLeave:Connect(function()
+    New.BackgroundTransparency = 0
+  end)
+  if args[1] then
+    New.Activated:Connect(args[1])
+  end
+  return New
+end)
+
+AddEle("Gradient", function(parent, props, ...)
+  local args = {...}
+  local New = InsertTheme(SetProps(Create("UIGradient", parent, {
+    Color = Theme["Color Hub 1"]
+  }), props), "Gradient")
+  return New
+end)
+
+local function ButtonFrame(Instance, Title, Description, HolderSize)
+  local TitleL = InsertTheme(Create("TextLabel", {
+    Font = Enum.Font.GothamMedium,
+    TextColor3 = Theme["Color Text"],
+    Size = UDim2.new(1, -20),
+    AutomaticSize = "Y",
+    Position = UDim2.new(0, 0, 0.5),
+    AnchorPoint = Vector2.new(0, 0.5),
+    BackgroundTransparency = 1,
+    TextTruncate = "AtEnd",
+    TextSize = 10,
+    TextXAlignment = "Left",
+    Text = "",
+    RichText = true
+  }), "Text")
+  
+  local DescL = InsertTheme(Create("TextLabel", {
+    Font = Enum.Font.Gotham,
+    TextColor3 = Theme["Color Dark Text"],
+    Size = UDim2.new(1, -20),
+    AutomaticSize = "Y",
+    Position = UDim2.new(0, 12, 0, 15),
+    BackgroundTransparency = 1,
+    TextWrapped = true,
+    TextSize = 8,
+    TextXAlignment = "Left",
+    Text = "",
+    RichText = true
+  }), "DarkText")
+
+  local Frame = Make("Button", Instance, {
+    Size = UDim2.new(1, 0, 0, 25),
+    AutomaticSize = "Y",
+    Name = "Option"
+  })Make("Corner", Frame, UDim.new(0, 6))
+  
+	LabelHolder = Create("Frame", Frame, {
+		AutomaticSize = "Y",
+		BackgroundTransparency = 1,
+		Size = HolderSize,
+		Position = UDim2.new(0, 10, 0),
+		AnchorPoint = Vector2.new(0, 0)
+	}, {
+		Create("UIListLayout", {
+			SortOrder = "LayoutOrder",
+			VerticalAlignment = "Center",
+			Padding = UDim.new(0, 2)
+		}),
+		Create("UIPadding", {
+			PaddingBottom = UDim.new(0, 5),
+			PaddingTop = UDim.new(0, 5)
+		}),
+		TitleL,
+		DescL,
+	})
+  
+  local Label = {}
+  function Label:SetTitle(NewTitle)
+    if type(NewTitle) == "string" and NewTitle:gsub(" ", ""):len() > 0 then
+      TitleL.Text = NewTitle
+    end
+  end
+  function Label:SetDesc(NewDesc)
+    if type(NewDesc) == "string" and NewDesc:gsub(" ", ""):len() > 0 then
+      DescL.Visible = true
+      DescL.Text = NewDesc
+      LabelHolder.Position = UDim2.new(0, 10, 0)
+      LabelHolder.AnchorPoint = Vector2.new(0, 0)
+    else
+      DescL.Visible = false
+      DescL.Text = ""
+      LabelHolder.Position = UDim2.new(0, 10, 0.5)
+      LabelHolder.AnchorPoint = Vector2.new(0, 0.5)
+    end
+  end
+  
+  Label:SetTitle(Title)
+  Label:SetDesc(Description)
+  return Frame, Label
+end
+
+local function GetColor(Instance)
+  if Instance:IsA("Frame") then
+    return "BackgroundColor3"
+  elseif Instance:IsA("ImageLabel") then
+    return "ImageColor3"
+  elseif Instance:IsA("TextLabel") then
+    return "TextColor3"
+  elseif Instance:IsA("ScrollingFrame") then
+    return "ScrollBarImageColor3"
+  elseif Instance:IsA("UIStroke") then
+    return "Color"
+  end
+  return ""
+end
+
+-- /////////// --
+function redzlib:GetIcon(IconName)
+  if IconName:find("rbxassetid://") or IconName:len() < 1 then return IconName end
+  IconName = IconName:lower():gsub("lucide", ""):gsub("-", "")
+  
+  for Name, Icon in pairs(redzlib.Icons) do
+    Name = Name:gsub("lucide", ""):gsub("-", "")
+    if Name == IconName then
+      return Icon
+    end
+  end
+  for Name, Icon in pairs(redzlib.Icons) do
+    Name = Name:gsub("lucide", ""):gsub("-", "")
+    if Name:find(IconName) then
+      return Icon
+    end
+  end
+  return IconName
+end
+
+function redzlib:SetTheme(NewTheme)
+  if not VerifyTheme(NewTheme) then return end
+  
+  redzlib.Save.Theme = NewTheme
+  SaveJson("redz library V5.json", redzlib.Save)
+  Theme = redzlib.Themes[NewTheme]
+  
+  Comnection:FireConnection("ThemeChanged", NewTheme)
+  table.foreach(redzlib.Instances, function(_,Val)
+    if Val.Type == "Gradient" then
+      Val.Instance.Color = Theme["Color Hub 1"]
+    elseif Val.Type == "Frame" then
+      Val.Instance.BackgroundColor3 = Theme["Color Hub 2"]
+    elseif Val.Type == "Stroke" then
+      Val.Instance[GetColor(Val.Instance)] = Theme["Color Stroke"]
+    elseif Val.Type == "Theme" then
+      Val.Instance[GetColor(Val.Instance)] = Theme["Color Theme"]
+    elseif Val.Type == "Text" then
+      Val.Instance[GetColor(Val.Instance)] = Theme["Color Text"]
+    elseif Val.Type == "DarkText" then
+      Val.Instance[GetColor(Val.Instance)] = Theme["Color Dark Text"]
+    elseif Val.Type == "ScrollBar" then
+      Val.Instance[GetColor(Val.Instance)] = Theme["Color Theme"]
+    end
+  end)
+end
+
+function redzlib:SetScale(NewScale)
+  NewScale = ViewportSize.Y / math.clamp(NewScale, 300, 2000)
+  UIScale, ScreenGui.Scale.Scale = NewScale, NewScale
+end
+
+function redzlib:MakeWindow(Configs)
+  local WTitle = Configs[1] or Configs.Name or Configs.Title or "redz Library V5"
+  local WMiniText = Configs[2] or Configs.SubTitle or "by : redz9999"
+  
+  Settings.ScriptFile = Configs[3] or Configs.SaveFolder or false
+  
+  local function LoadFile()
+    local File = Settings.ScriptFile
+    if type(File) ~= "string" then return end
+    if not readfile or not isfile then return end
+    local s, r = pcall(isfile, File)
+    
+    if s and r then
+      local s, _Flags = pcall(readfile, File)
+      
+      if s and type(_Flags) == "string" then
+        local s,r = pcall(function() return HttpService:JSONDecode(_Flags) end)
+        Flags = s and r or {}
+      end
+    end
+  end;LoadFile()
+  
+  local UISizeX, UISizeY = unpack(redzlib.Save.UISize)
+  local MainFrame = InsertTheme(Create("ImageButton", ScreenGui, {
+    Size = UDim2.fromOffset(UISizeX, UISizeY),
+    Position = UDim2.new(0.5, -UISizeX/2, 0.5, -UISizeY/2),
+    BackgroundTransparency = 0.03,
+    Name = "Hub"
+  }), "Main")
+  Make("Gradient", MainFrame, {
+    Rotation = 45
+  })MakeDrag(MainFrame)
+  
+  local MainCorner = Make("Corner", MainFrame)
+  
+  local Components = Create("Folder", MainFrame, {
+    Name = "Components"
+  })
+  
+  local DropdownHolder = Create("Folder", ScreenGui, {
+    Name = "Dropdown"
+  })
+  
+  local TopBar = Create("Frame", Components, {
+    Size = UDim2.new(1, 0, 0, 28),
+    BackgroundTransparency = 1,
+    Name = "Top Bar"
+  })
+  
+  local Title = InsertTheme(Create("TextLabel", TopBar, {
+    Position = UDim2.new(0, 15, 0.5),
+    AnchorPoint = Vector2.new(0, 0.5),
+    AutomaticSize = "XY",
+    Text = WTitle,
+    TextXAlignment = "Left",
+    TextSize = 12,
+    TextColor3 = Theme["Color Text"],
+    BackgroundTransparency = 1,
+    Font = Enum.Font.GothamMedium,
+    Name = "Title"
+  }, {
+    InsertTheme(Create("TextLabel", {
+      Size = UDim2.fromScale(0, 1),
+      AutomaticSize = "X",
+      AnchorPoint = Vector2.new(0, 1),
+      Position = UDim2.new(1, 5, 0.9),
+      Text = WMiniText,
+      TextColor3 = Theme["Color Dark Text"],
+      BackgroundTransparency = 1,
+      TextXAlignment = "Left",
+      TextYAlignment = "Bottom",
+      TextSize = 8,
+      Font = Enum.Font.Gotham,
+      Name = "SubTitle"
+    }), "DarkText")
+  }), "Text")
+  
+  local MainScroll = InsertTheme(Create("ScrollingFrame", Components, {
+    Size = UDim2.new(0, redzlib.Save.TabSize, 1, -TopBar.Size.Y.Offset),
+    ScrollBarImageColor3 = Theme["Color Theme"],
+    Position = UDim2.new(0, 0, 1, 0),
+    AnchorPoint = Vector2.new(0, 1),
+    ScrollBarThickness = 1.5,
+    BackgroundTransparency = 1,
+    ScrollBarImageTransparency = 0.2,
+    CanvasSize = UDim2.new(),
+    AutomaticCanvasSize = "Y",
+    ScrollingDirection = "Y",
+    BorderSizePixel = 0,
+    Name = "Tab Scroll"
+  }, {
+    Create("UIPadding", {
+      PaddingLeft = UDim.new(0, 10),
+      PaddingRight = UDim.new(0, 10),
+      PaddingTop = UDim.new(0, 10),
+      PaddingBottom = UDim.new(0, 10)
+    }), Create("UIListLayout", {
+      Padding = UDim.new(0, 5)
+    })
+  }), "ScrollBar")
+  
+  local Containers = Create("Frame", Components, {
+    Size = UDim2.new(1, -MainScroll.Size.X.Offset, 1, -TopBar.Size.Y.Offset),
+    AnchorPoint = Vector2.new(1, 1),
+    Position = UDim2.new(1, 0, 1, 0),
+    BackgroundTransparency = 1,
+    ClipsDescendants = true,
+    Name = "Containers"
+  })
+  
+  local ControlSize1, ControlSize2 = MakeDrag(Create("ImageButton", MainFrame, {
+    Size = UDim2.new(0, 35, 0, 35),
+    Position = MainFrame.Size,
+    Active = true,
+    AnchorPoint = Vector2.new(0.8, 0.8),
+    BackgroundTransparency = 1,
+    Name = "Control Hub Size"
+  })), MakeDrag(Create("ImageButton", MainFrame, {
+    Size = UDim2.new(0, 20, 1, -30),
+    Position = UDim2.new(0, MainScroll.Size.X.Offset, 1, 0),
+    AnchorPoint = Vector2.new(0.5, 1),
+    Active = true,
+    BackgroundTransparency = 1,
+    Name = "Control Tab Size"
+  }))
+  
+  local function ControlSize()
+    local Pos1, Pos2 = ControlSize1.Position, ControlSize2.Position
+    ControlSize1.Position = UDim2.fromOffset(math.clamp(Pos1.X.Offset, 430, 1000), math.clamp(Pos1.Y.Offset, 200, 500))
+    ControlSize2.Position = UDim2.new(0, math.clamp(Pos2.X.Offset, 135, 250), 1, 0)
+    
+    MainScroll.Size = UDim2.new(0, ControlSize2.Position.X.Offset, 1, -TopBar.Size.Y.Offset)
+    Containers.Size = UDim2.new(1, -MainScroll.Size.X.Offset, 1, -TopBar.Size.Y.Offset)
+    MainFrame.Size = ControlSize1.Position
+  end
+  
+  ControlSize1:GetPropertyChangedSignal("Position"):Connect(ControlSize)
+  ControlSize2:GetPropertyChangedSignal("Position"):Connect(ControlSize)
+  
+  ConnectSave(ControlSize1, function()
+    if not Minimized then
+      redzlib.Save.UISize = {MainFrame.Size.X.Offset, MainFrame.Size.Y.Offset}
+      SaveJson("redz library V5.json", redzlib.Save)
+    end
+  end)
+  
+  ConnectSave(ControlSize2, function()
+    redzlib.Save.TabSize = MainScroll.Size.X.Offset
+    SaveJson("redz library V5.json", redzlib.Save)
+  end)
+  
+  local ButtonsFolder = Create("Folder", TopBar, {
+    Name = "Buttons"
+  })
+  
+  local CloseButton = Create("ImageButton", {
+    Size = UDim2.new(0, 14, 0, 14),
+    Position = UDim2.new(1, -10, 0.5),
+    AnchorPoint = Vector2.new(1, 0.5),
+    BackgroundTransparency = 1,
+    Image = "rbxassetid://10747384394",
+    AutoButtonColor = false,
+    Name = "Close"
+  })
+  
+  local MinimizeButton = SetProps(CloseButton:Clone(), {
+    Position = UDim2.new(1, -35, 0.5),
+    Image = "rbxassetid://10734896206",
+    Name = "Minimize"
+  })
+  
+  SetChildren(ButtonsFolder, {
+    CloseButton,
+    MinimizeButton
+  })
+  
+  local Minimized, SaveSize, WaitClick
+  local Window, FirstTab = {}, false
+  function Window:CloseBtn()
+    local Dialog = Window:Dialog({
+      Title = "Close",
+      Text = "Are you sure you want to close this script??",
+      Options = {
+        {"Confirm", function()
+          ScreenGui:Destroy()
+        end},
+        {"Cancel"}
+      }
+    })
+  end
+  function Window:MinimizeBtn()
+    if WaitClick then return end
+    WaitClick = true
+    
+    if Minimized then
+      MinimizeButton.Image = "rbxassetid://10734896206"
+      CreateTween({MainFrame, "Size", SaveSize, 0.25, true})
+      ControlSize1.Visible = true
+      ControlSize2.Visible = true
+      Minimized = false
+    else
+      MinimizeButton.Image = "rbxassetid://10734924532"
+      SaveSize = MainFrame.Size
+      ControlSize1.Visible = false
+      ControlSize2.Visible = false
+      CreateTween({MainFrame, "Size", UDim2.fromOffset(MainFrame.Size.X.Offset, 28), 0.25, true})
+      Minimized = true
+    end
+    
+    WaitClick = false
+  end
+  function Window:Minimize()
+    MainFrame.Visible = not MainFrame.Visible
+  end
+  function Window:AddMinimizeButton(Configs)
+    local Button = MakeDrag(Create("ImageButton", ScreenGui, {
+      Size = UDim2.fromOffset(35, 35),
+      Position = UDim2.fromScale(0.15, 0.15),
+      BackgroundTransparency = 1,
+      BackgroundColor3 = Theme["Color Hub 2"],
+      AutoButtonColor = false
+    }))
+    
+    local Stroke, Corner
+    if Configs.Corner then
+      Corner = Make("Corner", Button)
+      SetProps(Corner, Configs.Corner)
+    end
+    if Configs.Stroke then
+      Stroke = Make("Stroke", Button)
+      SetProps(Stroke, Configs.Corner)
+    end
+    
+    SetProps(Button, Configs.Button)
+    Button.Activated:Connect(Window.Minimize)
+    
+    return {
+      Stroke = Stroke,
+      Corner = Corner,
+      Button = Button
+    }
+  end
+  function Window:Set(Val1, Val2)
+    if type(Val1) == "string" and type(Val2) == "string" then
+      Title.Text = Val1
+      Title.SubTitle.Text = Val2
+    elseif type(Val1) == "string" then
+      Title.Text = Val1
+    end
+  end
+  function Window:Dialog(Configs)
+    if MainFrame:FindFirstChild("Dialog") then return end
+    if Minimized then
+      Window:MinimizeBtn()
+    end
+    
+    local DTitle = Configs[1] or Configs.Title or "Dialog"
+    local DText = Configs[2] or Configs.Text or "This is a Dialog"
+    local DOptions = Configs[3] or Configs.Options or {}
+    
+    local Frame = Create("Frame", {
+      Active = true,
+      Size = UDim2.fromOffset(250 * 1.08, 150 * 1.08),
+      Position = UDim2.fromScale(0.5, 0.5),
+      AnchorPoint = Vector2.new(0.5, 0.5)
+    }, {
+      InsertTheme(Create("TextLabel", {
+        Font = Enum.Font.GothamBold,
+        Size = UDim2.new(1, 0, 0, 20),
+        Text = DTitle,
+        TextXAlignment = "Left",
+        TextColor3 = Theme["Color Text"],
+        TextSize = 15,
+        Position = UDim2.fromOffset(15, 5),
+        BackgroundTransparency = 1
+      }), "Text"),
+      InsertTheme(Create("TextLabel", {
+        Font = Enum.Font.GothamMedium,
+        Size = UDim2.new(1, -25),
+        AutomaticSize = "Y",
+        Text = DText,
+        TextXAlignment = "Left",
+        TextColor3 = Theme["Color Dark Text"],
+        TextSize = 12,
+        Position = UDim2.fromOffset(15, 25),
+        BackgroundTransparency = 1,
+        TextWrapped = true
+      }), "DarkText")
+    })Make("Gradient", Frame, {Rotation = 270})Make("Corner", Frame)
+    
+    local ButtonsHolder = Create("Frame", Frame, {
+      Size = UDim2.fromScale(1, 0.35),
+      Position = UDim2.fromScale(0, 1),
+      AnchorPoint = Vector2.new(0, 1),
+      BackgroundColor3 = Theme["Color Hub 2"],
+      BackgroundTransparency = 1
+    }, {
+      Create("UIListLayout", {
+        Padding = UDim.new(0, 10),
+			  VerticalAlignment = "Center",
+			  FillDirection = "Horizontal",
+			  HorizontalAlignment = "Center"
+      })
+    })
+    
+    local Screen = InsertTheme(Create("Frame", MainFrame, {
+      BackgroundTransparency = 0.6,
+      Active = true,
+      BackgroundColor3 = Theme["Color Hub 2"],
+      Size = UDim2.new(1, 0, 1, 0),
+      BackgroundColor3 = Theme["Color Stroke"],
+      Name = "Dialog"
+    }), "Stroke")
+    
+    MainCorner:Clone().Parent = Screen
+    Frame.Parent = Screen
+    CreateTween({Frame, "Size", UDim2.fromOffset(250, 150), 0.2})
+    CreateTween({Frame, "Transparency", 0, 0.15})
+    CreateTween({Screen, "Transparency", 0.3, 0.15})
+    
+    local ButtonCount, Dialog = 1, {}
+    function Dialog:Button(Configs)
+      local Name = Configs[1] or Configs.Name or Configs.Title or ""
+      local Callback = Configs[2] or Configs.Callback or function()end
+      
+      ButtonCount = ButtonCount + 1
+      local Button = Make("Button", ButtonsHolder)
+      Make("Corner", Button)
+      SetProps(Button, {
+        Text = Name,
+        Font = Enum.Font.GothamBold,
+        TextColor3 = Theme["Color Text"],
+        TextSize = 12
+      })
+      
+      for _,Button in pairs(ButtonsHolder:GetChildren()) do
+        if Button:IsA("TextButton") then
+          Button.Size = UDim2.new(1 / ButtonCount, -(((ButtonCount - 1) * 20) / ButtonCount), 0, 32) -- Fluent Library :)
+        end
+      end
+      Button.Activated:Connect(Dialog.Close)
+      Button.Activated:Connect(Callback)
+    end
+    function Dialog:Close()
+      CreateTween({Frame, "Size", UDim2.fromOffset(250 * 1.08, 150 * 1.08), 0.2})
+      CreateTween({Screen, "Transparency", 1, 0.15})
+      CreateTween({Frame, "Transparency", 1, 0.15, true})
+      Screen:Destroy()
+    end
+    table.foreach(DOptions, function(_,Button)
+      Dialog:Button(Button)
+    end)
+    return Dialog
+  end
+  function Window:SelectTab(TabSelect)
+    if type(TabSelect) == "number" then
+      redzlib.Tabs[TabSelect].func:Enable()
+    else
+      for _,Tab in pairs(redzlib.Tabs) do
+        if Tab.Cont == TabSelect.Cont then
+          Tab.func:Enable()
+        end
+      end
+    end
+  end
+  
+  local ContainerList = {}
+  function Window:MakeTab(paste, Configs)
+    if type(paste) == "table" then Configs = paste end
+    local TName = Configs[1] or Configs.Title or "Tab!"
+    local TIcon = Configs[2] or Configs.Icon or ""
+    
+    TIcon = redzlib:GetIcon(TIcon)
+    if not TIcon:find("rbxassetid://") or TIcon:gsub("rbxassetid://", ""):len() < 6 then
+      TIcon = false
+    end
+    
+    local TabSelect = Make("Button", MainScroll, {
+      Size = UDim2.new(1, 0, 0, 24)
+    })Make("Corner", TabSelect)
+    
+    local LabelTitle = InsertTheme(Create("TextLabel", TabSelect, {
+      Size = UDim2.new(1, TIcon and -25 or -15, 1),
+      Position = UDim2.fromOffset(TIcon and 25 or 15),
+      BackgroundTransparency = 1,
+      Font = Enum.Font.GothamMedium,
+      Text = TName,
+      TextColor3 = Theme["Color Text"],
+      TextSize = 10,
+      TextXAlignment = Enum.TextXAlignment.Left,
+      TextTransparency = (FirstTab and 0.3) or 0,
+      TextTruncate = "AtEnd"
+    }), "Text")
+    
+    local LabelIcon = InsertTheme(Create("ImageLabel", TabSelect, {
+      Position = UDim2.new(0, 8, 0.5),
+      Size = UDim2.new(0, 13, 0, 13),
+      AnchorPoint = Vector2.new(0, 0.5),
+      Image = TIcon or "",
+      BackgroundTransparency = 1,
+      ImageTransparency = (FirstTab and 0.3) or 0
+    }), "Text")
+    
+    local Selected = InsertTheme(Create("Frame", TabSelect, {
+      Size = FirstTab and UDim2.new(0, 4, 0, 4) or UDim2.new(0, 4, 0, 13),
+      Position = UDim2.new(0, 1, 0.5),
+      AnchorPoint = Vector2.new(0, 0.5),
+      BackgroundColor3 = Theme["Color Theme"],
+      BackgroundTransparency = FirstTab and 1 or 0
+    }), "Theme")Make("Corner", Selected, UDim.new(0.5, 0))
+    
+    local Container = InsertTheme(Create("ScrollingFrame", {
+      Size = UDim2.new(1, 0, 1, 0),
+      Position = UDim2.new(0, 0, 1),
+      AnchorPoint = Vector2.new(0, 1),
+      ScrollBarThickness = 1.5,
+      BackgroundTransparency = 1,
+      ScrollBarImageTransparency = 0.2,
+      ScrollBarImageColor3 = Theme["Color Theme"],
+      AutomaticCanvasSize = "Y",
+      ScrollingDirection = "Y",
+      BorderSizePixel = 0,
+      CanvasSize = UDim2.new(),
+      Name = ("Container %i [ %s ]"):format(#ContainerList + 1, TName)
+    }, {
+      Create("UIPadding", {
+        PaddingLeft = UDim.new(0, 10),
+        PaddingRight = UDim.new(0, 10),
+        PaddingTop = UDim.new(0, 10),
+        PaddingBottom = UDim.new(0, 10)
+      }), Create("UIListLayout", {
+        Padding = UDim.new(0, 5)
+      })
+    }), "ScrollBar")
+    
+    table.insert(ContainerList, Container)
+    
+    if not FirstTab then Container.Parent = Containers end
+    
+    local function Tabs()
+      if Container.Parent then return end
+      for _,Frame in pairs(ContainerList) do
+        if Frame:IsA("ScrollingFrame") and Frame ~= Container then
+          Frame.Parent = nil
+        end
+      end
+      Container.Parent = Containers
+      Container.Size = UDim2.new(1, 0, 1, 150)
+      table.foreach(redzlib.Tabs, function(_,Tab)
+        if Tab.Cont ~= Container then
+          Tab.func:Disable()
+        end
+      end)
+      CreateTween({Container, "Size", UDim2.new(1, 0, 1, 0), 0.3})
+      CreateTween({LabelTitle, "TextTransparency", 0, 0.35})
+      CreateTween({LabelIcon, "ImageTransparency", 0, 0.35})
+      CreateTween({Selected, "Size", UDim2.new(0, 4, 0, 13), 0.35})
+      CreateTween({Selected, "BackgroundTransparency", 0, 0.35})
+    end
+    TabSelect.Activated:Connect(Tabs)
+    
+    FirstTab = true
+    local Tab = {}
+    table.insert(redzlib.Tabs, {TabInfo = {Name = TName, Icon = TIcon}, func = Tab, Cont = Container})
+    Tab.Cont = Container
+    
+    function Tab:Disable()
+      Container.Parent = nil
+      CreateTween({LabelTitle, "TextTransparency", 0.3, 0.35})
+      CreateTween({LabelIcon, "ImageTransparency", 0.3, 0.35})
+      CreateTween({Selected, "Size", UDim2.new(0, 4, 0, 4), 0.35})
+      CreateTween({Selected, "BackgroundTransparency", 1, 0.35})
+    end
+    function Tab:Enable()
+      Tabs()
+    end
+    function Tab:Visible(Bool)
+      Funcs:ToggleVisible(TabSelect, Bool)
+      Funcs:ToggleParent(Container, Bool, Containers)
+    end
+    function Tab:Destroy() TabSelect:Destroy() Container:Destroy() end
+    
+    function Tab:AddSection(Configs)
+      local SectionName = type(Configs) == "string" and Configs or Configs[1] or Configs.Name or Configs.Title or Configs.Section
+      
+      local SectionFrame = Create("Frame", Container, {
+        Size = UDim2.new(1, 0, 0, 20),
+        BackgroundTransparency = 1,
+        Name = "Option"
+      })
+      
+      local SectionLabel = InsertTheme(Create("TextLabel", SectionFrame, {
+        Font = Enum.Font.GothamBold,
+        Text = SectionName,
+        TextColor3 = Theme["Color Text"],
+        Size = UDim2.new(1, -25, 1, 0),
+        Position = UDim2.new(0, 5),
+        BackgroundTransparency = 1,
+        TextTruncate = "AtEnd",
+        TextSize = 14,
+        TextXAlignment = "Left"
+      }), "Text")
+      
+      local Section = {}
+      table.insert(redzlib.Options, {type = "Section", Name = SectionName, func = Section})
+      function Section:Visible(Bool)
+        if Bool == nil then SectionFrame.Visible = not SectionFrame.Visible return end
+        SectionFrame.Visible = Bool
+      end
+      function Section:Destroy()
+        SectionFrame:Destroy()
+      end
+      function Section:Set(New)
+        if New then
+          SectionLabel.Text = GetStr(New)
+        end
+      end
+      return Section
+    end
+    function Tab:AddParagraph(Configs)
+      local PName = Configs[1] or Configs.Title or "Paragraph"
+      local PDesc = Configs[2] or Configs.Text or ""
+      
+      local Frame, LabelFunc = ButtonFrame(Container, PName, PDesc, UDim2.new(1, -20))
+      
+      local Paragraph = {}
+      function Paragraph:Visible(...) Funcs:ToggleVisible(Frame, ...) end
+      function Paragraph:Destroy() Frame:Destroy() end
+      function Paragraph:SetTitle(Val)
+        LabelFunc:SetTitle(GetStr(Val))
+      end
+      function Paragraph:SetDesc(Val)
+        LabelFunc:SetDesc(GetStr(Val))
+      end
+      function Paragraph:Set(Val1, Val2)
+        if Val1 and Val2 then
+          LabelFunc:SetTitle(GetStr(Val1))
+          LabelFunc:SetDesc(GetStr(Val2))
+        elseif Val1 then
+          LabelFunc:SetDesc(GetStr(Val1))
+        end
+      end
+      return Paragraph
+    end
+    function Tab:AddButton(Configs)
+      local BName = Configs[1] or Configs.Name or Configs.Title or "Button!"
+      local BDescription = Configs.Desc or Configs.Description or ""
+      local Callback = Funcs:GetCallback(Configs, 2)
+      
+      local FButton, LabelFunc = ButtonFrame(Container, BName, BDescription, UDim2.new(1, -20))
+      
+      local ButtonIcon = Create("ImageLabel", FButton, {
+        Size = UDim2.new(0, 14, 0, 14),
+        Position = UDim2.new(1, -10, 0.5),
+        AnchorPoint = Vector2.new(1, 0.5),
+        BackgroundTransparency = 1,
+        Image = "rbxassetid://10709791437"
+      })
+      
+      FButton.Activated:Connect(function()
+        Funcs:FireCallback(Callback)
+      end)
+      
+      local Button = {}
+      function Button:Visible(...) Funcs:ToggleVisible(FButton, ...) end
+      function Button:Destroy() FButton:Destroy() end
+      function Button:Callback(...) Funcs:InsertCallback(Callback, ...) end
+      function Button:Set(Val1, Val2)
+        if type(Val1) == "string" and type(Val2) == "string" then
+          LabelFunc:SetTitle(Val1)
+          LabelFunc:SetDesc(Val2)
+        elseif type(Val1) == "string" then
+          LabelFunc:SetTitle(Val1)
+        elseif type(Val1) == "function" then
+          Callback = Val1
+        end
+      end
+      return Button
+    end
+    function Tab:AddToggle(Configs)
+      local TName = Configs[1] or Configs.Name or Configs.Title or "Toggle"
+      local TDesc = Configs.Desc or Configs.Description or ""
+      local Callback = Funcs:GetCallback(Configs, 3)
+      local Flag = Configs[4] or Configs.Flag or false
+      local Default = Configs[2] or Configs.Default or false
+      if CheckFlag(Flag) then Default = GetFlag(Flag) end
+      
+      local Button, LabelFunc = ButtonFrame(Container, TName, TDesc, UDim2.new(1, -38))
+      
+      local ToggleHolder = InsertTheme(Create("Frame", Button, {
+        Size = UDim2.new(0, 35, 0, 18),
+        Position = UDim2.new(1, -10, 0.5),
+        AnchorPoint = Vector2.new(1, 0.5),
+        BackgroundColor3 = Theme["Color Stroke"]
+      }), "Stroke")Make("Corner", ToggleHolder, UDim.new(0.5, 0))
+      
+      local Slider = Create("Frame", ToggleHolder, {
+        BackgroundTransparency = 1,
+        Size = UDim2.new(0.8, 0, 0.8, 0),
+        Position = UDim2.new(0.5, 0, 0.5, 0),
+        AnchorPoint = Vector2.new(0.5, 0.5)
+      })
+      
+      local Toggle = InsertTheme(Create("Frame", Slider, {
+        Size = UDim2.new(0, 12, 0, 12),
+        Position = UDim2.new(0, 0, 0.5),
+        AnchorPoint = Vector2.new(0, 0.5),
+        BackgroundColor3 = Theme["Color Theme"]
+      }), "Theme")Make("Corner", Toggle, UDim.new(0.5, 0))
+      
+      local WaitClick
+      local function SetToggle(Val)
+        if WaitClick then return end
+        
+        WaitClick, Default = true, Val
+        SetFlag(Flag, Default)
+        Funcs:FireCallback(Callback, Default)
+        if Default then
+          CreateTween({Toggle, "Position", UDim2.new(1, 0, 0.5), 0.25})
+          CreateTween({Toggle, "BackgroundTransparency", 0, 0.25})
+          CreateTween({Toggle, "AnchorPoint", Vector2.new(1, 0.5), 0.25, Wait or false})
+        else
+          CreateTween({Toggle, "Position", UDim2.new(0, 0, 0.5), 0.25})
+          CreateTween({Toggle, "BackgroundTransparency", 0.8, 0.25})
+          CreateTween({Toggle, "AnchorPoint", Vector2.new(0, 0.5), 0.25, Wait or false})
+        end
+        WaitClick = false
+      end;task.spawn(SetToggle, Default)
+      
+      Button.Activated:Connect(function()
+        SetToggle(not Default)
+      end)
+      
+      local Toggle = {}
+      function Toggle:Visible(...) Funcs:ToggleVisible(Button, ...) end
+      function Toggle:Destroy() Button:Destroy() end
+      function Toggle:Callback(...) Funcs:InsertCallback(Callback, ...)() end
+      function Toggle:Set(Val1, Val2)
+        if type(Val1) == "string" and type(Val2) == "string" then
+          LabelFunc:SetTitle(Val1)
+          LabelFunc:SetDesc(Val2)
+        elseif type(Val1) == "string" then
+          LabelFunc:SetTitle(Val1, false, true)
+        elseif type(Val1) == "boolean" then
+          if WaitClick and Val2 then
+            repeat task.wait() until not WaitClick
+          end
+          task.spawn(SetToggle, Val1)
+        elseif type(Val1) == "function" then
+          Callback = Val1
+        end
+      end
+      return Toggle
+    end
+    function Tab:AddDropdown(Configs)
+      local DName = Configs[1] or Configs.Name or Configs.Title or "Dropdown"
+      local DDesc = Configs.Desc or Configs.Description or ""
+      local DOptions = Configs[2] or Configs.Options or {}
+      local OpDefault = Configs[3] or Configs.Default or {}
+      local Flag = Configs[5] or Configs.Flag or false
+      local DMultiSelect = Configs.MultiSelect or false
+      local Callback = Funcs:GetCallback(Configs, 4)
+      
+      local Button, LabelFunc = ButtonFrame(Container, DName, DDesc, UDim2.new(1, -180))
+      
+      local SelectedFrame = InsertTheme(Create("Frame", Button, {
+        Size = UDim2.new(0, 150, 0, 18),
+        Position = UDim2.new(1, -10, 0.5),
+        AnchorPoint = Vector2.new(1, 0.5),
+        BackgroundColor3 = Theme["Color Stroke"]
+      }), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 4))
+      
+      local ActiveLabel = InsertTheme(Create("TextLabel", SelectedFrame, {
+        Size = UDim2.new(0.85, 0, 0.85, 0),
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Position = UDim2.new(0.5, 0, 0.5, 0),
+        BackgroundTransparency = 1,
+        Font = Enum.Font.GothamBold,
+        TextScaled = true,
+        TextColor3 = Theme["Color Text"],
+        Text = "..."
+      }), "Text")
+      
+      local Arrow = Create("ImageLabel", SelectedFrame, {
+        Size = UDim2.new(0, 15, 0, 15),
+        Position = UDim2.new(0, -5, 0.5),
+        AnchorPoint = Vector2.new(1, 0.5),
+        Image = "rbxassetid://10709791523",
+        BackgroundTransparency = 1
+      })
+      
+      local NoClickFrame = Create("TextButton", DropdownHolder, {
+        Name = "AntiClick",
+        Size = UDim2.new(1, 0, 1, 0),
+        BackgroundTransparency = 1,
+        Visible = false,
+        Text = ""
+      })
+      
+      local DropFrame = Create("Frame", NoClickFrame, {
+        Size = UDim2.new(SelectedFrame.Size.X, 0, 0),
+        BackgroundTransparency = 0.1,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        AnchorPoint = Vector2.new(0, 1),
+        Name = "DropdownFrame",
+        ClipsDescendants = true,
+        Active = true
+      })Make("Corner", DropFrame)Make("Stroke", DropFrame)Make("Gradient", DropFrame, {Rotation = 60})
+      
+      local ScrollFrame = InsertTheme(Create("ScrollingFrame", DropFrame, {
+        ScrollBarImageColor3 = Theme["Color Theme"],
+        Size = UDim2.new(1, 0, 1, 0),
+        ScrollBarThickness = 1.5,
+        BackgroundTransparency = 1,
+        BorderSizePixel = 0,
+        CanvasSize = UDim2.new(),
+        ScrollingDirection = "Y",
+        AutomaticCanvasSize = "Y",
+        Active = true
+      }, {
+        Create("UIPadding", {
+          PaddingLeft = UDim.new(0, 8),
+          PaddingRight = UDim.new(0, 8),
+          PaddingTop = UDim.new(0, 5),
+          PaddingBottom = UDim.new(0, 5)
+        }), Create("UIListLayout", {
+          Padding = UDim.new(0, 4)
+        })
+      }), "ScrollBar")
+      
+      local ScrollSize, WaitClick = 5
+      local function Disable()
+        WaitClick = true
+        CreateTween({Arrow, "Rotation", 0, 0.2})
+        CreateTween({DropFrame, "Size", UDim2.new(0, 152, 0, 0), 0.2, true})
+        CreateTween({Arrow, "ImageColor3", Color3.fromRGB(255, 255, 255), 0.2})
+        Arrow.Image = "rbxassetid://10709791523"
+        NoClickFrame.Visible = false
+        WaitClick = false
+      end
+      
+      local function GetFrameSize()
+        return UDim2.fromOffset(152, ScrollSize)
+      end
+      
+      local function CalculateSize()
+        local Count = 0
+        for _,Frame in pairs(ScrollFrame:GetChildren()) do
+          if Frame:IsA("Frame") or Frame.Name == "Option" then
+            Count = Count + 1
+          end
+        end
+        ScrollSize = (math.clamp(Count, 0, 10) * 25) + 10
+        if NoClickFrame.Visible then
+          NoClickFrame.Visible = true
+          CreateTween({DropFrame, "Size", GetFrameSize(), 0.2, true})
+        end
+      end
+      
+      local function Minimize()
+        if WaitClick then return end
+        WaitClick = true
+        if NoClickFrame.Visible then
+          Arrow.Image = "rbxassetid://10709791523"
+          CreateTween({Arrow, "ImageColor3", Color3.fromRGB(255, 255, 255), 0.2})
+          CreateTween({DropFrame, "Size", UDim2.new(0, 152, 0, 0), 0.2, true})
+          NoClickFrame.Visible = false
+        else
+          NoClickFrame.Visible = true
+          Arrow.Image = "rbxassetid://10709790948"
+          CreateTween({Arrow, "ImageColor3", Theme["Color Theme"], 0.2})
+          CreateTween({DropFrame, "Size", GetFrameSize(), 0.2, true})
+        end
+        WaitClick = false
+      end
+      
+      local function CalculatePos()
+        local FramePos = SelectedFrame.AbsolutePosition
+        local ScreenSize = ScreenGui.AbsoluteSize
+        local ClampX = math.clamp((FramePos.X / UIScale), 0, ScreenSize.X / UIScale - DropFrame.Size.X.Offset)
+        local ClampY = math.clamp((FramePos.Y / UIScale) , 0, ScreenSize.Y / UIScale)
+        
+        local NewPos = UDim2.fromOffset(ClampX, ClampY)
+        local AnchorPoint = FramePos.Y > ScreenSize.Y / 1.4 and 1 or ScrollSize > 80 and 0.5 or 0
+        DropFrame.AnchorPoint = Vector2.new(0, AnchorPoint)
+        CreateTween({DropFrame, "Position", NewPos, 0.1})
+      end
+      
+      local AddNewOptions, GetOptions, AddOption, RemoveOption, Selected do
+        local Default = type(OpDefault) ~= "table" and {OpDefault} or OpDefault
+        local MultiSelect = DMultiSelect
+        local Options = {}
+        Selected = MultiSelect and {} or CheckFlag(Flag) and GetFlag(Flag) or Default[1]
+        
+        if MultiSelect then
+          for index, Value in pairs(CheckFlag(Flag) and GetFlag(Flag) or Default) do
+            if type(index) == "string" and (DOptions[index] or table.find(DOptions, index)) then
+              Selected[index] = Value
+            elseif DOptions[Value] then
+              Selected[Value] = true
+            end
+          end
+        end
+        
+        local function CallbackSelected()
+          SetFlag(Flag, MultiSelect and Selected or tostring(Selected))
+          Funcs:FireCallback(Callback, Selected)
+        end
+        
+        local function UpdateLabel()
+          if MultiSelect then
+            local list = {}
+            for index, Value in pairs(Selected) do
+              if Value then
+                table.insert(list, index)
+              end
+            end
+            ActiveLabel.Text = #list > 0 and table.concat(list, ", ") or "..."
+          else
+            ActiveLabel.Text = tostring(Selected or "...")
+          end
+        end
+        
+        local function UpdateSelected()
+          if MultiSelect then
+            for _,v in pairs(Options) do
+              local nodes, Stats = v.nodes, v.Stats
+              CreateTween({nodes[2], "BackgroundTransparency", Stats and 0 or 0.8, 0.35})
+              CreateTween({nodes[2], "Size", Stats and UDim2.fromOffset(4, 12) or UDim2.fromOffset(4, 4), 0.35})
+              CreateTween({nodes[3], "TextTransparency", Stats and 0 or 0.4, 0.35})
+            end
+          else
+            for _,v in pairs(Options) do
+              local Slt = v.Value == Selected
+              local nodes = v.nodes
+              CreateTween({nodes[2], "BackgroundTransparency", Slt and 0 or 1, 0.35})
+              CreateTween({nodes[2], "Size", Slt and UDim2.fromOffset(4, 14) or UDim2.fromOffset(4, 4), 0.35})
+              CreateTween({nodes[3], "TextTransparency", Slt and 0 or 0.4, 0.35})
+            end
+          end
+          UpdateLabel()
+        end
+        
+        local function Select(Option)
+          if MultiSelect then
+            Option.Stats = not Option.Stats
+            Option.LastCB = tick()
+            
+            Selected[Option.Name] = Option.Stats
+            CallbackSelected()
+          else
+            Option.LastCB = tick()
+            
+            Selected = Option.Value
+            CallbackSelected()
+          end
+          UpdateSelected()
+        end
+        
+        AddOption = function(index, Value)
+          local Name = tostring(type(index) == "string" and index or Value)
+          
+          if Options[Name] then return end
+          Options[Name] = {
+            index = index,
+            Value = Value,
+            Name = Name,
+            Stats = false,
+            LastCB = 0
+          }
+          
+          if MultiSelect then
+            local Stats = Selected[Name]
+            Selected[Name] = Stats or false
+            Options[Name].Stats = Stats
+          end
+          
+          local Button = Make("Button", ScrollFrame, {
+            Name = "Option",
+            Size = UDim2.new(1, 0, 0, 21),
+            Position = UDim2.new(0, 0, 0.5),
+            AnchorPoint = Vector2.new(0, 0.5)
+          })Make("Corner", Button, UDim.new(0, 4))
+          
+          local IsSelected = InsertTheme(Create("Frame", Button, {
+            Position = UDim2.new(0, 1, 0.5),
+            Size = UDim2.new(0, 4, 0, 4),
+            BackgroundColor3 = Theme["Color Theme"],
+            BackgroundTransparency = 1,
+            AnchorPoint = Vector2.new(0, 0.5)
+          }), "Theme")Make("Corner", IsSelected, UDim.new(0.5, 0))
+          
+          local OptioneName = InsertTheme(Create("TextLabel", Button, {
+            Size = UDim2.new(1, 0, 1),
+            Position = UDim2.new(0, 10),
+            Text = Name,
+            TextColor3 = Theme["Color Text"],
+            Font = Enum.Font.GothamBold,
+            TextXAlignment = "Left",
+            BackgroundTransparency = 1,
+            TextTransparency = 0.4
+          }), "Text")
+          
+          Button.Activated:Connect(function()
+            Select(Options[Name])
+          end)
+          
+          Options[Name].nodes = {Button, IsSelected, OptioneName}
+        end
+        
+        RemoveOption = function(index, Value)
+          local Name = tostring(type(index) == "string" and index or Value)
+          if Options[Name] then
+            if MultiSelect then Selected[Name] = nil else Selected = nil end
+            Options[Name].nodes[1]:Destroy()
+            table.clear(Options[Name])
+            Options[Name] = nil
+          end
+        end
+        
+        GetOptions = function()
+          return Options
+        end
+        
+        AddNewOptions = function(List, Clear)
+          if Clear then
+            table.foreach(Options, RemoveOption)
+          end
+          table.foreach(List, AddOption)
+          CallbackSelected()
+          UpdateSelected()
+        end
+        
+        table.foreach(DOptions, AddOption)
+        CallbackSelected()
+        UpdateSelected()
+      end
+      
+      Button.Activated:Connect(Minimize)
+      NoClickFrame.MouseButton1Down:Connect(Disable)
+      NoClickFrame.MouseButton1Click:Connect(Disable)
+      MainFrame:GetPropertyChangedSignal("Visible"):Connect(Disable)
+      SelectedFrame:GetPropertyChangedSignal("AbsolutePosition"):Connect(CalculatePos)
+      
+      Button.Activated:Connect(CalculateSize)
+      ScrollFrame.ChildAdded:Connect(CalculateSize)
+      ScrollFrame.ChildRemoved:Connect(CalculateSize)
+      CalculatePos()
+      CalculateSize()
+      
+      local Dropdown = {}
+      function Dropdown:Visible(...) Funcs:ToggleVisible(Button, ...) end
+      function Dropdown:Destroy() Button:Destroy() end
+      function Dropdown:Callback(...) Funcs:InsertCallback(Callback, ...)(Selected) end
+      
+      function Dropdown:Add(...)
+        local NewOptions = {...}
+        if type(NewOptions[1]) == "table" then
+          table.foreach(Option, function(_,Name)
+            AddOption(Name)
+          end)
+        else
+          table.foreach(NewOptions, function(_,Name)
+            AddOption(Name)
+          end)
+        end
+      end
+      function Dropdown:Remove(Option)
+        for index, Value in pairs(GetOptions()) do
+          if type(Option) == "number" and index == Option or Value.Name == "Option" then
+            RemoveOption(index, Value.Value)
+          end
+        end
+      end
+      function Dropdown:Select(Option)
+        if type(Option) == "string" then
+          for _,Val in pairs(Options) do
+            if Val.Name == Option then
+              Val.Active()
+            end
+          end
+        elseif type(Option) == "number" then
+          for ind,Val in pairs(Options) do
+            if ind == Option then
+              Val.Active()
+            end
+          end
+        end
+      end
+      function Dropdown:Set(Val1, Clear)
+        if type(Val1) == "table" then
+          AddNewOptions(Val1, not Clear)
+        elseif type(Val1) == "function" then
+          Callback = Val1
+        end
+      end
+      return Dropdown
+    end
+    function Tab:AddSlider(Configs)
+      local SName = Configs[1] or Configs.Name or Configs.Title or "Slider!"
+      local SDesc = Configs.Desc or Configs.Description or ""
+      local Min = Configs[2] or Configs.MinValue or Configs.Min or 10
+      local Max = Configs[3] or Configs.MaxValue or Configs.Max or 100
+      local Increase = Configs[4] or Configs.Increase or 1
+      local Callback = Funcs:GetCallback(Configs, 6)
+      local Flag = Configs[7] or Configs.Flag or false
+      local Default = Configs[5] or Configs.Default or 25
+      if CheckFlag(Flag) then Default = GetFlag(Flag) end
+      Min, Max = Min / Increase, Max / Increase
+      
+      local Button, LabelFunc = ButtonFrame(Container, SName, SDesc, UDim2.new(1, -180))
+      
+      local SliderHolder = Create("TextButton", Button, {
+        Size = UDim2.new(0.45, 0, 1),
+        Position = UDim2.new(1),
+        AnchorPoint = Vector2.new(1, 0),
+        AutoButtonColor = false,
+        Text = "",
+        BackgroundTransparency = 1
+      })
+      
+      local SliderBar = InsertTheme(Create("Frame", SliderHolder, {
+        BackgroundColor3 = Theme["Color Stroke"],
+        Size = UDim2.new(1, -20, 0, 6),
+        Position = UDim2.new(0.5, 0, 0.5),
+        AnchorPoint = Vector2.new(0.5, 0.5)
+      }), "Stroke")Make("Corner", SliderBar)
+      
+      local Indicator = InsertTheme(Create("Frame", SliderBar, {
+        BackgroundColor3 = Theme["Color Theme"],
+        Size = UDim2.fromScale(0.3, 1),
+        BorderSizePixel = 0
+      }), "Theme")Make("Corner", Indicator)
+      
+      local SliderIcon = Create("Frame", SliderBar, {
+        Size = UDim2.new(0, 6, 0, 12),
+        BackgroundColor3 = Color3.fromRGB(220, 220, 220),
+        Position = UDim2.fromScale(0.3, 0.5),
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        BackgroundTransparency = 0.2
+      })Make("Corner", SliderIcon)
+      
+      local LabelVal = InsertTheme(Create("TextLabel", SliderHolder, {
+        Size = UDim2.new(0, 14, 0, 14),
+        AnchorPoint = Vector2.new(1, 0.5),
+        Position = UDim2.new(0, 0, 0.5),
+        BackgroundTransparency = 1,
+        TextColor3 = Theme["Color Text"],
+        Font = Enum.Font.FredokaOne,
+        TextSize = 12
+      }), "Text")
+      
+      local UIScale = Create("UIScale", LabelVal)
+      
+      local BaseMousePos = Create("Frame", SliderBar, {
+        Position = UDim2.new(0, 0, 0.5, 0),
+        Visible = false
+      })
+      
+      local function UpdateLabel(NewValue)
+        local Number = tonumber(NewValue * Increase)
+        Number = math.floor(Number * 100) / 100
+        
+        Default, LabelVal.Text = Number, tostring(Number)
+        Funcs:FireCallback(Callback, Default)
+      end
+      
+      local function ControlPos()
+        local MousePos = Player:GetMouse()
+        local APos = MousePos.X - BaseMousePos.AbsolutePosition.X
+        local ConfigureDpiPos = APos / SliderBar.AbsoluteSize.X
+        
+        SliderIcon.Position = UDim2.new(math.clamp(ConfigureDpiPos, 0, 1), 0, 0.5, 0)
+      end
+      
+      local function UpdateValues()
+        Indicator.Size = UDim2.new(SliderIcon.Position.X.Scale, 0, 1, 0)
+        local SliderPos = SliderIcon.Position.X.Scale
+        local NewValue = math.floor(((SliderPos * Max) / Max) * (Max - Min) + Min)
+        UpdateLabel(NewValue)
+      end
+      
+      SliderHolder.MouseButton1Down:Connect(function()
+        CreateTween({SliderIcon, "Transparency", 0, 0.3})
+        Container.ScrollingEnabled = false
+        while UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do task.wait()
+          ControlPos()
+        end
+        CreateTween({SliderIcon, "Transparency", 0.2, 0.3})
+        Container.ScrollingEnabled = true
+        SetFlag(Flag, Default)
+      end)
+      
+      LabelVal:GetPropertyChangedSignal("Text"):Connect(function()
+        UIScale.Scale = 0.3
+        CreateTween({UIScale, "Scale", 1.2, 0.1})
+        CreateTween({LabelVal, "Rotation", math.random(-1, 1) * 5, 0.15, true})
+        CreateTween({UIScale, "Scale", 1, 0.2})
+        CreateTween({LabelVal, "Rotation", 0, 0.1})
+      end)
+      
+			function SetSlider(NewValue)
+			  if type(NewValue) ~= "number" then return end
+			  
+        local Min, Max = Min * Increase, Max * Increase
+        
+        local SliderPos = (NewValue - Min) / (Max - Min)
+        
+        SetFlag(Flag, NewValue)
+        CreateTween({ SliderIcon, "Position", UDim2.fromScale(math.clamp(SliderPos, 0, 1), 0.5), 0.3, true })
+			end;SetSlider(Default)
+			
+			SliderIcon:GetPropertyChangedSignal("Position"):Connect(UpdateValues)UpdateValues()
+			
+			local Slider = {}
+      function Slider:Set(NewVal1, NewVal2)
+        if NewVal1 and NewVal2 then
+          LabelFunc:SetTitle(NewVal1)
+          LabelFunc:SetDesc(NewVal2)
+        elseif type(NewVal1) == "string" then
+          LabelFunc:SetTitle(NewVal1)
+        elseif type(NewVal1) == "function" then
+          Callback = NewVal1
+        elseif type(NewVal1) == "number" then
+          SetSlider(NewVal1)
+        end
+      end
+      function Slider:Callback(...) Funcs:InsertCallback(Callback, ...)(tonumber(Default)) end
+      function Slider:Visible(...) Funcs:ToggleVisible(Button, ...) end
+      function Slider:Destroy() Button:Destroy() end
+			return Slider
+    end
+    function Tab:AddTextBox(Configs)
+      local TName = Configs[1] or Configs.Name or Configs.Title or "Text Box"
+      local TDesc = Configs.Desc or Configs.Description or ""
+      local TDefault = Configs[2] or Configs.Default or ""
+      local TPlaceholderText = Configs[5] or Configs.PlaceholderText or "Input"
+      local TClearText = Configs[3] or Configs.ClearText or false
+      local Callback = Funcs:GetCallback(Configs, 4)
+      
+      if type(TDefault) ~= "string" or TDefault:gsub(" ", ""):len() < 1 then
+        TDefault = false
+      end
+      
+      local Button, LabelFunc = ButtonFrame(Container, TName, TDesc, UDim2.new(1, -38))
+      
+      local SelectedFrame = InsertTheme(Create("Frame", Button, {
+        Size = UDim2.new(0, 150, 0, 18),
+        Position = UDim2.new(1, -10, 0.5),
+        AnchorPoint = Vector2.new(1, 0.5),
+        BackgroundColor3 = Theme["Color Stroke"]
+      }), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 4))
+      
+      local TextBoxInput = InsertTheme(Create("TextBox", SelectedFrame, {
+        Size = UDim2.new(0.85, 0, 0.85, 0),
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Position = UDim2.new(0.5, 0, 0.5, 0),
+        BackgroundTransparency = 1,
+        Font = Enum.Font.GothamBold,
+        TextScaled = true,
+        TextColor3 = Theme["Color Text"],
+        ClearTextOnFocus = TClearText,
+        PlaceholderText = TPlaceholderText,
+        Text = ""
+      }), "Text")
+      
+      local Pencil = Create("ImageLabel", SelectedFrame, {
+        Size = UDim2.new(0, 12, 0, 12),
+        Position = UDim2.new(0, -5, 0.5),
+        AnchorPoint = Vector2.new(1, 0.5),
+        Image = "rbxassetid://15637081879",
+        BackgroundTransparency = 1
+      })
+      
+      local TextBox = {}
+      local function Input()
+        local Text = TextBoxInput.Text
+        if Text:gsub(" ", ""):len() > 0 then
+          if type(TextBox.OnChanging) then Text = TextBox.OnChanging(Text) or Text end
+          Funcs:FireCallback(Callback, Text)
+          TextBoxInput.Text = Text
+        end
+      end
+      
+      TextBoxInput.FocusLost:Connect(Input)Input()
+      
+      TextBoxInput.FocusLost:Connect(function()
+        CreateTween({Pencil, "ImageColor3", Color3.fromRGB(255, 255, 255), 0.2})
+      end)
+      TextBoxInput.Focused:Connect(function()
+        CreateTween({Pencil, "ImageColor3", Theme["Color Theme"], 0.2})
+      end)
+      
+      TextBox.OnChanging = false
+      function TextBox:Visible(...) Funcs:ToggleVisible(Button, ...) end
+      function TextBox:Destroy() Button:Destroy() end
+      return TextBox
+    end
+    function Tab:AddDiscordInvite(Configs)
+      local Title = Configs[1] or Configs.Name or Configs.Title or "Discord"
+      local Desc = Configs.Desc or Configs.Description or ""
+      local Logo = Configs[2] or Configs.Logo or ""
+      local Invite = Configs[3] or Configs.Invite or ""
+      
+      local InviteHolder = Create("Frame", Container, {
+        Size = UDim2.new(1, 0, 0, 80),
+        Name = "Option",
+        BackgroundTransparency = 1
+      })
+      
+      local InviteLabel = Create("TextLabel", InviteHolder, {
+        Size = UDim2.new(1, 0, 0, 15),
+        Position = UDim2.new(0, 5),
+        TextColor3 = Color3.fromRGB(40, 150, 255),
+        Font = Enum.Font.GothamBold,
+        TextXAlignment = "Left",
+        BackgroundTransparency = 1,
+        TextSize = 10,
+        Text = Invite
+      })
+      
+      local FrameHolder = InsertTheme(Create("Frame", InviteHolder, {
+        Size = UDim2.new(1, 0, 0, 65),
+        AnchorPoint = Vector2.new(0, 1),
+        Position = UDim2.new(0, 0, 1),
+        BackgroundColor3 = Theme["Color Hub 2"]
+      }), "Frame")Make("Corner", FrameHolder)
+      
+      local ImageLabel = Create("ImageLabel", FrameHolder, {
+        Size = UDim2.new(0, 30, 0, 30),
+        Position = UDim2.new(0, 7, 0, 7),
+        Image = Logo,
+        BackgroundTransparency = 1
+      })Make("Corner", ImageLabel, UDim.new(0, 4))Make("Stroke", ImageLabel)
+      
+      local LTitle = InsertTheme(Create("TextLabel", FrameHolder, {
+        Size = UDim2.new(1, -52, 0, 15),
+        Position = UDim2.new(0, 44, 0, 7),
+        Font = Enum.Font.GothamBold,
+        TextColor3 = Theme["Color Text"],
+        TextXAlignment = "Left",
+        BackgroundTransparency = 1,
+        TextSize = 10,
+        Text = Title
+      }), "Text")
+      
+      local LDesc = InsertTheme(Create("TextLabel", FrameHolder, {
+        Size = UDim2.new(1, -52, 0, 0),
+        Position = UDim2.new(0, 44, 0, 22),
+        TextWrapped = "Y",
+        AutomaticSize = "Y",
+        Font = Enum.Font.Gotham,
+        TextColor3 = Theme["Color Dark Text"],
+        TextXAlignment = "Left",
+        BackgroundTransparency = 1,
+        TextSize = 8,
+        Text = Desc
+      }), "DarkText")
+      
+      local JoinButton = Create("TextButton", FrameHolder, {
+        Size = UDim2.new(1, -14, 0, 16),
+        AnchorPoint = Vector2.new(0.5, 1),
+        Position = UDim2.new(0.5, 0, 1, -7),
+        Text = "Join",
+        Font = Enum.Font.GothamBold,
+        TextSize = 12,
+        TextColor3 = Color3.fromRGB(220, 220, 220),
+        BackgroundColor3 = Color3.fromRGB(50, 150, 50)
+      })Make("Corner", JoinButton, UDim.new(0, 5))
+      
+      local ClickDelay
+      JoinButton.Activated:Connect(function()
+        setclipboard(Invite)
+        if ClickDelay then return end
+        
+        ClickDelay = true
+        SetProps(JoinButton, {
+          Text = "Copied to Clipboard",
+          BackgroundColor3 = Color3.fromRGB(100, 100, 100),
+          TextColor3 = Color3.fromRGB(150, 150, 150)
+        })task.wait(5)
+        SetProps(JoinButton, {
+          Text = "Join",
+          BackgroundColor3 = Color3.fromRGB(50, 150, 50),
+          TextColor3 = Color3.fromRGB(220, 220, 220)
+        })ClickDelay = false
+      end)
+      
+      local DiscordInvite = {}
+      function DiscordInvite:Destroy() InviteHolder:Destroy() end
+      function DiscordInvite:Visible(...) Funcs:ToggleVisible(InviteHolder, ...) end
+      return DiscordInvite
+    end
+    return Tab
+  end
+  
+  CloseButton.Activated:Connect(Window.CloseBtn)
+  MinimizeButton.Activated:Connect(Window.MinimizeBtn)
+  return Window
+end
+
+return redzlib
